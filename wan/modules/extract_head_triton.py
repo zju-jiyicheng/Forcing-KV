@@ -21,7 +21,14 @@ def extract_heads_kernel(
     l_idx = remainder // num_heads
     h_idx = remainder % num_heads
 
-    if b_idx >= B or l_idx >= L or h_idx >= num_heads:
+    # if b_idx >= B or l_idx >= L or h_idx >= num_heads:
+    #     return
+
+    # MODIFIED
+    oob = (b_idx >= B)
+    oob = oob | (l_idx >= L)
+    oob = oob | (h_idx >= num_heads)
+    if oob:
         return
 
     is_last = 0

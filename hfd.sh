@@ -31,7 +31,7 @@ echo "Output directory: $OUTPUT_DIR"
 echo "================================================"
 
 # Check if huggingface-cli is installed
-if ! command -v huggingface-cli &> /dev/null; then
+if ! command -v hf &> /dev/null; then
     echo "Error: huggingface-cli is not installed"
     echo "Please install it using: pip install huggingface_hub"
     exit 1
@@ -40,9 +40,9 @@ fi
 # Download only the latest version (no git history)
 # The --local-dir-use-symlinks False option ensures actual files are downloaded
 # instead of symlinks, and prevents downloading git history
-huggingface-cli download "$MODEL_NAME" \
+hf download "$MODEL_NAME" \
     --local-dir "$OUTPUT_DIR" \
-    --local-dir-use-symlinks False
+    # --local-dir-use-symlinks False
 
 echo "================================================"
 echo "Download completed successfully!"

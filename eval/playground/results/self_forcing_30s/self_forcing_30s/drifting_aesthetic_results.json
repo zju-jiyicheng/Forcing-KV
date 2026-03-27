@@ -1,0 +1,29 @@
+{
+  "metric": "drifting_aesthetic",
+  "description": "Start-end contrast of aesthetic (first/last 15% frames)",
+  "average_drift_score": 0.0574220617612203,
+  "num_videos": 3,
+  "per_video_results": [
+    {
+      "id": 1,
+      "video_name": "1_480_ori_480.mp4",
+      "drift_aesthetic_score": 0.100655198097229,
+      "start_aesthetic_score": 0.6791276335716248,
+      "end_aesthetic_score": 0.5784724354743958
+    },
+    {
+      "id": 2,
+      "video_name": "2_480_ori_480.mp4",
+      "drift_aesthetic_score": 0.054641127586364746,
+      "start_aesthetic_score": 0.6210014820098877,
+      "end_aesthetic_score": 0.566360354423523
+    },
+    {
+      "id": 3,
+      "video_name": "3_480_ori_480.mp4",
+      "drift_aesthetic_score": 0.01696985960006714,
+      "start_aesthetic_score": 0.752626895904541,
+      "end_aesthetic_score": 0.7356570363044739
+    }
+  ]
+}

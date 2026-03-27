@@ -1,0 +1,32 @@
+{
+  "metric": "drifting_semantic",
+  "description": "Start-end contrast of semantic consistency (first/last 15% frames)",
+  "average_drift_score": 0.013560505564479778,
+  "num_videos": 3,
+  "per_video_results": [
+    {
+      "id": 1,
+      "video_name": "1_480_ori_480.mp4",
+      "prompt": "A stylish woman strolls down a bustling Tokyo street, the warm glow of neon lights and animated city signs casting vibrant reflections. She wears a sleek black leather jacket paired with a flowing red dress and black boots, her black purse slung over her shoulder. Sunglasses perched on her nose and a bold red lipstick add to her confident, casual demeanor. The street is damp and reflective, creating a mirror-like effect that enhances the colorful lights and shadows. Pedestrians move about, adding to the lively atmosphere. The scene is captured in a dynamic medium shot with the woman walking slightly to one side, highlighting her graceful strides.",
+      "drift_semantic_score": 0.0200739037245512,
+      "start_semantic_score": 0.013756444677710533,
+      "end_semantic_score": 0.033830348402261734
+    },
+    {
+      "id": 2,
+      "video_name": "2_480_ori_480.mp4",
+      "prompt": "A stunning mid-afternoon landscape photograph with a low camera angle, showcasing several giant wooly mammoths treading through a snowy meadow. Their long, wooly fur gently billows in the brisk wind as they move, creating a sense of natural movement. Snow-covered trees and dramatic snow-capped mountains loom in the distance, adding to the majestic setting. Wispy clouds and a high sun cast a warm glow over the scene, enhancing the serene and awe-inspiring atmosphere. The depth of field brings out the detailed textures of the mammoths and the snowy environment, capturing every nuance of these prehistoric giants in breathtaking clarity.",
+      "drift_semantic_score": 0.005322607234120369,
+      "start_semantic_score": -0.015377016738057137,
+      "end_semantic_score": -0.020699623972177505
+    },
+    {
+      "id": 3,
+      "video_name": "3_480_ori_480.mp4",
+      "prompt": "A movie trailer in a classic cinematic style, featuring the adventurous journey of a 30-year-old space man wearing a vibrant red wool knitted motorcycle helmet. The scene unfolds against a vast blue sky and a desolate salt desert landscape. Shot on 35mm film, the trailer showcases vivid and rich colors, capturing the hero as he navigates through the harsh terrain with determination. His helmet glints under the sun, adding to the dramatic effect. The background is a mix of sweeping desert vistas and distant horizons, with the occasional shimmer of light reflecting off the salt flats. A dynamic medium shot with a sweeping overhead angle, emphasizing the hero's resilience and the vastness of his adventure.",
+      "drift_semantic_score": 0.015285005734767765,
+      "start_semantic_score": 0.0007629962055943906,
+      "end_semantic_score": -0.014522009529173374
+    }
+  ]
+}

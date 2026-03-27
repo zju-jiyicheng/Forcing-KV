@@ -10,7 +10,8 @@ from wan.modules.tokenizers import HuggingfaceTokenizer
 from wan.modules.model import WanModel, RegisterTokens, GanAttentionBlock
 from wan.modules.vae import _video_vae
 from wan.modules.t5 import umt5_xxl
-from wan.modules.causal_model import CausalWanModel
+# from wan.modules.causal_model_dummyforcing import CausalWanModel
+# from wan.modules.causal_model_selfforcing import CausalWanModel
 
 
 class WanTextEncoder(torch.nn.Module):
@@ -24,7 +25,7 @@ class WanTextEncoder(torch.nn.Module):
             device=torch.device('cpu')
         ).eval().requires_grad_(False)
         self.text_encoder.load_state_dict(
-            torch.load("/home/hangguo/pretrained/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
+            torch.load("/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
                        map_location='cpu', weights_only=False)
         )
         
@@ -33,7 +34,7 @@ class WanTextEncoder(torch.nn.Module):
             self.text_encoder = self.text_encoder.cuda()
 
         self.tokenizer = HuggingfaceTokenizer(
-            name="/home/hangguo/pretrained/Wan2.1-T2V-1.3B/google/umt5-xxl/", seq_len=512, clean='whitespace')
+            name="/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/google/umt5-xxl/", seq_len=512, clean='whitespace')
 
     @property
     def device(self):
@@ -73,7 +74,7 @@ class WanVAEWrapper(torch.nn.Module):
 
         # init model
         self.model = _video_vae(
-            pretrained_path="/home/hangguo/pretrained/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+            pretrained_path="/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
             z_dim=16,
         ).eval().requires_grad_(False)
 
@@ -124,15 +125,34 @@ class WanDiffusionWrapper(torch.nn.Module):
             timestep_shift=8.0,
             is_causal=False,
             local_attn_size=-1,
-            sink_size=0
+            sink_size=0,
+            method='self_forcing'
     ):
         super().__init__()
 
         if is_causal:
-            self.model = CausalWanModel.from_pretrained(
-                f"/home/hangguo/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+            if method == 'dummy_forcing':
+                print("Loading Dummy Forcing Wan Model")
+                from wan.modules.causal_model_dummyforcing import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+            elif method == 'forcingkv':
+                print("Loading ForcingKV Wan Model")
+                from wan.modules.causal_model_forcingkv import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+            elif method == 'rolling_forcing':
+                print("Loading Rolling Forcing Wan Model")
+                from wan.modules.causal_model_rollingforcing import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+            else:
+                print("Loading Self Forcing Wan Model")
+                from wan.modules.causal_model_selfforcing import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
         else:
-            self.model = WanModel.from_pretrained(f"/home/hangguo/pretrained/{model_name}/")
+            self.model = WanModel.from_pretrained(f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/")
         self.model.eval()
 
         # For non-causal diffusion, all frames share the same timestep
@@ -234,6 +254,7 @@ class WanDiffusionWrapper(torch.nn.Module):
         cache_start: Optional[int] = None,
         sink_recache_after_switch=False,
         is_recache = False,
+        updating_cache: Optional[bool] = False
     ) -> torch.Tensor:
         prompt_embeds = conditional_dict["prompt_embeds"]
 
@@ -256,6 +277,7 @@ class WanDiffusionWrapper(torch.nn.Module):
                 cache_start=cache_start,
                 sink_recache_after_switch=sink_recache_after_switch,
                 is_recache=is_recache,
+                updating_cache=updating_cache
             ).permute(0, 2, 1, 3, 4)
         else:
             if clean_x is not None:

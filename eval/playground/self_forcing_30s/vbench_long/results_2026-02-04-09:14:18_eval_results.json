@@ -1,0 +1,609 @@
+{
+    "aesthetic_quality": [
+        0.629230591058731,
+        [
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_006.mp4",
+                "video_results": 0.5467708110809326
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_014.mp4",
+                "video_results": 0.503346860408783
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_002.mp4",
+                "video_results": 0.6103208065032959
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_004.mp4",
+                "video_results": 0.5474996566772461
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_012.mp4",
+                "video_results": 0.4517764747142792
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_001.mp4",
+                "video_results": 0.6019601821899414
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_009.mp4",
+                "video_results": 0.5099499225616455
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_000.mp4",
+                "video_results": 0.5819265842437744
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_003.mp4",
+                "video_results": 0.5735623836517334
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_008.mp4",
+                "video_results": 0.5241458415985107
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_013.mp4",
+                "video_results": 0.4709323048591614
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_011.mp4",
+                "video_results": 0.4811551570892334
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_010.mp4",
+                "video_results": 0.5159415006637573
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_005.mp4",
+                "video_results": 0.5613096952438354
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_007.mp4",
+                "video_results": 0.5271866321563721
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_013.mp4",
+                "video_results": 0.6867499351501465
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_011.mp4",
+                "video_results": 0.6813669204711914
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_010.mp4",
+                "video_results": 0.6703510284423828
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_000.mp4",
+                "video_results": 0.6839632987976074
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_006.mp4",
+                "video_results": 0.7005552053451538
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_012.mp4",
+                "video_results": 0.6520155668258667
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_014.mp4",
+                "video_results": 0.685181200504303
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_001.mp4",
+                "video_results": 0.6998681426048279
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_002.mp4",
+                "video_results": 0.6946912407875061
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_004.mp4",
+                "video_results": 0.7086994647979736
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_003.mp4",
+                "video_results": 0.7013925313949585
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_009.mp4",
+                "video_results": 0.6862924695014954
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_008.mp4",
+                "video_results": 0.6900889277458191
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_005.mp4",
+                "video_results": 0.7053189277648926
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_007.mp4",
+                "video_results": 0.6989122629165649
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_012.mp4",
+                "video_results": 0.5291074514389038
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_009.mp4",
+                "video_results": 0.5660973787307739
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_002.mp4",
+                "video_results": 0.5704248547554016
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_014.mp4",
+                "video_results": 0.5373878479003906
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_010.mp4",
+                "video_results": 0.5661613941192627
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_000.mp4",
+                "video_results": 0.5854012966156006
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_011.mp4",
+                "video_results": 0.5499187111854553
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_004.mp4",
+                "video_results": 0.5360913276672363
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_005.mp4",
+                "video_results": 0.5354457497596741
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_013.mp4",
+                "video_results": 0.5366224646568298
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_008.mp4",
+                "video_results": 0.5936893224716187
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_003.mp4",
+                "video_results": 0.5411107540130615
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_006.mp4",
+                "video_results": 0.5205471515655518
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_007.mp4",
+                "video_results": 0.5279288291931152
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_001.mp4",
+                "video_results": 0.5847780704498291
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_013.mp4",
+                "video_results": 0.5941150784492493
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_010.mp4",
+                "video_results": 0.5834697484970093
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_014.mp4",
+                "video_results": 0.5516455173492432
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_000.mp4",
+                "video_results": 0.6701873540878296
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_007.mp4",
+                "video_results": 0.6012183427810669
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_006.mp4",
+                "video_results": 0.6445363759994507
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_001.mp4",
+                "video_results": 0.6504764556884766
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_004.mp4",
+                "video_results": 0.6181238889694214
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_003.mp4",
+                "video_results": 0.6121212840080261
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_011.mp4",
+                "video_results": 0.6029642224311829
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_012.mp4",
+                "video_results": 0.6317943334579468
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_008.mp4",
+                "video_results": 0.5908793807029724
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_002.mp4",
+                "video_results": 0.6248229146003723
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_005.mp4",
+                "video_results": 0.6158115863800049
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_009.mp4",
+                "video_results": 0.5821079611778259
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_014.mp4",
+                "video_results": 0.7365310192108154
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_000.mp4",
+                "video_results": 0.7867744565010071
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_013.mp4",
+                "video_results": 0.7507705688476562
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_002.mp4",
+                "video_results": 0.7766306400299072
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_004.mp4",
+                "video_results": 0.7678452134132385
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_012.mp4",
+                "video_results": 0.7386809587478638
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_009.mp4",
+                "video_results": 0.7779844403266907
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_010.mp4",
+                "video_results": 0.7494903802871704
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_003.mp4",
+                "video_results": 0.7739487886428833
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_001.mp4",
+                "video_results": 0.7814263105392456
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_005.mp4",
+                "video_results": 0.7754351496696472
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_008.mp4",
+                "video_results": 0.7317447662353516
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_007.mp4",
+                "video_results": 0.7466473579406738
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_006.mp4",
+                "video_results": 0.7534059882164001
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_011.mp4",
+                "video_results": 0.7367593050003052
+            }
+        ],
+        [
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_006.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5467708110809326
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_014.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.503346860408783
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_002.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.6103208065032959
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_004.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5474996566772461
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_012.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.4517764747142792
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_001.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.6019601821899414
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_009.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5099499225616455
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_000.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5819265842437744
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_003.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5735623836517334
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_008.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5241458415985107
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_013.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.4709323048591614
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_011.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.4811551570892334
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_010.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5159415006637573
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_005.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5613096952438354
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0_007.mp4/A dynamic action shot in the style of a high-energy sports magazine spread, featuring a golden retri-0.mp4",
+                "video_results": 0.5271866321563721
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_013.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6867499351501465
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_011.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6813669204711914
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_010.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6703510284423828
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_000.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6839632987976074
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_006.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.7005552053451538
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_012.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6520155668258667
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_014.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.685181200504303
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_001.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6998681426048279
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_002.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6946912407875061
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_004.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.7086994647979736
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_003.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.7013925313949585
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_009.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6862924695014954
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_008.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6900889277458191
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_005.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.7053189277648926
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0_007.mp4/A dynamic action scene in a modern gym, featuring a kangaroo wearing boxing gloves, engaged in an in-0.mp4",
+                "video_results": 0.6989122629165649
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_012.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5291074514389038
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_009.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5660973787307739
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_002.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5704248547554016
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_014.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5373878479003906
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_010.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5661613941192627
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_000.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5854012966156006
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_011.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5499187111854553
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_004.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5360913276672363
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_005.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5354457497596741
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_013.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5366224646568298
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_008.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5936893224716187
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_003.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5411107540130615
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_006.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5205471515655518
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_007.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5279288291931152
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0_001.mp4/A classic black-and-white photograph style image of an older man playing the piano. The man, with a -0.mp4",
+                "video_results": 0.5847780704498291
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_013.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.5941150784492493
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_010.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.5834697484970093
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_014.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.5516455173492432
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_000.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6701873540878296
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_007.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6012183427810669
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_006.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6445363759994507
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_001.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6504764556884766
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_004.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6181238889694214
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_003.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6121212840080261
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_011.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6029642224311829
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_012.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6317943334579468
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_008.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.5908793807029724
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_002.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6248229146003723
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_005.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.6158115863800049
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0_009.mp4/A cinematic scene from a classic western movie, featuring a rugged man riding a powerful horse throu-0.mp4",
+                "video_results": 0.5821079611778259
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_014.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7365310192108154
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_000.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7867744565010071
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_013.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7507705688476562
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_002.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7766306400299072
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_004.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7678452134132385
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_012.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7386809587478638
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_009.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7779844403266907
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_010.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7494903802871704
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_003.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7739487886428833
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_001.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7814263105392456
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_005.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7754351496696472
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_008.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7317447662353516
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_007.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7466473579406738
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_006.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7534059882164001
+            },
+            {
+                "video_path": "/nfs/ycji_temp/code/DummyForcing/videos/inference/self_forcing_30s/split_clip/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0_011.mp4/A dramatic post-apocalyptic scene in the style of a horror film, featuring a skeleton wearing a colo-0.mp4",
+                "video_results": 0.7367593050003052
+            }
+        ]
+    ]
+}

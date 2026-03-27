@@ -18,7 +18,14 @@ def rope_apply_kernel(
     pid_l = tl.program_id(1)
     pid_h = tl.program_id(2)
 
-    if pid_b >= B or pid_l >= L or pid_h >= num_heads:
+    # if (pid_b) or (pid_l >= L) or (pid_h >= num_heads):
+    #     return
+
+    #MODIFIED
+    oob = pid_b >= B
+    oob = oob | (pid_l >= L)
+    oob = oob | (pid_h >= num_heads)
+    if oob:
         return
 
     frame_idx = pid_l // (h * w)
@@ -74,6 +81,10 @@ def rope_apply_kernel(
 def rope_apply_triton(x, grid_size, freqs, start_frame=0):
     B, L, num_heads, C = x.shape
     output = torch.empty_like(x)
+
+    # MODIFIED
+    if freqs.dtype != torch.complex64:
+        freqs = freqs.to(torch.complex64)
 
     c_half = C // 2
     c0 = c_half - 2 * (c_half // 3)

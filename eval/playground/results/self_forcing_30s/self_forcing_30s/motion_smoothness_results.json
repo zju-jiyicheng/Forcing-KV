@@ -1,0 +1,22 @@
+{
+  "metric": "motion_smoothness",
+  "average_score": 0.9822221500614935,
+  "num_videos": 3,
+  "per_video_results": [
+    {
+      "id": 1,
+      "video_name": "1_480_ori_480.mp4",
+      "motion_smoothness_score": 0.9903880171160803
+    },
+    {
+      "id": 2,
+      "video_name": "2_480_ori_480.mp4",
+      "motion_smoothness_score": 0.9906052091486104
+    },
+    {
+      "id": 3,
+      "video_name": "3_480_ori_480.mp4",
+      "motion_smoothness_score": 0.9656732239197896
+    }
+  ]
+}

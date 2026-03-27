@@ -1,0 +1,22 @@
+{
+  "metric": "motion_fb",
+  "average_score": 0.16835291559497514,
+  "num_videos": 3,
+  "per_video_results": [
+    {
+      "id": 1,
+      "video_name": "1_480_ori_480.mp4",
+      "motion_fb": 0.06278450042009354
+    },
+    {
+      "id": 2,
+      "video_name": "2_480_ori_480.mp4",
+      "motion_fb": 0.018568549305200577
+    },
+    {
+      "id": 3,
+      "video_name": "3_480_ori_480.mp4",
+      "motion_fb": 0.42370569705963135
+    }
+  ]
+}

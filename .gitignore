@@ -1,2 +1,15 @@
 /assets/*
 !/assets/.gitkeep
+
+pretrained
+
+__pycache__/
+*.pyc
+debug_outputs/
+videos/
+visualize/
+experiment_logs/
+eval/checkpoints/
+eval/videos/
+prompts/vidprom_filtered_extended.txt
+

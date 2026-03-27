@@ -14,7 +14,11 @@ from torch.utils.data import DataLoader, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 
 from pipeline import (
-    CausalInferencePipeline,
+    # CausalInferencePipeline,
+    CausalInferencePipeline_Dummy_Forcing,
+    CausalInferencePipeline_Self_Forcing,
+    CausalInferencePipeline_Rolling_Forcing,
+    CausalInferencePipeline_ForcingKV,
 )
 from utils.dataset import TextDataset
 from utils.misc import set_seed
@@ -68,7 +72,22 @@ torch.set_grad_enabled(False)
 
 # Initialize pipeline
 # Note: checkpoint loading is now handled inside the pipeline __init__ method
-pipeline = CausalInferencePipeline(config, device=device)
+# pipeline = CausalInferencePipeline(config, device=device)
+if config.method == 'dummy_forcing':
+    print("Using Dummy Forcing")
+    pipeline = CausalInferencePipeline_Dummy_Forcing(config, device=device)
+elif config.method == 'forcingkv':
+    print("Using ForcingKV")
+    pipeline = CausalInferencePipeline_ForcingKV(config, device=device)
+elif config.method == 'self_forcing' or config.method == 'longlive':
+    print("Using Self Forcing / Longlive")
+    pipeline = CausalInferencePipeline_Self_Forcing(config, device=device)
+elif config.method == 'rolling_forcing':
+    print("Using Rolling Forcing")
+    pipeline = CausalInferencePipeline_Rolling_Forcing(config, device=device)
+else:
+    print("Not Supported Method, fall back to Self Forcing")
+    pipeline = CausalInferencePipeline_Self_Forcing(config, device=device)
 
 # Load generator checkpoint
 if config.generator_ckpt:
@@ -222,7 +241,15 @@ for i, batch_data in tqdm(enumerate(dataloader), disable=(local_rank != 0)):
     if idx < num_prompts:
         os.makedirs(config.output_folder, exist_ok=True)
         for seed_idx in range(config.num_samples):
-            output_path = os.path.join(config.output_folder, f'{prompt}-{seed_idx}.mp4')
+            # output_path = os.path.join(config.output_folder, f'{prompt}-{seed_idx}.mp4')
+            # MOFDIFIED
+            if hasattr(config, 'prompt_save_truncation'):
+                output_path = os.path.join(
+                    config.output_folder,
+                    f"{prompt[:config.prompt_save_truncation]}-{seed_idx}.mp4"
+                )
+            else:
+                output_path = os.path.join(config.output_folder, f'{prompt}-{seed_idx}.mp4')
             write_video(output_path, video[seed_idx], fps=16)
 
     if config.inference_iter != -1 and i >= config.inference_iter:

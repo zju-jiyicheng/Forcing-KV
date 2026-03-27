@@ -12,12 +12,12 @@ import torch
 
 from utils.wan_wrapper import WanDiffusionWrapper, WanTextEncoder, WanVAEWrapper
 from utils.memory import gpu, get_cuda_free_memory_gb, move_model_to_device_with_memory_preservation
-from pipeline.causal_inference import CausalInferencePipeline
+from pipeline.causal_inference_dummyforcing import CausalInferencePipeline_Dummy_Forcing
 import torch.distributed as dist
 from utils.debug_option import DEBUG
 
 
-class InteractiveCausalInferencePipeline(CausalInferencePipeline):
+class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
     def __init__(
         self,
         args,

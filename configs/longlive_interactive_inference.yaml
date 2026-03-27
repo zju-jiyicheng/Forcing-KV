@@ -22,6 +22,7 @@ dummy_forcing:
   teacache_threshold: 0.2
 
 # Inference
+method: longlive
 data_path: prompts/interactive_example.jsonl
 output_folder: interactive_videos
 inference_iter: -1
@@ -29,6 +30,7 @@ num_output_frames: 240
 use_ema: false
 seed: 1
 num_samples: 1
+profile: true
 save_with_index: true
 switch_frame_indices: 40, 80, 120, 160, 200
 global_sink: false
