@@ -9,21 +9,21 @@ model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
-  sink_size: 0
+  sink_size: 1
 
 forcingkv:
   ar_start: 1
   spatial_context_length: 1 # active in forcingkv, unit is HW
-  temporal_context_length: 3 # active in forcingkv, unit is HW (3 == old local_context_length 1)
-  dynamic_context_length: 3
+  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
   teacache_threshold: 0.2
   # Dynamic KV Cache
-  dynamic_temporal_enabled: false
-  num_frame_patch: 1
+  dynamic_temporal_enabled: true
+  num_frame_patch: 3
   patch_num: [1,1]
-  sim_retention_ratio: 0.5
+  sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_selfforcing_human.json
@@ -32,7 +32,7 @@ forcingkv:
 # inference
 method: forcingkv
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/forcingkv_self_forcing/ar_1_sink0_spatial_1_temporal_3
+output_folder: videos/inference/forcingkv_self_forcing/ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true

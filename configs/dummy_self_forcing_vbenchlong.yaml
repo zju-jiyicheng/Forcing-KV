@@ -24,7 +24,7 @@ method: dummy_forcing
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/dummy_self_forcing_30s_ctx6 # TODO add your official sampling dir here
+output_folder: videos/vbench/dummy_self_forcing_30s_ctx1 # TODO add your official sampling dir here
 inference_iter: -1
 num_output_frames: 120 #21 # latent num of frames 120
 use_ema: true

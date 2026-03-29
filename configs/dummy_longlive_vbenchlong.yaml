@@ -14,8 +14,8 @@ model_kwargs:
 dummy_forcing:
   denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
   ar_start: 2
-  local_context_length: 2 # the context length for local heads
-  num_dummy: 180
+  local_context_length: 1 # the context length for local heads
+  num_dummy: 90
   teacache_enabled: false
   teacache_threshold: 0.2
 
@@ -24,9 +24,9 @@ method: dummy_forcing
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/dummy_longlive_30s_ctx2 # TODO add your official sampling dir here
+output_folder: videos/vbench/dummy_longlive_60s_ctx1_0.25 # TODO add your official sampling dir here
 inference_iter: -1
-num_output_frames: 120
+num_output_frames: 240
 use_ema: false
 seed: 0
 num_samples: 5

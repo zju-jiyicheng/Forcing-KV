@@ -31,7 +31,7 @@ forcingkv:
 # inference
 method: forcingkv
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/forcingkv_neibour_continue_patch/30s/longlive/ar_4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33
+output_folder: videos/inference/forcingkv_buffer_longlive/ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33
 inference_iter: -1
 num_output_frames: 120
 use_ema: false

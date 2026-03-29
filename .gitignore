@@ -9,7 +9,8 @@ debug_outputs/
 videos/
 visualize/
 experiment_logs/
-eval/checkpoints/
-eval/videos/
+evaluation/Helios/checkpoints/
+evaluation/Helios/videos/
+evaluation/Raft/models/
 prompts/vidprom_filtered_extended.txt
 

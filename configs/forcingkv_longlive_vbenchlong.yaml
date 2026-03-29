@@ -9,18 +9,18 @@ model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: 12
   timestep_shift: 5.0
-  sink_size: 1
+  sink_size: 0
 
 forcingkv:
   ar_start: 4
-  spatial_context_length: 1 # active in forcingkv, unit is HW
-  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  spatial_context_length: 6 # active in forcingkv, unit is HW
+  temporal_context_length: 0 # active in forcingkv, unit is HW (3 == old local_context_length 1)
   dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
   teacache_threshold: 0.2
   # Dynamic KV Cache
-  dynamic_temporal_enabled: true
+  dynamic_temporal_enabled: false
   num_frame_patch: 3
   patch_num: [6,4]
   sim_retention_ratio: 0.33
@@ -33,9 +33,9 @@ method: forcingkv
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/forcingkv_neibour_continues_longlive_60s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33 # TODO add your official sampling dir here
+output_folder: videos/vbench/forcingkv_buffer_ar4_sink0_s6_t0 #videos/vbench/forcingkv_buffer_neibour_continues_longlive_30s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33 # TODO add your official sampling dir here
 inference_iter: -1
-num_output_frames: 240
+num_output_frames: 120
 use_ema: false
 seed: 0
 num_samples: 5

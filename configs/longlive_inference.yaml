@@ -7,7 +7,7 @@ warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_de
 num_frame_per_block: 3
 model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
-  local_attn_size: 21
+  local_attn_size: 12
   timestep_shift: 5.0
   sink_size: 3
 
@@ -22,7 +22,7 @@ dummy_forcing:
 # inference
 method: longlive
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/longlive_30s/attn21_sink3
+output_folder: videos/test/longlive_30s/attn12_sink3
 inference_iter: -1
 num_output_frames: 120
 use_ema: false

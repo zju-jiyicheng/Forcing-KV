@@ -64,6 +64,70 @@ def causal_rope_apply(x, grid_sizes, freqs, start_frame=0):
     return torch.stack(output).type_as(x)
 
 
+def _allocate_fixed_cache(source_tensor, keep_tokens):
+    if keep_tokens <= 0:
+        return source_tensor[:, :0].contiguous().clone()
+
+    cache_tensor = torch.empty(
+        source_tensor.shape[0],
+        keep_tokens,
+        source_tensor.shape[2],
+        source_tensor.shape[3],
+        device=source_tensor.device,
+        dtype=source_tensor.dtype,
+    )
+    cache_tensor.zero_()
+
+    tail_tensor = source_tensor[:, -keep_tokens:].contiguous()
+    tail_len = tail_tensor.shape[1]
+    if tail_len > 0:
+        cache_tensor[:, keep_tokens - tail_len:].copy_(tail_tensor)
+    return cache_tensor
+
+
+def _overwrite_fixed_cache_(cache_tensor, new_tensor, keep_tokens, cache_name):
+    if keep_tokens <= 0:
+        return cache_tensor[:, :0]
+    if cache_tensor.shape[1] != keep_tokens:
+        raise ValueError(
+            f"{cache_name} expected preallocated length {keep_tokens}, got {cache_tensor.shape[1]}"
+        )
+    if new_tensor.shape[1] < keep_tokens:
+        raise ValueError(
+            f"{cache_name} requires keep_tokens <= new_tensor length, got keep_tokens={keep_tokens}, "
+            f"new_tensor.shape[1]={new_tensor.shape[1]}"
+        )
+
+    cache_tensor.copy_(new_tensor[:, -keep_tokens:].contiguous())
+    return cache_tensor
+
+
+def _fill_cache_from_chunk_indices_(cache_tensor, candidate_tensor, keep_chunk_indices, chunk_tokens, cache_name):
+    if cache_tensor.shape[1] == 0:
+        return cache_tensor[:, :0]
+    if chunk_tokens <= 0:
+        raise ValueError(f"{cache_name} requires a positive chunk size, got {chunk_tokens}")
+    if keep_chunk_indices is None:
+        raise ValueError(f"{cache_name} requires precomputed keep_chunk_indices")
+
+    keep_chunk_indices = keep_chunk_indices.to(device=candidate_tensor.device, dtype=torch.long)
+    selected_chunks = candidate_tensor.index_select(dim=1, index=keep_chunk_indices)
+    expected_tokens = selected_chunks.shape[1] * chunk_tokens
+    if expected_tokens != cache_tensor.shape[1]:
+        raise ValueError(
+            f"{cache_name} expected {cache_tensor.shape[1]} tokens from selected chunks, got {expected_tokens}"
+        )
+
+    selected_tokens = selected_chunks.reshape(
+        candidate_tensor.shape[0],
+        expected_tokens,
+        candidate_tensor.shape[3],
+        candidate_tensor.shape[4],
+    ).contiguous()
+    cache_tensor.copy_(selected_tokens)
+    return cache_tensor
+
+
 class CausalWanSelfAttention(nn.Module):
     shared_dynamic_patch_score = None
     shared_dynamic_chunk_indices = None
@@ -101,12 +165,8 @@ class CausalWanSelfAttention(nn.Module):
         self.norm_q = WanRMSNorm(dim, eps=eps) if qk_norm else nn.Identity()
         self.norm_k = WanRMSNorm(dim, eps=eps) if qk_norm else nn.Identity()
 
-    def dynamic_compression(self, layer_idx, evicted_k, evicted_v, kept_k, kept_v, num_frame_patch, grid_h, grid_w):
+    def dynamic_compression(self, layer_idx, old_temporal_k, old_temporal_v, new_temporal_k, new_temporal_v, num_frame_patch, dynamic_keep_tokens, grid_h, grid_w):
         retention_ratio = max(0.0, min(1.0, float(getattr(self.args, "sim_retention_ratio", 0.5))))
-        is_main_rank = (not dist.is_initialized()) or dist.get_rank() == 0
-
-        if evicted_k.shape[1] == 0:
-            return evicted_k[:, :0].contiguous(), evicted_v[:, :0].contiguous()
         num_frame_patch = int(num_frame_patch)
         if num_frame_patch <= 0:
             raise ValueError(f"`num_frame_patch` must be a positive integer, got {num_frame_patch}")
@@ -116,61 +176,79 @@ class CausalWanSelfAttention(nn.Module):
             raise ValueError(
                 f"Frame token count {frame_tokens} must be divisible by num_frame_patch {num_frame_patch}"
             )
-        if frame_tokens <= 0 or evicted_k.shape[1] != 3 * frame_tokens:
+        if old_temporal_k.shape[1] < frame_tokens or new_temporal_k.shape[1] < 3 * frame_tokens:
             CausalWanSelfAttention.shared_dynamic_patch_score = None
             CausalWanSelfAttention.shared_dynamic_chunk_indices = None
-            return evicted_k[:, :0].contiguous(), evicted_v[:, :0].contiguous()
+            return old_temporal_k[:, :0].contiguous(), old_temporal_v[:, :0].contiguous()
 
-        if kept_k.shape[1] < frame_tokens:
-            CausalWanSelfAttention.shared_dynamic_patch_score = None
-            CausalWanSelfAttention.shared_dynamic_chunk_indices = None
-            return evicted_k[:, :0].contiguous(), evicted_v[:, :0].contiguous()
-
-        chunk_tokens = frame_tokens // num_frame_patch
-
-        if layer_idx == 1:
-            # Use frame-to-next-frame similarity:
-            # f0 -> f1, f1 -> f2, f2 -> first kept frame (the local frame nearest to dynamic cache).
-            boundary_k = kept_k[:, :frame_tokens].contiguous()
-
-            num_frames = 3
-            keep_patch_count = int(round(num_frame_patch * retention_ratio))
-            keep_patch_count = max(0, min(num_frame_patch, keep_patch_count))
-
-            # We currently assume batch size 1 for mask generation and reuse that mask for all layers.
-            evicted_frames = evicted_k[:1].reshape(1, num_frames, frame_tokens, evicted_k.shape[2], evicted_k.shape[3])
-            next_frames = torch.cat(
-                [
-                    evicted_frames[:, 1:],
-                    boundary_k[:1].reshape(1, 1, frame_tokens, boundary_k.shape[2], boundary_k.shape[3]),
-                ],
-                dim=1,
+        temporal_keep_frames = old_temporal_k.shape[1] // frame_tokens
+        if old_temporal_k.shape[1] % frame_tokens != 0:
+            raise ValueError(
+                f"old_temporal_k length {old_temporal_k.shape[1]} must be divisible by frame_tokens {frame_tokens}"
+            )
+        if temporal_keep_frames < 1 or temporal_keep_frames > 3:
+            raise ValueError(
+                f"Dynamic temporal mode currently supports temporal_context_length in [1, 3], got {temporal_keep_frames}"
             )
 
-            evicted_chunk_tokens = evicted_frames.reshape(
-                1, num_frames, num_frame_patch, chunk_tokens, evicted_k.shape[2], evicted_k.shape[3]
-            ).reshape(1, num_frames, num_frame_patch, chunk_tokens, -1)
-            next_chunk_tokens = next_frames.reshape(
-                1, num_frames, num_frame_patch, chunk_tokens, boundary_k.shape[2], boundary_k.shape[3]
-            ).reshape(1, num_frames, num_frame_patch, chunk_tokens, -1)
+        chunk_tokens = frame_tokens // num_frame_patch
+        total_candidate_chunks = 3 * num_frame_patch
+        if dynamic_keep_tokens == 0:
+            keep_chunk_count = 0
+        else:
+            if dynamic_keep_tokens % chunk_tokens != 0:
+                raise ValueError(
+                    f"dynamic_keep_tokens={dynamic_keep_tokens} must be divisible by chunk_tokens={chunk_tokens}"
+                )
+            keep_chunk_count = dynamic_keep_tokens // chunk_tokens
+        if keep_chunk_count > total_candidate_chunks:
+            raise ValueError(
+                f"Requested {keep_chunk_count} dynamic chunks, but only {total_candidate_chunks} candidate chunks exist"
+            )
+        ratio_keep_chunk_count = int(round(total_candidate_chunks * retention_ratio))
+        ratio_keep_chunk_count = max(0, min(total_candidate_chunks, ratio_keep_chunk_count))
+        if ratio_keep_chunk_count != keep_chunk_count:
+            raise ValueError(
+                "Dynamic cache capacity and sim_retention_ratio are inconsistent: "
+                f"capacity implies {keep_chunk_count} kept chunks, but sim_retention_ratio={retention_ratio} "
+                f"implies {ratio_keep_chunk_count} kept chunks out of {total_candidate_chunks}"
+            )
 
-            token_scores = F.cosine_similarity(evicted_chunk_tokens, next_chunk_tokens, dim=-1)
+        old_frames_k = old_temporal_k.reshape(
+            old_temporal_k.shape[0], temporal_keep_frames, frame_tokens, old_temporal_k.shape[2], old_temporal_k.shape[3]
+        )
+        old_frames_v = old_temporal_v.reshape(
+            old_temporal_v.shape[0], temporal_keep_frames, frame_tokens, old_temporal_v.shape[2], old_temporal_v.shape[3]
+        )
+        new_frames_k = new_temporal_k.reshape(
+            new_temporal_k.shape[0], 3, frame_tokens, new_temporal_k.shape[2], new_temporal_k.shape[3]
+        )
+        new_frames_v = new_temporal_v.reshape(
+            new_temporal_v.shape[0], 3, frame_tokens, new_temporal_v.shape[2], new_temporal_v.shape[3]
+        )
+
+        carried_new_frames = 3 - temporal_keep_frames
+        candidate_frames_k = torch.cat([old_frames_k, new_frames_k[:, :carried_new_frames]], dim=1).contiguous()
+        candidate_frames_v = torch.cat([old_frames_v, new_frames_v[:, :carried_new_frames]], dim=1).contiguous()
+        boundary_frame_k = new_frames_k[:, carried_new_frames:carried_new_frames + 1].contiguous()
+
+        if layer_idx == 1:
+            chain_frames = torch.cat([candidate_frames_k[:1], boundary_frame_k[:1]], dim=1)
+            current_chunks = chain_frames[:, :3].reshape(
+                1, 3, num_frame_patch, chunk_tokens, chain_frames.shape[3], chain_frames.shape[4]
+            ).reshape(1, 3, num_frame_patch, chunk_tokens, -1)
+            next_chunks = chain_frames[:, 1:].reshape(
+                1, 3, num_frame_patch, chunk_tokens, chain_frames.shape[3], chain_frames.shape[4]
+            ).reshape(1, 3, num_frame_patch, chunk_tokens, -1)
+            token_scores = F.cosine_similarity(current_chunks, next_chunks, dim=-1)
             patch_scores = token_scores.mean(dim=3)[0]
 
-            if keep_patch_count > 0:
-                flat_scores = patch_scores.reshape(num_frames, num_frame_patch)
-                keep_indices = torch.topk(flat_scores, k=keep_patch_count, largest=False, dim=-1).indices
+            if keep_chunk_count > 0:
+                flat_scores = patch_scores.reshape(-1)
+                keep_indices = torch.topk(flat_scores, k=keep_chunk_count, largest=False, dim=-1).indices
+                keep_indices = torch.sort(keep_indices).values
             else:
-                keep_indices = torch.empty(
-                    (num_frames, 0), device=patch_scores.device, dtype=torch.long
-                )
-
-            if is_main_rank:
-                score_rows = [
-                    [round(float(v), 6) for v in row]
-                    for row in patch_scores.reshape(num_frames, num_frame_patch).detach().cpu().tolist()
-                ]
-                print(f"[DynamicKV Score] layer=1 scores={score_rows}")
+                keep_indices = torch.empty((0,), device=patch_scores.device, dtype=torch.long)
 
             CausalWanSelfAttention.shared_dynamic_patch_score = patch_scores.detach()
             CausalWanSelfAttention.shared_dynamic_chunk_indices = keep_indices.detach()
@@ -178,26 +256,33 @@ class CausalWanSelfAttention(nn.Module):
         else:
             keep_indices = CausalWanSelfAttention.shared_dynamic_chunk_indices
             if keep_indices is None:
-                return evicted_k[:, :0].contiguous(), evicted_v[:, :0].contiguous()
+                return old_temporal_k[:, :0].contiguous(), old_temporal_v[:, :0].contiguous()
 
-        evicted_flat_k = evicted_k.reshape(evicted_k.shape[0], 3, frame_tokens, evicted_k.shape[2], evicted_k.shape[3])
-        evicted_flat_v = evicted_v.reshape(evicted_v.shape[0], 3, frame_tokens, evicted_v.shape[2], evicted_v.shape[3])
+        candidate_chunks_k = candidate_frames_k.reshape(
+            candidate_frames_k.shape[0], 3, num_frame_patch, chunk_tokens, candidate_frames_k.shape[3], candidate_frames_k.shape[4]
+        ).reshape(candidate_frames_k.shape[0], total_candidate_chunks, chunk_tokens, candidate_frames_k.shape[3], candidate_frames_k.shape[4])
+        candidate_chunks_v = candidate_frames_v.reshape(
+            candidate_frames_v.shape[0], 3, num_frame_patch, chunk_tokens, candidate_frames_v.shape[3], candidate_frames_v.shape[4]
+        ).reshape(candidate_frames_v.shape[0], total_candidate_chunks, chunk_tokens, candidate_frames_v.shape[3], candidate_frames_v.shape[4])
 
-        dyn_k_parts = []
-        dyn_v_parts = []
-        for frame_idx in range(3):
-            frame_keep_indices = keep_indices[frame_idx]
-            if frame_keep_indices.numel() == 0:
-                continue
-            frame_keep_indices = torch.sort(frame_keep_indices).values
-            for chunk_idx in frame_keep_indices.tolist():
-                start = int(chunk_idx) * chunk_tokens
-                end = start + chunk_tokens
-                dyn_k_parts.append(evicted_flat_k[:, frame_idx, start:end].contiguous())
-                dyn_v_parts.append(evicted_flat_v[:, frame_idx, start:end].contiguous())
+        if keep_chunk_count == 0:
+            return old_temporal_k[:, :0].contiguous(), old_temporal_v[:, :0].contiguous()
 
-        dyn_new_k = torch.cat(dyn_k_parts, dim=1).contiguous() if len(dyn_k_parts) > 0 else evicted_k[:, :0].contiguous()
-        dyn_new_v = torch.cat(dyn_v_parts, dim=1).contiguous() if len(dyn_v_parts) > 0 else evicted_v[:, :0].contiguous()
+        selected_chunks_k = candidate_chunks_k.index_select(dim=1, index=keep_indices.to(candidate_chunks_k.device))
+        selected_chunks_v = candidate_chunks_v.index_select(dim=1, index=keep_indices.to(candidate_chunks_v.device))
+
+        dyn_new_k = selected_chunks_k.reshape(
+            candidate_chunks_k.shape[0],
+            keep_chunk_count * chunk_tokens,
+            candidate_chunks_k.shape[3],
+            candidate_chunks_k.shape[4],
+        ).contiguous()
+        dyn_new_v = selected_chunks_v.reshape(
+            candidate_chunks_v.shape[0],
+            keep_chunk_count * chunk_tokens,
+            candidate_chunks_v.shape[3],
+            candidate_chunks_v.shape[4],
+        ).contiguous()
         return dyn_new_k, dyn_new_v
 
     
@@ -232,12 +317,6 @@ class CausalWanSelfAttention(nn.Module):
             k = self.norm_k(self.k(x)).view(b, s, n, d)
             v = self.v(x).view(b, s, n, d)
             return q, k, v
-
-        def append_tail(cache_tensor, new_tensor, keep_tokens):
-            merged = torch.cat([cache_tensor, new_tensor], dim=1).contiguous()
-            if keep_tokens > 0:
-                return merged[:, -keep_tokens:].contiguous()
-            return merged[:, :0].contiguous()
 
         HW = grid_sizes[0,1]*grid_sizes[0,2]
         q, k, v = qkv_fn(x)
@@ -309,73 +388,99 @@ class CausalWanSelfAttention(nn.Module):
             v1 = torch.cat([kv_cache["group_sink_spatial_v"], kv_cache["group_spatial_v"], v1], dim=1).contiguous()
             # k2 = torch.cat([kv_cache["group_sink_temporal_k"], kv_cache["group_temporal_k"], k2], dim=1).contiguous()
             # v2 = torch.cat([kv_cache["group_sink_temporal_v"], kv_cache["group_temporal_v"], v2], dim=1).contiguous()
-            k2 = torch.cat([kv_cache["group_sink_temporal_k"], kv_cache["group_dynamic_temporal_k"], kv_cache["group_temporal_k"], k2], dim=1).contiguous()
-            v2 = torch.cat([kv_cache["group_sink_temporal_v"], kv_cache["group_dynamic_temporal_v"], kv_cache["group_temporal_v"], v2], dim=1).contiguous()
+            dynamic_valid_tokens = int(kv_cache.get("group_dynamic_temporal_valid_tokens", kv_cache["group_dynamic_temporal_k"].shape[1]))
+            dynamic_k = kv_cache["group_dynamic_temporal_k"][:, :dynamic_valid_tokens]
+            dynamic_v = kv_cache["group_dynamic_temporal_v"][:, :dynamic_valid_tokens]
+            k2 = torch.cat([kv_cache["group_sink_temporal_k"], dynamic_k, kv_cache["group_temporal_k"], k2], dim=1).contiguous()
+            v2 = torch.cat([kv_cache["group_sink_temporal_v"], dynamic_v, kv_cache["group_temporal_v"], v2], dim=1).contiguous()
             x1 = attention(q1, k1, v1)
             x2 = attention(q2, k2, v2)
             x = torch.empty_like(roped_query)
             x[:, :, spatial_heads, :] = x1
             x[:, :, temporal_heads, :] = x2
             if update_kv_cache:
-                kv_cache['group_spatial_k'] = append_tail(kv_cache["group_spatial_k"], k1[:, -s:].contiguous(), spatial_keep_tokens)
-                kv_cache['group_spatial_v'] = append_tail(kv_cache["group_spatial_v"], v1[:, -s:].contiguous(), spatial_keep_tokens)
+                _overwrite_fixed_cache_(
+                    kv_cache["group_spatial_k"],
+                    k1,
+                    spatial_keep_tokens,
+                    "group_spatial_k",
+                )
+                _overwrite_fixed_cache_(
+                    kv_cache["group_spatial_v"],
+                    v1,
+                    spatial_keep_tokens,
+                    "group_spatial_v",
+                )
 
                 # Temporal Heads
                 if not self.args.dynamic_temporal_enabled:
-                    kv_cache['group_temporal_k'] = append_tail(kv_cache["group_temporal_k"], k2[:, -s:].contiguous(), temporal_keep_tokens)
-                    kv_cache['group_temporal_v'] = append_tail(kv_cache["group_temporal_v"], v2[:, -s:].contiguous(), temporal_keep_tokens)
+                    _overwrite_fixed_cache_(
+                        kv_cache["group_temporal_k"],
+                        k2,
+                        temporal_keep_tokens,
+                        "group_temporal_k",
+                    )
+                    _overwrite_fixed_cache_(
+                        kv_cache["group_temporal_v"],
+                        v2,
+                        temporal_keep_tokens,
+                        "group_temporal_v",
+                    )
+                    kv_cache["group_dynamic_temporal_valid_tokens"] = 0
                 else:
-                    new_temporal_k = k2[:, -s:]
-                    new_temporal_v = v2[:, -s:]
-
-                    temporal_all_k = torch.cat([kv_cache["group_temporal_k"], new_temporal_k], dim=1)
-                    temporal_all_v = torch.cat([kv_cache["group_temporal_v"], new_temporal_v], dim=1)
-
-                    overflow = max(0, temporal_all_k.shape[1] - temporal_keep_tokens)
-                    evicted_k = temporal_all_k[:, :overflow]
-                    evicted_v = temporal_all_v[:, :overflow]
-
-                    # Temporal Dense Cache
-                    if temporal_keep_tokens > 0:
-                        kept_k = temporal_all_k[:, -temporal_keep_tokens:]
-                        kept_v = temporal_all_v[:, -temporal_keep_tokens:]
-                    else:
-                        kept_k = temporal_all_k[:, :0]
-                        kept_v = temporal_all_v[:, :0]
-                    kv_cache["group_temporal_k"] = kept_k
-                    kv_cache["group_temporal_v"] = kept_v
-
-                    # Temporal Dynamic Cache
-                    if overflow > 0:
-                        num_frame_patch = getattr(self.args, "num_frame_patch", None)
-                        if num_frame_patch is None:
-                            legacy_patch_num = getattr(self.args, "patch_num", None)
-                            if legacy_patch_num is not None and hasattr(legacy_patch_num, "__iter__"):
-                                legacy_patch_num = list(legacy_patch_num)
-                            if isinstance(legacy_patch_num, (list, tuple)) and len(legacy_patch_num) > 0:
-                                num_frame_patch = int(legacy_patch_num[0])
-                            else:
-                                raise ValueError("`num_frame_patch` must be provided for dynamic temporal compression.")
-
-                        dyn_new_k, dyn_new_v = self.dynamic_compression(
-                            layer_idx,
-                            evicted_k,
-                            evicted_v,
-                            kept_k,
-                            kept_v,
-                            num_frame_patch,
-                            int(grid_sizes[0, 1]),
-                            int(grid_sizes[0, 2]),
+                    if temporal_keep_tokens <= 0 or temporal_keep_tokens > s or (temporal_keep_tokens % int(HW)) != 0:
+                        raise ValueError(
+                            "Dynamic temporal mode currently requires temporal_context_length to be 1-3 whole frames"
                         )
 
-                        dynamic_all_k = torch.cat([kv_cache["group_dynamic_temporal_k"], dyn_new_k], dim=1)
-                        dynamic_all_v = torch.cat([kv_cache["group_dynamic_temporal_v"], dyn_new_v], dim=1)
-                        if dynamic_keep_tokens > 0:
-                            kv_cache["group_dynamic_temporal_k"] = dynamic_all_k[:, -dynamic_keep_tokens:]
-                            kv_cache["group_dynamic_temporal_v"] = dynamic_all_v[:, -dynamic_keep_tokens:]
-                        else:
-                            kv_cache["group_dynamic_temporal_k"] = dynamic_all_k[:, :0]
-                            kv_cache["group_dynamic_temporal_v"] = dynamic_all_v[:, :0]
+                    num_frame_patch = getattr(self.args, "num_frame_patch", None)
+                    
+                    old_temporal_k = kv_cache["group_temporal_k"]
+                    old_temporal_v = kv_cache["group_temporal_v"]
+                    new_temporal_k = k2[:, -s:].contiguous()
+                    new_temporal_v = v2[:, -s:].contiguous()
+
+                    dyn_new_k, dyn_new_v = self.dynamic_compression(
+                        layer_idx,
+                        old_temporal_k,
+                        old_temporal_v,
+                        new_temporal_k,
+                        new_temporal_v,
+                        num_frame_patch,
+                        dynamic_keep_tokens,
+                        int(grid_sizes[0, 1]),
+                        int(grid_sizes[0, 2]),
+                    )
+
+                    _overwrite_fixed_cache_(
+                        kv_cache["group_temporal_k"],
+                        new_temporal_k[:, -temporal_keep_tokens:],
+                        temporal_keep_tokens,
+                        "group_temporal_k",
+                    )
+                    _overwrite_fixed_cache_(
+                        kv_cache["group_temporal_v"],
+                        new_temporal_v[:, -temporal_keep_tokens:],
+                        temporal_keep_tokens,
+                        "group_temporal_v",
+                    )
+
+                    if dynamic_keep_tokens > 0:
+                        _overwrite_fixed_cache_(
+                            kv_cache["group_dynamic_temporal_k"],
+                            dyn_new_k,
+                            dynamic_keep_tokens,
+                            "group_dynamic_temporal_k",
+                        )
+                        _overwrite_fixed_cache_(
+                            kv_cache["group_dynamic_temporal_v"],
+                            dyn_new_v,
+                            dynamic_keep_tokens,
+                            "group_dynamic_temporal_v",
+                        )
+                        kv_cache["group_dynamic_temporal_valid_tokens"] = dynamic_keep_tokens
+                    else:
+                        kv_cache["group_dynamic_temporal_valid_tokens"] = 0
 
                 kv_cache['frame_tokens'] = int(HW)
 
@@ -725,6 +830,7 @@ class CausalWanModel(ModelMixin, ConfigMixin):
         groups = self._load_offline_head_groups()
         spatial_keep_tokens = max(0, int(getattr(self.args, "spatial_context_length", 1)))
         temporal_keep_tokens = max(0, int(getattr(self.args, "temporal_context_length", 3)))
+        dynamic_keep_tokens = max(0, int(getattr(self.args, "dynamic_context_length", 0)))
 
         for layer_idx, cur_cache in enumerate(kv_cache):
             cur_cache["cache_switched"] = True
@@ -753,23 +859,35 @@ class CausalWanModel(ModelMixin, ConfigMixin):
             cur_cache["group_sink_temporal_v"] = full_sink_v[:, :, temporal_heads, :].contiguous().clone()
 
             # Dynamic Cache
-            cur_cache["group_dynamic_temporal_k"] = full_local_k[:, :0, temporal_heads, :].contiguous().clone()
-            cur_cache["group_dynamic_temporal_v"] = full_local_v[:, :0, temporal_heads, :].contiguous().clone()
+            dynamic_keep = dynamic_keep_tokens * frame_tokens
+            cur_cache["group_dynamic_temporal_k"] = _allocate_fixed_cache(
+                full_local_k[:, :0, temporal_heads, :],
+                dynamic_keep,
+            )
+            cur_cache["group_dynamic_temporal_v"] = _allocate_fixed_cache(
+                full_local_v[:, :0, temporal_heads, :],
+                dynamic_keep,
+            )
+            cur_cache["group_dynamic_temporal_valid_tokens"] = 0
 
 
-            if spatial_keep > 0:
-                cur_cache["group_spatial_k"] = full_local_k[:, -spatial_keep:, spatial_heads, :].contiguous().clone()
-                cur_cache["group_spatial_v"] = full_local_v[:, -spatial_keep:, spatial_heads, :].contiguous().clone()
-            else:
-                cur_cache["group_spatial_k"] = full_local_k[:, :0, spatial_heads, :].contiguous().clone()
-                cur_cache["group_spatial_v"] = full_local_v[:, :0, spatial_heads, :].contiguous().clone()
+            cur_cache["group_spatial_k"] = _allocate_fixed_cache(
+                full_local_k[:, :, spatial_heads, :],
+                spatial_keep,
+            )
+            cur_cache["group_spatial_v"] = _allocate_fixed_cache(
+                full_local_v[:, :, spatial_heads, :],
+                spatial_keep,
+            )
 
-            if temporal_keep > 0:
-                cur_cache["group_temporal_k"] = full_local_k[:, -temporal_keep:, temporal_heads, :].contiguous().clone()
-                cur_cache["group_temporal_v"] = full_local_v[:, -temporal_keep:, temporal_heads, :].contiguous().clone()
-            else:
-                cur_cache["group_temporal_k"] = full_local_k[:, :0, temporal_heads, :].contiguous().clone()
-                cur_cache["group_temporal_v"] = full_local_v[:, :0, temporal_heads, :].contiguous().clone()
+            cur_cache["group_temporal_k"] = _allocate_fixed_cache(
+                full_local_k[:, :, temporal_heads, :],
+                temporal_keep,
+            )
+            cur_cache["group_temporal_v"] = _allocate_fixed_cache(
+                full_local_v[:, :, temporal_heads, :],
+                temporal_keep,
+            )
 
     @staticmethod
     def _prepare_blockwise_causal_attn_mask(
