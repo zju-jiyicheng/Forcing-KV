@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=2
-videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33'
+export CUDA_VISIBLE_DEVICES=4
+videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal3_dynamic1_patch3_sim0.33'
 config_path='configs/forcingkv_self_forcing_vbench.yaml'
-result_name="forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33"
+result_name="forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal3_dynamic1_patch3_sim0.33"
 
 # Step 1. Generate Videos
-# torchrun --nproc_per_node=1 --master_port=38550 sample_vbench.py --config_path $config_path
+# torchrun --nproc_per_node=1 --master_port=38551 sample_vbench.py --config_path $config_path
 
 
 

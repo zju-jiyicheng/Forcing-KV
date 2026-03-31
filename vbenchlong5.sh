@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=3
-videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/dummy_longlive_60s_ctx1_0.25'
-config_path='configs/dummy_longlive_vbenchlong.yaml'
-result_name="dummy_longlive_60s_ctx1_0.25"
+export CUDA_VISIBLE_DEVICES=4
+videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/dummy_self_forcing_30s_0.5_ctx1'
+config_path='configs/dummy_self_forcing_vbenchlong.yaml'
+result_name="dummy_self_forcing_30s_0.5_ctx1"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38541 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38546 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score

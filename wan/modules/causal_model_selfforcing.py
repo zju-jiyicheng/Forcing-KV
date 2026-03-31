@@ -245,14 +245,15 @@ class CausalWanSelfAttention(nn.Module):
             # if cur_AR_step in ar_steps_print and blk_idx in layer_print:
             #     save_head_attention_map(roped_query, kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index], cur_AR_step, blk_idx, "/nfs/ycji_temp/code/DummyForcing/visualize/heatmap_head_selfforcing_pp_2400_a8_all_layer")
 
-            # ar_steps_print = {8}
-            # # target_heads_by_layer = {
-            # #     4: [8],
-            # # }
+            # ar_steps_print = {6}
             # target_heads_by_layer = {
-            #     layer_idx: list(range(12))
-            #     for layer_idx in range(30)
+            #     2: [10],
+            #     14: [9],
             # }
+            # # target_heads_by_layer = {
+            # #     layer_idx: list(range(12))
+            # #     for layer_idx in range(30)
+            # # }
             # if cur_AR_step in ar_steps_print and blk_idx in target_heads_by_layer:
             #     save_head_attention_map_v2(
             #         roped_query,
@@ -260,7 +261,7 @@ class CausalWanSelfAttention(nn.Module):
             #         cur_AR_step,
             #         blk_idx,
             #         target_heads_by_layer[blk_idx],
-            #         "/nfs/ycji_temp/code/DummyForcing/visualize/headmap_self_forcing_pt_ar8_1_prompt_all_heads",
+            #         "/nfs/ycji_temp/code/DummyForcing/visualize/headmap_longlive_pt_ar6_5_prompt",
             #     )
 
 

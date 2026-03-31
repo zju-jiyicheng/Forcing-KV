@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=4
-videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_neibour_continues_longlive_60s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33'
-config_path='configs/forcingkv_longlive_vbenchlong.yaml'
-result_name="forcingkv_neibour_continues_longlive_60s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33"
+export CUDA_VISIBLE_DEVICES=5
+videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/self_forcing_30s_teacache0.2'
+config_path='configs/self_forcing_vbenchlong.yaml'
+result_name="self_forcing_30s_teacache0.2"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38537 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38599 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score

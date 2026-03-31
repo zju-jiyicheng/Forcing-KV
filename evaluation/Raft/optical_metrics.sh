@@ -1,12 +1,14 @@
 #!/bin/bash
 
 MODEL_PATH="models/raft-things.pth"
-GPU_ID="1"
+GPU_ID="6"
 DEVICE="cuda:${GPU_ID}"
 
 video_path=(
-    "/nfs/ycji_temp/code/DummyForcing/videos/test/dummy_longlive"
-)
+    "/nfs/ycji_temp/code/DummyForcing/videos/vbench/dummy_longlive_30s"
+    "/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_buffer_neibour_continues_longlive_30s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33"
+    "/nfs/ycji_temp/code/DummyForcing/videos/vbench/longlive_30s"
+)   
 
 for path in "${video_path[@]}"; do
     echo "Using device: $DEVICE"

@@ -6,11 +6,13 @@ pretrained
 __pycache__/
 *.pyc
 debug_outputs/
-videos/
 visualize/
 experiment_logs/
 evaluation/Helios/checkpoints/
 evaluation/Helios/videos/
 evaluation/Raft/models/
 prompts/vidprom_filtered_extended.txt
-
+videos/
+draw/
+*.pt
+*.mp4

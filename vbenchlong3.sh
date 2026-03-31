@@ -2,9 +2,9 @@ source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
 export CUDA_VISIBLE_DEVICES=1
-videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_buffer_neibour_continues_longlive_30s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33'
-config_path='configs/forcingkv_longlive_vbenchlong.yaml'
-result_name="forcingkv_buffer_neibour_continues_longlive_30s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33"
+videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/self_forcing_30s_sink3'
+config_path='configs/self_forcing_vbenchlong.yaml'
+result_name="self_forcing_30s_sink3"
 
 # Step 1. Generate Videos
 torchrun --nproc_per_node=1 --master_port=38539 sample_vbench.py --config_path $config_path

@@ -16,8 +16,10 @@ from pipeline import (
     # CausalInferencePipeline,
     CausalInferencePipeline_Dummy_Forcing,
     CausalInferencePipeline_Self_Forcing,
+    CausalInferencePipeline_Self_Forcing_Long,
     CausalInferencePipeline_Rolling_Forcing,
     CausalInferencePipeline_ForcingKV,
+    CausalInferencePipeline_ForcingKV_Self_Forcing_Long,
 )
 from utils.dataset import TextDataset
 from utils.misc import set_seed
@@ -77,9 +79,15 @@ if config.method == 'dummy_forcing':
 elif config.method == 'forcingkv':
     print("Using ForcingKV")
     pipeline = CausalInferencePipeline_ForcingKV(config, device=device)
+elif config.method == 'forcingkv_self_forcing_long':
+    print("Using ForcingKV Self Forcing Long")
+    pipeline = CausalInferencePipeline_ForcingKV_Self_Forcing_Long(config, device=device)
 elif config.method == 'self_forcing' or config.method == 'longlive':
     print("Using Self Forcing / Longlive")
     pipeline = CausalInferencePipeline_Self_Forcing(config, device=device)
+elif config.method == 'self_forcing_long':
+    print("Using Self Forcing Long")
+    pipeline = CausalInferencePipeline_Self_Forcing_Long(config, device=device)
 elif config.method == 'rolling_forcing':
     print("Using Rolling Forcing")
     pipeline = CausalInferencePipeline_Rolling_Forcing(config, device=device)
@@ -205,9 +213,13 @@ for i, batch_data in tqdm(enumerate(dataloader), disable=(local_rank != 0)):
         prompts = [prompt] * config.num_samples
 
 
-    noise_shape = {480: [config.num_samples, config.num_output_frames, 16, 60, 104],
-                   720: [config.num_samples, config.num_output_frames, 16, 90, 160],
-                  1080: [config.num_samples, config.num_output_frames, 16, 136, 240]}
+    first_rollout_frames = config.num_output_frames
+    if config.method in {'self_forcing_long', 'forcingkv_self_forcing_long'}:
+        first_rollout_frames = min(config.rollout_latent_frames, config.num_output_frames)
+
+    noise_shape = {480: [config.num_samples, first_rollout_frames, 16, 60, 104],
+                   720: [config.num_samples, first_rollout_frames, 16, 90, 160],
+                  1080: [config.num_samples, first_rollout_frames, 16, 136, 240]}
     sampled_noise = torch.randn(noise_shape[config.resolution], device=device, dtype=torch.bfloat16)
 
     video, latents = pipeline.inference(

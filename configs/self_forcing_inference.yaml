@@ -23,7 +23,7 @@ dummy_forcing:
 # inference
 method: self_forcing
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/self_forcing_30s/attn-1_sink0
+output_folder: videos/test/self_forcing_30s/attn-1_sink0
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true
