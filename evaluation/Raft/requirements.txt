@@ -1,0 +1,8 @@
+# torch
+# torchvision
+pandas
+av
+tqdm
+matplotlib 
+tensorboard 
+scipy

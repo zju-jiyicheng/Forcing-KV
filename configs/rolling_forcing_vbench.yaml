@@ -49,7 +49,7 @@ model_kwargs:
 
 # MODIFIED
 method: rolling_forcing
-output_folder: videos/vbench/rolling_forcing_5s
+output_folder: videos_new/vbench/rolling_forcing_5s
 num_output_frames: 21
 num_samples: 5
 resolution: 480

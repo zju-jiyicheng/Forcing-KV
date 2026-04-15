@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
@@ -23,7 +23,7 @@ dummy_forcing:
 # inference
 method: dummy_forcing
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/dummy_self_forcing_pp_30s/dummy180_ctx3
+output_folder: videos_new/inference/dummy_self_forcing_pp_30s/dummy180_ctx3
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true

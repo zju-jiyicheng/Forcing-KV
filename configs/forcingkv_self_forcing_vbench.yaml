@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
@@ -14,7 +14,7 @@ model_kwargs:
 forcingkv:
   ar_start: 1
   spatial_context_length: 1 # active in forcingkv, unit is HW
-  temporal_context_length: 3 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
   dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
@@ -32,7 +32,7 @@ forcingkv:
 method: forcingkv
 data_path: prompts/vbench/all_dimension.txt
 extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos/vbench/forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal3_dynamic1_patch3_sim0.33
+output_folder: videos_new/vbench/forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_0.33
 inference_iter: -1
 num_output_frames: 21 #21 # latent num of frames 120
 use_ema: true
@@ -44,7 +44,7 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
 lora_ckpt: ~
 
 adapter:

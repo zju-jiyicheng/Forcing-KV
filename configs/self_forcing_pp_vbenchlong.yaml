@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
@@ -24,7 +24,7 @@ method: self_forcing
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/self_forcing_pp_60s # TODO add your official sampling dir here
+output_folder: videos_new/vbench/self_forcing_pp_60s # TODO add your official sampling dir here
 inference_iter: -1
 num_output_frames: 240 #21 # latent num of frames 120
 use_ema: true

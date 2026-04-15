@@ -5,35 +5,35 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: 12
   timestep_shift: 5.0
-  sink_size: 0
+  sink_size: 1
 
 forcingkv:
   ar_start: 4
-  spatial_context_length: 6 # active in forcingkv, unit is HW
-  temporal_context_length: 0 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  spatial_context_length: 1 # active in forcingkv, unit is HW
+  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
   dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
   teacache_threshold: 0.2
   # Dynamic KV Cache
-  dynamic_temporal_enabled: false
+  dynamic_temporal_enabled: true
   num_frame_patch: 3
   patch_num: [6,4]
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
-  offline_head_file: configs_head/forcingkv_heads_longlive_human.json
+  offline_head_file: /ycji/code/Forcing-KV/v_headgroup/config_head/longlive_naive_sink_3_min0.02.json #configs_head/forcingkv_heads_longlive_human.json
 
 # inference
 method: forcingkv
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/forcingkv_buffer_ar4_sink0_s6_t0 #videos/vbench/forcingkv_buffer_neibour_continues_longlive_30s_ar4_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33 # TODO add your official sampling dir here
+output_folder: videos_new/vbench/forcingkv_{1+3.1}_{naive_sink3_0.8_min0.02}_longlive_30s_ar4_sink1_s1_t1_d1_patch3_0.33
 inference_iter: -1
 num_output_frames: 120
 use_ema: false
@@ -45,8 +45,8 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/LongLive-1.3B/models/longlive_base.pt
-lora_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/LongLive-1.3B/models/lora.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/longlive_base.pt
+lora_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/lora.pt
 
 adapter:
   type: "lora"

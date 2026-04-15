@@ -50,7 +50,7 @@ model_kwargs:
 
 # MODIFIED
 method: rolling_forcing
-output_folder: videos/inference/rolling_forcing_30s
+output_folder: videos_new/inference/rolling_forcing_30s
 num_output_frames: 120
 num_samples: 1
 resolution: 480

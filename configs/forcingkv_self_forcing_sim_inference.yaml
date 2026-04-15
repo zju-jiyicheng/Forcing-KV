@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
@@ -32,7 +32,7 @@ forcingkv:
 # inference
 method: forcingkv
 data_path: prompts/example_prompts_5.txt
-output_folder: videos/inference/forcingkv_self_forcing_sim_tepctx_3/ar4_s0.25
+output_folder: videos_new/inference/forcingkv_self_forcing_sim_tepctx_3/ar4_s0.25
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true
@@ -44,7 +44,7 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
 lora_ckpt: ~
 
 adapter:

@@ -239,21 +239,22 @@ class CausalWanSelfAttention(nn.Module):
             attn_key = kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index]
             attn_value = kv_cache["v"][:, max(0, local_end_index - self.max_attention_size):local_end_index]
 
-            # # MODIFIED
-            # ar_steps_print = {8}  
-            # layer_print = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}
+            # MODIFIED
+            # ar_steps_print = {3}  
+            # layer_print = {3}
             # if cur_AR_step in ar_steps_print and blk_idx in layer_print:
-            #     save_head_attention_map(roped_query, kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index], cur_AR_step, blk_idx, "/nfs/ycji_temp/code/DummyForcing/visualize/heatmap_head_selfforcing_pp_2400_a8_all_layer")
+            #     save_head_attention_map(roped_query, kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index], cur_AR_step, blk_idx, "/ycji/code/Forcing-KV/visualize/sf_a3")
 
-            # ar_steps_print = {6}
-            # target_heads_by_layer = {
-            #     2: [10],
-            #     14: [9],
-            # }
+            # # MODIFIED
+            # ar_steps_print = {8}
             # # target_heads_by_layer = {
-            # #     layer_idx: list(range(12))
-            # #     for layer_idx in range(30)
+            # #     2: [10],
+            # #     14: [9],
             # # }
+            # target_heads_by_layer = {
+            #     layer_idx: list(range(12))
+            #     for layer_idx in range(30)
+            # }
             # if cur_AR_step in ar_steps_print and blk_idx in target_heads_by_layer:
             #     save_head_attention_map_v2(
             #         roped_query,
@@ -261,7 +262,7 @@ class CausalWanSelfAttention(nn.Module):
             #         cur_AR_step,
             #         blk_idx,
             #         target_heads_by_layer[blk_idx],
-            #         "/nfs/ycji_temp/code/DummyForcing/visualize/headmap_longlive_pt_ar6_5_prompt",
+            #         "/ycji/code/Forcing-KV/v_headgroup/headmap_sf_pt_ar8",
             #     )
 
 

@@ -41,24 +41,17 @@ def save_head_attention_map(query, key, ar_step, layer_idx, save_path):
 
     os.makedirs(save_path, exist_ok=True)
 
-    # Compute full attention: [B, H, Q, K]
-    q = query.transpose(1, 2)  # [B, H, Q, C]
-    k = key.transpose(1, 2)    # [B, H, K, C]
-    scores = torch.matmul(q, k.transpose(-2, -1)) / (C ** 0.5)  # [B, H, Q, K]
-    attn = F.softmax(scores, dim=-1)                             # [B, H, Q, K]
-
-    attn0 = attn[0].detach().float().cpu()  # [H, Q, K]
-    Q, K = attn0.shape[1], attn0.shape[2]
+    Q, K = seq_len_q, seq_len_k
 
     # X-axis ticks every seq_len_q
     tick_step = seq_len_q
     xticks = list(range(0, K + 1, tick_step))
 
-    # figure size proportional to K:Q (width:height)
-    base_h = 6.0
-    fig_h = base_h
-    fig_w = base_h * (K / max(1, Q))  # keep aspect visually consistent with matrix
-    fig_w = max(6.0, min(fig_w, 24.0))  # clamp so it doesn't get ridiculous
+    # Make the canvas flatter so long attention maps are easier to inspect.
+    aspect_ratio = K / max(1, Q)
+    fig_h = max(2.6, min(4.0, 3.4 / max(1.0, aspect_ratio**0.35)))
+    fig_w = fig_h * aspect_ratio * 1.15
+    fig_w = max(8.0, min(fig_w, 28.0))
 
     # timestamp for unique filenames
     ts = time.strftime("%Y%m%d_%H%M%S")
@@ -82,8 +75,13 @@ def save_head_attention_map(query, key, ar_step, layer_idx, save_path):
             vmax = vmin + 1e-3
         return vmin, vmax
 
-    for h in range(attn0.shape[0]):
-        a = attn0[h]                       # [Q, K]
+    for h in range(H):
+        q_head = query[:, :, h].detach().float()  # [B, Q, C]
+        k_head = key[:, :, h].detach().float()    # [B, K, C]
+        scores = torch.matmul(q_head, k_head.transpose(-2, -1)) / (C ** 0.5)  # [B, Q, K]
+        attn = F.softmax(scores, dim=-1)  # [B, Q, K]
+
+        a = attn[0].detach().float().cpu()  # [Q, K]
         a_log = torch.log1p(a)             # enhance contrast for small probs
         vmin, vmax = _robust_vmin_vmax(a)  # compute on log space
 
@@ -147,8 +145,9 @@ def save_head_attention_map_v2(query, key, ar_step, layer_idx, head_indices, sav
     stamp = f"{ts}_{ts_ms:03d}"
 
     for local_idx, head_idx in enumerate(selected_heads):
+        head_attn = attn0[local_idx].clone()
         payload = {
-            "attn": attn0[local_idx].contiguous(),
+            "attn": head_attn,
             "ar_step": int(ar_step),
             "layer_idx": int(layer_idx),
             "head_idx": int(head_idx),

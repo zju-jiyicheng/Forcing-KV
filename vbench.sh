@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=2
-videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33'
-config_path='configs/forcingkv_self_forcing_vbench.yaml'
-result_name="forcingkv_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33"
+export CUDA_VISIBLE_DEVICES=0
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/dummy_self_forcing_5s_ctx1'
+config_path='configs/dummy_self_forcing_vbench.yaml'
+result_name="dummy_self_forcing_5s_ctx1"
 
 # Step 1. Generate Videos
-# torchrun --nproc_per_node=1 --master_port=38550 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38577 sample_vbench.py --config_path $config_path
 
 
 
@@ -21,20 +21,15 @@ output_path="${videos_path}/vbench"
 for dimension in "${dimensions[@]}"; do
     echo "$dimension $videos_path"
     # Run the evaluation script
-    python evaluate.py --videos_path $videos_path --dimension $dimension --output_path $output_path
+    MASTER_PORT=38557 python evaluate.py --videos_path $videos_path --dimension $dimension --output_path $output_path
 done
 
 # Step 3. VBench Final Score
 cd $videos_path
 cd vbench
-conda activate zip
 zip -r ./results.zip .
-
-cd /nfs/ycji_temp/code/VBench
-conda activate vbench
+cd /ycji/code/VBench
 python scripts/cal_final_score.py --zip_file "${videos_path}/vbench/results.zip" --model_name $result_name --output_path "${videos_path}/vbench/"
-
-
 
 
 

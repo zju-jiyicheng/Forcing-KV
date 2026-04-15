@@ -10,7 +10,6 @@ from utils.wan_wrapper import WanDiffusionWrapper, WanTextEncoder, WanVAEWrapper
 from utils.memory import gpu, get_cuda_free_memory_gb, DynamicSwapInstaller, move_model_to_device_with_memory_preservation, log_gpu_memory
 from utils.debug_option import DEBUG
 import torch.distributed as dist
-from visualize.mse import save_clean_latent_pt
 
 
 def _append_fps_record(output_folder: str, sample_idx: Optional[int], fps: float) -> None:
@@ -262,9 +261,6 @@ class CausalInferencePipeline_Self_Forcing(torch.nn.Module):
             # Step 3.2: record the model's output
             output[:, current_start_frame:current_start_frame + current_num_frames] = denoised_pred
 
-            # MODIFIE: save latent for visualize
-            # path = save_clean_latent_pt(denoised_pred, ar_step=int(current_start_frame/3), save_dir="/nfs/ycji_temp/code/DummyForcing/visualize/latent_self_forcing_teacache0.2_iter1_60s_p1")
-            # print("saved to:", path)
 
             # Step 3.3: rerun with timestep zero to update KV cache using clean context
             context_timestep = torch.ones_like(timestep) * self.args.context_noise

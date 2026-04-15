@@ -25,7 +25,7 @@ class WanTextEncoder(torch.nn.Module):
             device=torch.device('cpu')
         ).eval().requires_grad_(False)
         self.text_encoder.load_state_dict(
-            torch.load("/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
+            torch.load("/ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B/models_t5_umt5-xxl-enc-bf16.pth",
                        map_location='cpu', weights_only=False)
         )
         
@@ -34,7 +34,7 @@ class WanTextEncoder(torch.nn.Module):
             self.text_encoder = self.text_encoder.cuda()
 
         self.tokenizer = HuggingfaceTokenizer(
-            name="/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/google/umt5-xxl/", seq_len=512, clean='whitespace')
+            name="/ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B/google/umt5-xxl/", seq_len=512, clean='whitespace')
 
     @property
     def device(self):
@@ -74,7 +74,7 @@ class WanVAEWrapper(torch.nn.Module):
 
         # init model
         self.model = _video_vae(
-            pretrained_path="/nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
+            pretrained_path="/ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B/Wan2.1_VAE.pth",
             z_dim=16,
         ).eval().requires_grad_(False)
 
@@ -135,24 +135,24 @@ class WanDiffusionWrapper(torch.nn.Module):
                 print("Loading Dummy Forcing Wan Model")
                 from wan.modules.causal_model_dummyforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
             elif method == 'forcingkv':
                 print("Loading ForcingKV Wan Model")
                 from wan.modules.causal_model_forcingkv import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
             elif method == 'rolling_forcing':
                 print("Loading Rolling Forcing Wan Model")
                 from wan.modules.causal_model_rollingforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
             else:
                 print("Loading Self Forcing Wan Model")
                 from wan.modules.causal_model_selfforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
         else:
-            self.model = WanModel.from_pretrained(f"/nfs/ycji_temp/code/DummyForcing/pretrained/{model_name}/")
+            self.model = WanModel.from_pretrained(f"/ycji/code/Forcing-KV/pretrained/{model_name}/")
         self.model.eval()
 
         # For non-causal diffusion, all frames share the same timestep

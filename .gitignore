@@ -7,12 +7,14 @@ __pycache__/
 *.pyc
 debug_outputs/
 visualize/
+v_headgroup/
 experiment_logs/
 evaluation/Helios/checkpoints/
 evaluation/Helios/videos/
 evaluation/Raft/models/
 prompts/vidprom_filtered_extended.txt
 videos/
+videos_new/
 draw/
 *.pt
 *.mp4

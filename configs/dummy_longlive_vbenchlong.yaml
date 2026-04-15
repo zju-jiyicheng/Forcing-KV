@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: 12
   timestep_shift: 5.0
@@ -14,8 +14,8 @@ model_kwargs:
 dummy_forcing:
   denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
   ar_start: 2
-  local_context_length: 1 # the context length for local heads
-  num_dummy: 90
+  local_context_length: 2 # the context length for local heads
+  num_dummy: 180
   teacache_enabled: false
   teacache_threshold: 0.2
 
@@ -24,9 +24,9 @@ method: dummy_forcing
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/dummy_longlive_60s_ctx1_0.25 # TODO add your official sampling dir here
+output_folder: videos_new/vbench/dummy_longlive_30s_ctx2 # TODO add your official sampling dir here
 inference_iter: -1
-num_output_frames: 240
+num_output_frames: 120
 use_ema: false
 seed: 0
 num_samples: 5
@@ -36,8 +36,8 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/LongLive-1.3B/models/longlive_base.pt
-lora_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/LongLive-1.3B/models/lora.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/longlive_base.pt
+lora_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/lora.pt
 
 adapter:
   type: "lora"

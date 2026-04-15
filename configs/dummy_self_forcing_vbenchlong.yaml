@@ -5,7 +5,7 @@ denoising_step_list:
 - 250
 warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_denoising_step is true
 num_frame_per_block: 3
-model_name: /nfs/ycji_temp/code/DummyForcing/pretrained/Wan2.1-T2V-1.3B
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
   local_attn_size: -1
   timestep_shift: 5.0
@@ -14,7 +14,7 @@ model_kwargs:
 dummy_forcing:
   denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
   ar_start: 1
-  local_context_length: 1 # the context length for local heads
+  local_context_length: 6 # the context length for local heads
   num_dummy: 180
   teacache_enabled: false
   teacache_threshold: 0.2
@@ -24,7 +24,7 @@ method: dummy_forcing
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos/vbench/dummy_self_forcing_30s_0.5_ctx1 # TODO add your official sampling dir here
+output_folder: videos_new/vbench/dummy_self_forcing_30s_ctx6 # TODO add your official sampling dir here
 inference_iter: -1
 num_output_frames: 120 #21 # latent num of frames 120
 use_ema: true
@@ -36,7 +36,7 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /nfs/ycji_temp/code/DummyForcing/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
 lora_ckpt: ~
 
 adapter:
