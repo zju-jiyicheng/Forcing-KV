@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=6
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/self_forcing_5s'
-config_path='configs/self_forcing_vbench.yaml'
-result_name="self_forcing_5s"
+export CUDA_VISIBLE_DEVICES=4
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar1_sink1_spatial0_temporal1_dynamic1_patch6_0.33'
+config_path='configs/forcingkv_self_forcing_vbench.yaml'
+result_name="forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar1_sink1_spatial0_temporal1_dynamic1_patch6_0.33_"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38591 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38592 sample_vbench.py --config_path $config_path
 
 
 

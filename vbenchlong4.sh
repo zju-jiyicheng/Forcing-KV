@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=3
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{1+3.1}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t1_d1_patch3_0.33'
+export CUDA_VISIBLE_DEVICES=7
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{modify}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t0_d0_patch6_0.33'
 config_path='configs/forcingkv_self_forcing_vbenchlong.yaml'
-result_name="forcingkv_{1+3.1}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t1_d1_patch3_0.33"
+result_name="forcingkv_{modify}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t0_d0_patch6_0.33"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38524 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38523 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score
@@ -35,6 +35,3 @@ cd vbenchlong
 zip -r ./results.zip .
 cd /ycji/code/VBench
 python scripts/cal_long_final_score.py --zip_file "${videos_path}/vbenchlong/results.zip" --model_name $result_name --output_path "${videos_path}/vbenchlong/"
-
-
-python scripts/cal_long_final_score.py --zip_file "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{1+3.1}_{naive0.75}_longlive_30s_ar4_sink1_s1_t1_d1_patch3_0.33/vbenchlong/results.zip" --model_name "forcingkv_{1+3.1}_{naive0.75}_longlive_30s_ar4_sink1_s1_t1_d1_patch3_0.33" --output_path "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{1+3.1}_{naive0.75}_longlive_30s_ar4_sink1_s1_t1_d1_patch3_0.33/vbenchlong/"

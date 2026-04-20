@@ -7,7 +7,7 @@ warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_de
 num_frame_per_block: 3
 model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
-  local_attn_size: 12
+  local_attn_size: 21
   timestep_shift: 5.0
   sink_size: 3
 
@@ -20,15 +20,14 @@ dummy_forcing:
   teacache_threshold: 0.2
 
 # inference
-method: dummy_forcing
-data_path: prompts/vbench/all_dimension.txt
-extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos_new/vbench/dummy_longlive_ctx1_5s_ # TODO add your official sampling dir here
+method: self_forcing
+data_path: prompts/example_prompts_5.txt
+output_folder: videos_new/test/longlive_base_30s_attn21_sink3
 inference_iter: -1
-num_output_frames: 21
+num_output_frames: 120
 use_ema: false
 seed: 0
-num_samples: 5
+num_samples: 1
 profile: true
 save_with_index: true
 global_sink: true
@@ -36,7 +35,7 @@ context_noise: 0
 resolution: 480
 
 generator_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/longlive_base.pt
-lora_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/lora.pt
+lora_ckpt: ~
 
 adapter:
   type: "lora"

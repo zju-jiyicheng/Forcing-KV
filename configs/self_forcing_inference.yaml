@@ -22,10 +22,10 @@ dummy_forcing:
 
 # inference
 method: self_forcing
-data_path: prompts/example_prompts_1.txt
-output_folder: videos_new/test/self_forcing_30s/
+data_path: prompts/example_prompts.txt
+output_folder: videos_new/speed/self_forcing_5s
 inference_iter: -1
-num_output_frames: 120 #21
+num_output_frames: 21 #21
 use_ema: true
 seed: 0
 num_samples: 1

@@ -14,17 +14,17 @@ model_kwargs:
 dummy_forcing:
   denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
   ar_start: 2
-  local_context_length: 2 # the context length for local heads
+  local_context_length: 1 # the context length for local heads
   num_dummy: 180
   teacache_enabled: false
   teacache_threshold: 0.2
 
 # inference
 method: dummy_forcing
-data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/test/dummy_longlive_30s_ar2_ctx2
+data_path: prompts/example_prompts.txt
+output_folder: videos_new/speed/dummy_longlive_5s_ar2_ctx1
 inference_iter: -1
-num_output_frames: 120
+num_output_frames: 21
 use_ema: false
 seed: 0
 num_samples: 1

@@ -5,9 +5,10 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DRIFT_SCRIPT="${SCRIPT_DIR}/vbench_drift.sh"
 
 JOBS=(
-    "/ycji/code/Forcing-KV/videos_new/vbench/dummy_longlive_30s_ctx1|0|38457"
-    "/ycji/code/Forcing-KV/videos_new/vbench/dummy_longlive_30s_ctx2|0|38459"
-    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_30s_attn12|0|38460"
+    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{1+3.1}_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t1_d1_patch3_0.33|0|38538"
+    "/ycji/code/Forcing-KV/videos_new/vbench/dummy_longlive_60s_ctx1|0|38538"
+    "/ycji/code/Forcing-KV/videos_new/vbench/dummy_longlive_60s_ctx2|0|38538"
+    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{1+3.1}_{naive_sink3_0.8}_longlive_60s_ar4_sink1_s1_t1_d1_patch3_0.33|0|38538"
 )
 
 job_index=1

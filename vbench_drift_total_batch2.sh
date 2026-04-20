@@ -2,12 +2,12 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DRIFT_SCRIPT="${SCRIPT_DIR}/vbench_drift.sh"
+DRIFT_SCRIPT="${SCRIPT_DIR}/vbench_drift_total.sh"
 
 JOBS=(
-    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_60s_attn12|1|38528"
-    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_60s_attn21|1|38528"
-    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_60s_teacache0.2|1|38528"
+    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_30s_attn21|5|38568"
+    "/ycji/code/Forcing-KV/videos_new/vbench/dummy_longlive_30s_ctx2|5|38568"
+    "/ycji/code/Forcing-KV/videos_new/vbench/longlive_30s_teacache0.2|5|38568"
 )
 
 job_index=1

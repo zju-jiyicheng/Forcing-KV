@@ -32,7 +32,7 @@ forcingkv:
 # inference
 method: forcingkv_self_forcing_long
 data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/test/forcingkv_self_forcing_long
+output_folder: videos_new/test/forcingkv_self_forcing_long_30s
 inference_iter: -1
 num_output_frames: 120 #21
 

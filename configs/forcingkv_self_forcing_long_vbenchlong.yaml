@@ -7,12 +7,12 @@ warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_de
 num_frame_per_block: 3
 model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
-  local_attn_size: 12
+  local_attn_size: -1
   timestep_shift: 5.0
   sink_size: 1
 
 forcingkv:
-  ar_start: 4
+  ar_start: 1
   spatial_context_length: 1 # active in forcingkv, unit is HW
   temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
   dynamic_context_length: 1
@@ -21,22 +21,28 @@ forcingkv:
   teacache_threshold: 0.2
   # Dynamic KV Cache
   dynamic_temporal_enabled: true
-  num_frame_patch: 6
-  patch_num: [6,4]
+  num_frame_patch: 3
+  patch_num: [1,1]
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
-  offline_head_file: /ycji/code/Forcing-KV/configs_head/forcingkv_heads_longlive_naive_sink_3_thr08.json #configs_head/forcingkv_heads_longlive_human.json
+  offline_head_file: configs_head/forcingkv_heads_selfforcing_naive_sink_3_thr08.json
+
 
 # inference
-method: forcingkv
+method: forcingkv_self_forcing_long
 data_path: prompts/MovieGen/MovieGenVideoBench.txt
 extended_prompt_path: prompts/MovieGen/MovieGenVideoBench_extended.txt
 prompt_save_truncation: 30 # Otherwise error regarding filename may occur for MovieGen
-output_folder: videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33_fp8
+output_folder: videos_new/vbench/forcingkv_{naive_sink3_0.8}_self_forcing_{long}_30s_
 inference_iter: -1
-num_output_frames: 120
-use_ema: false
+num_output_frames: 120 #21
+
+rollout_latent_frames: 21
+num_rollout: 7
+num_overlap_frames: 3
+
+use_ema: true
 seed: 0
 num_samples: 5
 profile: true
@@ -45,8 +51,8 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/longlive_base.pt
-lora_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/lora.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+lora_ckpt: ~
 
 adapter:
   type: "lora"

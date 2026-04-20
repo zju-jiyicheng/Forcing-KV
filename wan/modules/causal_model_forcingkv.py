@@ -32,6 +32,8 @@ from utils.debug_option import DEBUG
 # flex_attention = torch.compile(
 #     flex_attention, dynamic=False, mode="max-autotune-no-cudagraphs")
 
+# from sageattention import sageattn
+
 
 def causal_rope_apply(x, grid_sizes, freqs, start_frame=0):
     n, c = x.size(2), x.size(3) // 2
@@ -112,30 +114,11 @@ def _allocate_ring_cache(source_tensor, keep_tokens):
     return cache_tensor, tail_len, tail_len
 
 
-def _overwrite_fixed_cache_(cache_tensor, new_tensor, keep_tokens, cache_name):
-    if keep_tokens <= 0:
-        return cache_tensor[:, :0]
-    if cache_tensor.shape[1] != keep_tokens:
-        raise ValueError(
-            f"{cache_name} expected preallocated length {keep_tokens}, got {cache_tensor.shape[1]}"
-        )
-    if new_tensor.shape[1] < keep_tokens:
-        raise ValueError(
-            f"{cache_name} requires keep_tokens <= new_tensor length, got keep_tokens={keep_tokens}, "
-            f"new_tensor.shape[1]={new_tensor.shape[1]}"
-        )
-
-    cache_tensor.copy_(new_tensor[:, -keep_tokens:].contiguous())
-    return cache_tensor
-
-
 def _ring_append_(cache_tensor, new_tensor, keep_tokens, cache_name, write_ptr, valid_tokens):
     if keep_tokens <= 0:
         return 0, 0
     if cache_tensor.shape[1] != keep_tokens:
-        raise ValueError(
-            f"{cache_name} expected preallocated length {keep_tokens}, got {cache_tensor.shape[1]}"
-        )
+        raise ValueError(f"{cache_name} expected preallocated length {keep_tokens}, got {cache_tensor.shape[1]}")
 
     append_len = new_tensor.shape[1]
     if append_len == 0:
@@ -166,13 +149,9 @@ def _materialize_ring_view(cache_tensor, write_ptr, valid_tokens, cache_name):
     if capacity == 0 or valid_tokens == 0:
         return cache_tensor[:, :0]
     if valid_tokens > capacity:
-        raise ValueError(
-            f"{cache_name} valid_tokens must be <= capacity, got valid_tokens={valid_tokens}, capacity={capacity}"
-        )
+        raise ValueError(f"{cache_name} valid_tokens must be <= capacity, got valid_tokens={valid_tokens}, capacity={capacity}")
     if not (0 <= write_ptr < capacity):
-        raise ValueError(
-            f"{cache_name} write_ptr must be in [0, {capacity}), got {write_ptr}"
-        )
+        raise ValueError(f"{cache_name} write_ptr must be in [0, {capacity}), got {write_ptr}")
 
     if valid_tokens < capacity:
         return cache_tensor[:, :valid_tokens]
@@ -184,18 +163,12 @@ def _materialize_ring_view(cache_tensor, write_ptr, valid_tokens, cache_name):
 def _fill_cache_from_chunk_indices_(cache_tensor, candidate_tensor, keep_chunk_indices, chunk_tokens, cache_name):
     if cache_tensor.shape[1] == 0:
         return cache_tensor[:, :0]
-    if chunk_tokens <= 0:
-        raise ValueError(f"{cache_name} requires a positive chunk size, got {chunk_tokens}")
-    if keep_chunk_indices is None:
-        raise ValueError(f"{cache_name} requires precomputed keep_chunk_indices")
 
     keep_chunk_indices = keep_chunk_indices.to(device=candidate_tensor.device, dtype=torch.long)
     selected_chunks = candidate_tensor.index_select(dim=1, index=keep_chunk_indices)
     expected_tokens = selected_chunks.shape[1] * chunk_tokens
     if expected_tokens != cache_tensor.shape[1]:
-        raise ValueError(
-            f"{cache_name} expected {cache_tensor.shape[1]} tokens from selected chunks, got {expected_tokens}"
-        )
+        raise ValueError(f"{cache_name} expected {cache_tensor.shape[1]} tokens from selected chunks, got {expected_tokens}")
 
     selected_tokens = selected_chunks.reshape(
         candidate_tensor.shape[0],
@@ -265,23 +238,15 @@ class CausalWanSelfAttention(nn.Module):
 
         frame_tokens = grid_h * grid_w
         if frame_tokens % num_frame_patch != 0:
-            raise ValueError(
-                f"Frame token count {frame_tokens} must be divisible by num_frame_patch {num_frame_patch}"
-            )
+            raise ValueError(f"Frame token count {frame_tokens} must be divisible by num_frame_patch {num_frame_patch}")
         if old_temporal_k.shape[1] < frame_tokens or new_temporal_k.shape[1] < 3 * frame_tokens:
             CausalWanSelfAttention.shared_dynamic_patch_score = None
             CausalWanSelfAttention.shared_dynamic_chunk_indices = None
             return 0
 
         temporal_keep_frames = old_temporal_k.shape[1] // frame_tokens
-        if old_temporal_k.shape[1] % frame_tokens != 0:
-            raise ValueError(
-                f"old_temporal_k length {old_temporal_k.shape[1]} must be divisible by frame_tokens {frame_tokens}"
-            )
         if temporal_keep_frames < 1 or temporal_keep_frames > 3:
-            raise ValueError(
-                f"Dynamic temporal mode currently supports temporal_context_length in [1, 3], got {temporal_keep_frames}"
-            )
+            raise ValueError(f"Dynamic temporal mode currently supports temporal_context_length in [1, 3], got {temporal_keep_frames}")
 
         chunk_tokens = frame_tokens // num_frame_patch
         total_candidate_chunks = 3 * num_frame_patch
@@ -289,22 +254,14 @@ class CausalWanSelfAttention(nn.Module):
             keep_chunk_count = 0
         else:
             if dynamic_keep_tokens % chunk_tokens != 0:
-                raise ValueError(
-                    f"dynamic_keep_tokens={dynamic_keep_tokens} must be divisible by chunk_tokens={chunk_tokens}"
-                )
+                raise ValueError(f"dynamic_keep_tokens={dynamic_keep_tokens} must be divisible by chunk_tokens={chunk_tokens}")
             keep_chunk_count = dynamic_keep_tokens // chunk_tokens
         if keep_chunk_count > total_candidate_chunks:
-            raise ValueError(
-                f"Requested {keep_chunk_count} dynamic chunks, but only {total_candidate_chunks} candidate chunks exist"
-            )
+            raise ValueError(f"Requested {keep_chunk_count} dynamic chunks, but only {total_candidate_chunks} candidate chunks exist")
         ratio_keep_chunk_count = int(round(total_candidate_chunks * retention_ratio))
         ratio_keep_chunk_count = max(0, min(total_candidate_chunks, ratio_keep_chunk_count))
         if ratio_keep_chunk_count != keep_chunk_count:
-            raise ValueError(
-                "Dynamic cache capacity and sim_retention_ratio are inconsistent: "
-                f"capacity implies {keep_chunk_count} kept chunks, but sim_retention_ratio={retention_ratio} "
-                f"implies {ratio_keep_chunk_count} kept chunks out of {total_candidate_chunks}"
-            )
+            raise ValueError("Dynamic cache capacity and sim_retention_ratio are inconsistent: ")
 
         old_frames_k = old_temporal_k.reshape(
             old_temporal_k.shape[0], temporal_keep_frames, frame_tokens, old_temporal_k.shape[2], old_temporal_k.shape[3]
@@ -430,17 +387,7 @@ class CausalWanSelfAttention(nn.Module):
 
         switch_applied = bool(kv_cache.get("cache_switched", False))
         groups_ready = (
-            "headgroup_last" in kv_cache
-            and "headgroup_mid" in kv_cache
-            and "group_sink_spatial_k" in kv_cache
-            and "group_sink_spatial_v" in kv_cache
-            and "group_spatial_k" in kv_cache
-            and "group_spatial_v" in kv_cache
-            and "group_sink_temporal_k" in kv_cache
-            and "group_sink_temporal_v" in kv_cache
-            and "group_temporal_k" in kv_cache
-            and "group_temporal_v" in kv_cache
-        )
+            "headgroup_last" in kv_cache and "headgroup_mid" in kv_cache and "group_sink_spatial_k" in kv_cache and "group_sink_spatial_v" in kv_cache and "group_spatial_k" in kv_cache and "group_spatial_v" in kv_cache and "group_sink_temporal_k" in kv_cache and "group_sink_temporal_v" in kv_cache and "group_temporal_k" in kv_cache and "group_temporal_v" in kv_cache)
         use_grouped_kv = switch_applied and groups_ready and (layer_idx != 0) and (not is_recache)
 
         if not use_grouped_kv:
@@ -507,8 +454,6 @@ class CausalWanSelfAttention(nn.Module):
             )
             k1 = torch.cat([kv_cache["group_sink_spatial_k"], spatial_cache_k, cur_spatial_k], dim=1).contiguous()
             v1 = torch.cat([kv_cache["group_sink_spatial_v"], spatial_cache_v, cur_spatial_v], dim=1).contiguous()
-            # k2 = torch.cat([kv_cache["group_sink_temporal_k"], kv_cache["group_temporal_k"], k2], dim=1).contiguous()
-            # v2 = torch.cat([kv_cache["group_sink_temporal_v"], kv_cache["group_temporal_v"], v2], dim=1).contiguous()
             dynamic_valid_tokens = int(kv_cache.get("group_dynamic_temporal_valid_tokens", kv_cache["group_dynamic_temporal_k"].shape[1]))
             dynamic_k = kv_cache["group_dynamic_temporal_k"][:, :dynamic_valid_tokens]
             dynamic_v = kv_cache["group_dynamic_temporal_v"][:, :dynamic_valid_tokens]
@@ -516,6 +461,10 @@ class CausalWanSelfAttention(nn.Module):
             v2 = torch.cat([kv_cache["group_sink_temporal_v"], dynamic_v, temporal_cache_v, cur_temporal_v], dim=1).contiguous()
             x1 = attention(q1, k1, v1)
             x2 = attention(q2, k2, v2)
+            # # fp8
+            # x1 = sageattn(q1, k1, v1, tensor_layout="NHD", is_causal=False)
+            # x2 = sageattn(q2, k2, v2, tensor_layout="NHD", is_causal=False)
+
             x = torch.empty_like(roped_query)
             x[:, :, spatial_heads, :] = x1
             x[:, :, temporal_heads, :] = x2

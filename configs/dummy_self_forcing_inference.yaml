@@ -14,7 +14,7 @@ model_kwargs:
 dummy_forcing:
   denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
   ar_start: 1
-  local_context_length: 6 # the context length for local heads
+  local_context_length: 1 # the context length for local heads
   num_dummy: 180 #180 # 30 layer * 12 head
   teacache_enabled: false
   teacache_threshold: 0.2
@@ -22,10 +22,10 @@ dummy_forcing:
 
 # inference
 method: dummy_forcing
-data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/inference/dummy_self_forcing_30s/dummy180_ar1_ctx6
+data_path: prompts/example_prompts.txt
+output_folder: videos_new/speed/dummy_self_forcing_5s_ctx1
 inference_iter: -1
-num_output_frames: 120 #21
+num_output_frames: 21 #21
 use_ema: true
 seed: 0
 num_samples: 1

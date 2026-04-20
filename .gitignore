@@ -15,6 +15,7 @@ evaluation/Raft/models/
 prompts/vidprom_filtered_extended.txt
 videos/
 videos_new/
+videos_final
 draw/
 *.pt
 *.mp4
