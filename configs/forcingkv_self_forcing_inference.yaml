@@ -21,20 +21,21 @@ forcingkv:
   teacache_threshold: 0.2
   # Dynamic KV Cache
   dynamic_temporal_enabled: true
-  num_frame_patch: 3
+  num_frame_patch: 6
   patch_num: [1,1]
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_selfforcing_naive_sink_3_thr08.json #configs_head/forcingkv_heads_selfforcing_human.json
+  quantization_enabled: true
 
 
 # inference
 method: forcingkv
 data_path: prompts/example_prompts.txt
-output_folder: videos_new/speed/forcingkv_{naive_sink3_0.8}_self_forcing_5s_ar1_sink1_spatial1_temporal1_dynamic1_patch3_sim0.33
+output_folder: videos_new/speed/forcingkv_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_spatial1_temporal1_dynamic1_patch6_sim0.33_fp8
 inference_iter: -1
-num_output_frames: 21 #21
+num_output_frames: 120 #21
 use_ema: true
 seed: 0
 num_samples: 1

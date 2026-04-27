@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=3
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/streamingllm_self_forcing_30s_ar4_sink3_s4_t4'
-config_path='configs/streamingllm_self_forcing_vbenchlong.yaml'
-result_name="streamingllm_self_forcing_30s_ar4_sink3_s4_t4"
+export CUDA_VISIBLE_DEVICES=2
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t6_d0_patch39_0.33'
+config_path='configs/forcingkv_longlive_vbenchlong.yaml'
+result_name="videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t6_d0_patch39_0.33"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38513 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38522 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score

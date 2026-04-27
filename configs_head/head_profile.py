@@ -11,7 +11,7 @@ LAST_K = 4
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Build a head config from one frame-wise attention directory using naive_nosink_x."
+        description="Build a head config from one frame-wise attention directory using forcingkv."
     )
     parser.add_argument(
         "--attn-dir",

@@ -27,6 +27,7 @@ forcingkv:
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_selfforcing_naive_sink_3_thr08.json
+  quantization_enabled: false
 
 
 # inference

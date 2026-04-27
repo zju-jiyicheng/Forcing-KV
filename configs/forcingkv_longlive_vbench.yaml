@@ -14,25 +14,26 @@ model_kwargs:
 forcingkv:
   ar_start: 2
   spatial_context_length: 1 # active in forcingkv, unit is HW
-  temporal_context_length: 0 # active in forcingkv, unit is HW (3 == old local_context_length 1)
-  dynamic_context_length: 0
+  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
   teacache_threshold: 0.2
   # Dynamic KV Cache
-  dynamic_temporal_enabled: false
+  dynamic_temporal_enabled: true
   num_frame_patch: 6
   patch_num: [1,1]
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: /ycji/code/Forcing-KV/configs_head/forcingkv_heads_longlive_naive_sink_3_thr08.json #configs_head/forcingkv_heads_longlive_human.json
+  quantization_enabled: true
 
 # inference
 method: forcingkv
 data_path: prompts/vbench/all_dimension.txt
 extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos_new/vbench/forcingkv_longlive_{modify}_{naive_sink3_0.8}_5s_ar2_sink1_s1_t0_d0_patch6_0.33
+output_folder: videos_new/vbench/forcingkv_longlive_{modify}_{naive_sink3_0.8}_5s_ar2_sink1_s1_t1_d1_patch6_0.33_fp8_
 inference_iter: -1
 num_output_frames: 21
 use_ema: false

@@ -27,6 +27,7 @@ forcingkv:
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_longlive_human.json
+  quantization_enabled: false
 
 # inference
 method: forcingkv

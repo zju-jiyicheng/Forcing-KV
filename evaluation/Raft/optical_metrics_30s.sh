@@ -1,13 +1,13 @@
 #!/bin/bash
 
 MODEL_PATH="models/raft-things.pth"
-GPU_ID="2"
+GPU_ID="5"
 DEVICE="cuda:${GPU_ID}"
 TopK=39 # 30s = 40 chunks
 
 video_path=(
-    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33"
-    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{modify}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t1_d1_patch6_0.33"
+    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{modify}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t1_d1_patch6_0.33_fp8"
+    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33_fp8"
 )   
 
 for path in "${video_path[@]}"; do

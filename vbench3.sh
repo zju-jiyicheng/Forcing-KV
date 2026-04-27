@@ -1,13 +1,13 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=4
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar1_sink1_spatial0_temporal1_dynamic1_patch6_0.33'
+export CUDA_VISIBLE_DEVICES=3
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar2_sink1_spatial0_temporal1_dynamic1_patch6_0.33'
 config_path='configs/forcingkv_self_forcing_vbench.yaml'
-result_name="forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar1_sink1_spatial0_temporal1_dynamic1_patch6_0.33_"
+result_name="forcingkv_self_forcing_{modify}_{naive_sink3_0.8}_5s_ar2_sink1_spatial0_temporal1_dynamic1_patch6_0.33"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38592 sample_vbench.py --config_path $config_path
+torchrun --nproc_per_node=1 --master_port=38597 sample_vbench.py --config_path $config_path
 
 
 
@@ -21,7 +21,7 @@ output_path="${videos_path}/vbench"
 for dimension in "${dimensions[@]}"; do
     echo "$dimension $videos_path"
     # Run the evaluation script
-    MASTER_PORT=38578 python evaluate.py --videos_path $videos_path --dimension $dimension --output_path $output_path
+    MASTER_PORT=38573 python evaluate.py --videos_path $videos_path --dimension $dimension --output_path $output_path
 done
 
 # Step 3. VBench Final Score
@@ -30,9 +30,3 @@ cd vbench
 zip -r ./results.zip .
 cd /ycji/code/VBench
 python scripts/cal_final_score.py --zip_file "${videos_path}/vbench/results.zip" --model_name $result_name --output_path "${videos_path}/vbench/"
-
-
-
-
-
-

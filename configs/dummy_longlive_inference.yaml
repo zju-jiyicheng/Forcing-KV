@@ -22,9 +22,9 @@ dummy_forcing:
 # inference
 method: dummy_forcing
 data_path: prompts/example_prompts.txt
-output_folder: videos_new/speed/dummy_longlive_5s_ar2_ctx1
+output_folder: videos_new/speed/dummy_longlive_30s_ar2_ctx1
 inference_iter: -1
-num_output_frames: 21
+num_output_frames: 120
 use_ema: false
 seed: 0
 num_samples: 1

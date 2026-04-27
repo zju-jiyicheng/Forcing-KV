@@ -35,6 +35,7 @@ from utils.debug_option import DEBUG
 # from sageattention import sageattn
 
 
+
 def causal_rope_apply(x, grid_sizes, freqs, start_frame=0):
     n, c = x.size(2), x.size(3) // 2
 
@@ -299,6 +300,7 @@ class CausalWanSelfAttention(nn.Module):
             else:
                 keep_indices = torch.empty((0,), device=patch_scores.device, dtype=torch.long)
 
+            # print(patch_scores)
             CausalWanSelfAttention.shared_dynamic_patch_score = patch_scores.detach()
             CausalWanSelfAttention.shared_dynamic_chunk_indices = keep_indices.detach()
             self.patch_dynamic_score = patch_scores.detach()
@@ -459,11 +461,13 @@ class CausalWanSelfAttention(nn.Module):
             dynamic_v = kv_cache["group_dynamic_temporal_v"][:, :dynamic_valid_tokens]
             k2 = torch.cat([kv_cache["group_sink_temporal_k"], dynamic_k, temporal_cache_k, cur_temporal_k], dim=1).contiguous()
             v2 = torch.cat([kv_cache["group_sink_temporal_v"], dynamic_v, temporal_cache_v, cur_temporal_v], dim=1).contiguous()
-            x1 = attention(q1, k1, v1)
-            x2 = attention(q2, k2, v2)
-            # # fp8
-            # x1 = sageattn(q1, k1, v1, tensor_layout="NHD", is_causal=False)
-            # x2 = sageattn(q2, k2, v2, tensor_layout="NHD", is_causal=False)
+            if getattr(self.args, "quantization_enabled", False):
+                from sageattention import sageattn
+                x1 = sageattn(q1, k1, v1, tensor_layout="NHD", is_causal=False)
+                x2 = sageattn(q2, k2, v2, tensor_layout="NHD", is_causal=False)
+            else:
+                x1 = attention(q1, k1, v1)
+                x2 = attention(q2, k2, v2)
 
             x = torch.empty_like(roped_query)
             x[:, :, spatial_heads, :] = x1

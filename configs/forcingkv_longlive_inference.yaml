@@ -27,7 +27,7 @@ forcingkv:
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_longlive_naive_sink_3_thr08.json #configs_head/forcingkv_heads_longlive_human.json
-
+  quantization_enabled: false
 # inference
 method: forcingkv
 data_path: prompts/example_prompts.txt
