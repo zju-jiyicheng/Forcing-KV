@@ -24,6 +24,8 @@ forcingkv:
   num_frame_patch: 6
   patch_num: [1,1]
   sim_retention_ratio: 0.33
+  pruning_method: dynamic
+  budget: 0.33
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: /ycji/code/Forcing-KV/configs_head/forcingkv_heads_selfforcing_naive_sink_3_thr08.json #configs_head/forcingkv_heads_selfforcing_human.json

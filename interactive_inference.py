@@ -28,6 +28,12 @@ from utils.memory import gpu, get_cuda_free_memory_gb, DynamicSwapInstaller
 from pipeline.interactive_causal_inference import (
     InteractiveCausalInferencePipeline,
 )
+from pipeline.interactive_causal_inference_dummyforcing import (
+    InteractiveCausalInferencePipeline_Dummy,
+)
+from pipeline.interactive_causal_inference_forcingkv import (
+    InteractiveCausalInferencePipeline_ForcingKV,
+)
 from utils.dataset import MultiTextDataset
 
 
@@ -74,7 +80,29 @@ else:
 low_memory = get_cuda_free_memory_gb(device) < 40
 torch.set_grad_enabled(False)
 
-pipeline = InteractiveCausalInferencePipeline(config, device=device)
+
+
+# pipeline = InteractiveCausalInferencePipeline(config, device=device)
+
+# Initialize pipeline
+# Note: checkpoint loading is now handled inside the pipeline __init__ method
+if config.method == 'dummy_forcing':
+    print("Using Dummy Forcing")
+    pipeline = InteractiveCausalInferencePipeline_Dummy(config, device=device)
+elif config.method == 'forcingkv':
+    print("Using ForcingKV")
+    pipeline = InteractiveCausalInferencePipeline_ForcingKV(config, device=device)
+elif config.method =='longlive':
+    print("Using Longlive")
+    pipeline = InteractiveCausalInferencePipeline(config, device=device)
+else:
+    print("Not Supported Method, fall back to Self Forcing")
+    pipeline = InteractiveCausalInferencePipeline(config, device=device)
+
+
+
+
+
 
 if config.generator_ckpt:
     state_dict = torch.load(config.generator_ckpt, map_location="cpu")
@@ -200,6 +228,7 @@ for i, batch_data in tqdm(enumerate(dataloader), disable=(local_rank != 0)):
         text_prompts_list=prompts_list,
         switch_frame_indices=switch_frame_indices,
         return_latents=False,
+        sample_idx=idx,
     )
 
     current_video = rearrange(video, "b t c h w -> b t h w c").cpu() * 255.0

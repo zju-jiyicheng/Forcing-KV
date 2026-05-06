@@ -5,7 +5,7 @@ from pathlib import Path
 import torch
 
 
-THRESHOLD = 0.8
+THRESHOLD = 0.5
 SKIP_FIRST_K = 1
 LAST_K = 4
 

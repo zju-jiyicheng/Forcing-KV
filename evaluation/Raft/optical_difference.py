@@ -18,6 +18,35 @@ import torchvision.io as io
 import pandas as pd
 import json
 
+def save_flow_line_plot(df, output_path):
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+
+    fig_width = 14 if len(df) > 10 else 10
+    fig, ax = plt.subplots(figsize=(fig_width, 6))
+
+    for video_name, row in df.iterrows():
+        values = row.dropna().to_numpy(dtype=float)
+        if len(values) == 0:
+            continue
+        ax.plot(range(len(values)), values, linewidth=1.4, label=video_name)
+
+    ax.set_xlabel('Frame pair index')
+    ax.set_ylabel('Mean optical-flow magnitude')
+    ax.set_title('Optical Flow Magnitudes')
+    ax.grid(True, alpha=0.25)
+
+    if len(df) <= 10:
+        ax.legend(fontsize=7, loc='best')
+        fig.tight_layout()
+    else:
+        ax.legend(fontsize=6, loc='upper left', bbox_to_anchor=(1.02, 1.0))
+        fig.tight_layout(rect=[0, 0, 0.78, 1])
+
+    fig.savefig(output_path, dpi=200)
+    plt.close(fig)
+
 def load_single_video(video_path):
     frame_list = []
 
@@ -88,6 +117,7 @@ if __name__=='__main__':
     parser.add_argument('--output_path', default=None, help="path for result")
     parser.add_argument('--result_mean', default='result_mean.jsonl', help="name for result")
     parser.add_argument('--video_results', default='optical_flow_magnitudes.jsonl', help="name for video jsonl")
+    parser.add_argument('--plot', action='store_true', help="save optical-flow magnitude line plot")
     args = parser.parse_args()
     device = args.device
     
@@ -170,6 +200,11 @@ if __name__=='__main__':
     # 保存到CSV
     output_path = os.path.join(result_path, 'optical_flow_magnitudes.csv')
     df.to_csv(output_path)
+
+    if args.plot:
+        plot_path = os.path.join(result_path, 'optical_flow_magnitudes.png')
+        save_flow_line_plot(df, plot_path)
+        print(f"Plot saved to: {plot_path}")
     
     print(f"\nResults saved to: {output_path}")
     print(f"Total videos processed: {len(flow_sequences)}")

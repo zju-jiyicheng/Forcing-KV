@@ -7,7 +7,7 @@ warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_de
 num_frame_per_block: 3
 model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
-  local_attn_size: 21
+  local_attn_size: 12
   timestep_shift: 5.0
   sink_size: 3
 
@@ -22,7 +22,7 @@ dummy_forcing:
 # inference
 method: longlive
 data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/speed/longlive_30s_attn21_720p
+output_folder: videos_new/speed/longlive_30s_sink3_attn12
 inference_iter: -1
 num_output_frames: 120
 use_ema: false
@@ -32,7 +32,7 @@ profile: true
 save_with_index: true
 global_sink: true
 context_noise: 0
-resolution: 720 #480
+resolution: 480 #480
 
 generator_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/longlive_base.pt
 lora_ckpt: /ycji/code/Forcing-KV/pretrained/LongLive-1.3B/models/lora.pt

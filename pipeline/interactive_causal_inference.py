@@ -12,12 +12,13 @@ import torch
 
 from utils.wan_wrapper import WanDiffusionWrapper, WanTextEncoder, WanVAEWrapper
 from utils.memory import gpu, get_cuda_free_memory_gb, move_model_to_device_with_memory_preservation
-from pipeline.causal_inference_dummyforcing import CausalInferencePipeline_Dummy_Forcing
+from pipeline.causal_inference_longlive import CausalInferencePipeline_Longlive
+from pipeline.causal_inference_selfforcing import _append_fps_record
 import torch.distributed as dist
 from utils.debug_option import DEBUG
 
 
-class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
+class InteractiveCausalInferencePipeline(CausalInferencePipeline_Longlive):
     def __init__(
         self,
         args,
@@ -31,15 +32,15 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
         self.global_sink = getattr(args, "global_sink", False)
 
     # Internal helpers
-    def _recache_after_switch(self, output, current_start_frame, new_conditional_dict,batch_size, device, dtype):
+    def _recache_after_switch(self, output, current_start_frame, new_conditional_dict):
         if not self.global_sink:
             # reset kv cache
             for block_idx in range(self.num_transformer_blocks):
                 cache = self.kv_cache1[block_idx]
-                cache["sink_k"] =   torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device)
-                cache["sink_v"] =   torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device)
-                cache["local_k"] =  torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device)
-                cache["local_v"] =  torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device)
+                cache["k"].zero_()
+                cache["v"].zero_()
+                # cache["global_end_index"].zero_()
+                # cache["local_end_index"].zero_()
             
         # reset cross-attention cache
         for blk in self.crossattn_cache:
@@ -64,7 +65,19 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
         
         # prepare blockwise causal mask
         device = frames_to_recache.device
-        context_timestep = torch.ones([batch_size, num_recache_frames],  device=device, dtype=torch.int64) * self.args.context_noise
+        block_mask = self.generator.model._prepare_blockwise_causal_attn_mask(
+            device=device,
+            num_frames=num_recache_frames,
+            frame_seqlen=self.frame_seq_length,
+            num_frame_per_block=self.num_frame_per_block,
+            local_attn_size=self.local_attn_size
+        )
+        
+        context_timestep = torch.ones([batch_size, num_recache_frames], 
+                                    device=device, dtype=torch.int64) * self.args.context_noise
+        
+        self.generator.model.block_mask = block_mask
+        
         # recache
         with torch.no_grad():
             self.generator(
@@ -75,7 +88,6 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
                 crossattn_cache=self.crossattn_cache,
                 current_start=recache_start_frame * self.frame_seq_length,
                 sink_recache_after_switch=not self.global_sink,
-                is_recache = True,
             )
         
         # reset cross-attention cache
@@ -83,17 +95,6 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
             blk["k"].zero_()
             blk["v"].zero_()
             blk["is_init"] = False
-
-        # reinit the heterogeneous memory allocation after switch
-        for block_idx in range(self.num_transformer_blocks):
-            cur_cache = self.kv_cache1[block_idx]
-            group_first = cur_cache["headgroup_first"]
-            group_mid = cur_cache["headgroup_mid"]
-            group_last = cur_cache["headgroup_last"]
-            cur_cache['sink_k'] = torch.cat([cur_cache['sink_k'][:, :, group_first], cur_cache['local_k'][:, -1560:, group_last]], dim=2).contiguous().clone()
-            cur_cache['sink_v'] = torch.cat([cur_cache['sink_v'][:, :, group_first], cur_cache['local_v'][:, -1560:, group_last]], dim=2).contiguous().clone()
-            cur_cache['local_k'] = cur_cache['local_k'][:, :, group_mid].contiguous().clone()
-            cur_cache['local_v'] = cur_cache['local_v'][:, :, group_mid].contiguous().clone()
 
     def inference(
         self,
@@ -103,6 +104,8 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
         switch_frame_indices: List[int],
         return_latents: bool = False,
         low_memory: bool = False,
+        profile: Optional[bool] = None,
+        sample_idx: Optional[int] = None,
     ):
         """Generate a video and switch prompts at specified frame indices.
 
@@ -121,7 +124,28 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
         )
         assert num_output_frames % self.num_frame_per_block == 0
         num_blocks = num_output_frames // self.num_frame_per_block
+        profile = getattr(self.args, "profile", False) if profile is None else profile
 
+        if profile:
+            init_start = torch.cuda.Event(enable_timing=True)
+            init_end = torch.cuda.Event(enable_timing=True)
+            diffusion_start = torch.cuda.Event(enable_timing=True)
+            diffusion_end = torch.cuda.Event(enable_timing=True)
+            vae_start = torch.cuda.Event(enable_timing=True)
+            vae_end = torch.cuda.Event(enable_timing=True)
+            block_start = torch.cuda.Event(enable_timing=True)
+            block_end = torch.cuda.Event(enable_timing=True)
+            recache_start = torch.cuda.Event(enable_timing=True)
+            recache_end = torch.cuda.Event(enable_timing=True)
+            block_times = []
+            recache_times = []
+            segment_times = [0.0 for _ in text_prompts_list]
+            segment_frames = [0 for _ in text_prompts_list]
+            init_start.record()
+        
+        
+        # encode all prompts
+        print(text_prompts_list)
         cond_list = [self.text_encoder(text_prompts=p) for p in text_prompts_list]
 
         if low_memory:
@@ -169,6 +193,11 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
         print(f"[inference] local_attn_size set on model: {self.generator.model.local_attn_size}")
         self._set_all_modules_max_attention_size(self.local_attn_size)
 
+        if profile:
+            init_end.record()
+            torch.cuda.synchronize()
+            diffusion_start.record()
+
         # temporal denoising by blocks
         all_num_frames = [self.num_frame_per_block] * num_blocks
         segment_idx = 0  # current segment index
@@ -182,10 +211,20 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
             print("[MultipleSwitch] all_num_frames", all_num_frames)
             print("[MultipleSwitch] switch_frame_indices", switch_frame_indices)
 
-        for AR_step, current_num_frames in  enumerate(all_num_frames):
+        for current_num_frames in all_num_frames:
             if next_switch_pos is not None and current_start_frame >= next_switch_pos:
                 segment_idx += 1
-                self._recache_after_switch(output, current_start_frame, cond_list[segment_idx], batch_size, dtype=noise.dtype, device=noise.device)
+                if profile:
+                    recache_start.record()
+                self._recache_after_switch(output, current_start_frame, cond_list[segment_idx])
+                if profile:
+                    recache_end.record()
+                    torch.cuda.synchronize()
+                    recache_times.append(recache_start.elapsed_time(recache_end))
+                if DEBUG:
+                    print(
+                        f"[MultipleSwitch] Switch to segment {segment_idx} at frame {current_start_frame}"
+                    )
                 next_switch_pos = (
                     switch_frame_indices[segment_idx]
                     if segment_idx < len(switch_frame_indices)
@@ -194,12 +233,13 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
                 print(f"segment_idx: {segment_idx}")
                 print(f"text_prompts_list[segment_idx]: {text_prompts_list[segment_idx]}")
 
-            # for profiling runtime at interactive generation
-            # self_start = torch.cuda.Event(enable_timing=True)
-            # self_end = torch.cuda.Event(enable_timing=True)
-            # self_start.record()
+            if profile:
+                block_start.record()
             cond_in_use = cond_list[segment_idx]
-            noisy_input = noise[:, current_start_frame : current_start_frame + current_num_frames]
+
+            noisy_input = noise[
+                :, current_start_frame : current_start_frame + current_num_frames
+            ]
 
             # ---------------- Spatial denoising loop ----------------
             for index, current_timestep in enumerate(self.denoising_step_list):
@@ -254,41 +294,54 @@ class InteractiveCausalInferencePipeline(CausalInferencePipeline_Dummy_Forcing):
 
             # Update frame pointer
             current_start_frame += current_num_frames
-            # self_end.record()
-            # torch.cuda.synchronize()
-            # elapsed_time = self_start.elapsed_time(self_end)
-            # print(f"Self Attn time {elapsed_time:.3f} ms. at layer idx{AR_step}")
+
+            if profile:
+                block_end.record()
+                torch.cuda.synchronize()
+                block_time = block_start.elapsed_time(block_end)
+                block_times.append(block_time)
+                segment_times[segment_idx] += block_time
+                segment_frames[segment_idx] += current_num_frames
+
+        if profile:
+            diffusion_end.record()
+            torch.cuda.synchronize()
+            diffusion_time = diffusion_start.elapsed_time(diffusion_end)
+            init_time = init_start.elapsed_time(init_end)
+            vae_start.record()
 
         # Standard decoding
         video = self.vae.decode_to_pixel(output.to(noise.device), use_cache=False)
         video = (video * 0.5 + 0.5).clamp(0, 1)
 
+        if profile:
+            vae_end.record()
+            torch.cuda.synchronize()
+            vae_time = vae_start.elapsed_time(vae_end)
+            total_time = init_time + diffusion_time + vae_time
+            recache_total = sum(recache_times)
+
+            print("Profiling results:")
+            print(f"  - Initialization/caching time: {init_time:.2f} ms ({100 * init_time / total_time:.2f}%)")
+            print(f"  - Diffusion generation time: {diffusion_time:.2f} ms ({100 * diffusion_time / total_time:.2f}%)")
+            for i, block_time in enumerate(block_times):
+                print(f"    - Block {i} generation time: {block_time:.2f} ms ({100 * block_time / diffusion_time:.2f}% of diffusion)")
+            print(f"  - Prompt switch recache time: {recache_total:.2f} ms ({100 * recache_total / diffusion_time:.2f}% of diffusion)")
+            for i, recache_time in enumerate(recache_times):
+                print(f"    - Recache {i} time: {recache_time:.2f} ms")
+            print(f"  - VAE decoding time: {vae_time:.2f} ms ({100 * vae_time / total_time:.2f}%)")
+            print(f"  - Total time: {total_time:.2f} ms")
+            print("  - Segment FPS:")
+            for i, (segment_frame_count, segment_time) in enumerate(zip(segment_frames, segment_times)):
+                if segment_frame_count == 0:
+                    continue
+                segment_fps = 4 * segment_frame_count * 1000 / segment_time if segment_time > 0 else 0.0
+                print(
+                    f"    - Segment {i}: {segment_fps:.2f} fps "
+                    f"({segment_frame_count} latent frames, {segment_time:.2f} ms)"
+                )
+                _append_fps_record(self.args.output_folder, f"{sample_idx}-segment{i}", segment_fps)
+
         if return_latents:
             return video, output
-        return video
-
-    def _initialize_kv_cache(self, batch_size, dtype, device, kv_cache_size_override: int | None = None):
-        """
-        Initialize a Per-GPU KV cache for the Wan model.
-        """
-        kv_cache1 = []
-        # Determine cache size
-        if kv_cache_size_override is not None:
-            kv_cache_size = kv_cache_size_override
-        else:
-            if self.local_attn_size != -1:
-                # Local attention: cache only needs to store the window
-                kv_cache_size = self.local_attn_size * self.frame_seq_length
-            else:
-                # Global attention: default cache for 21 frames (backward compatibility)
-                kv_cache_size = 32760
-
-        for _ in range(self.num_transformer_blocks):
-            kv_cache1.append({
-                "sink_k": torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device),
-                "sink_v": torch.zeros([batch_size, 0,  12, 128], dtype=dtype, device=device),
-                "local_k": torch.zeros([batch_size, 0, 12, 128], dtype=dtype, device=device),
-                "local_v": torch.zeros([batch_size, 0, 12, 128], dtype=dtype, device=device),
-            })
-
-        self.kv_cache1 = kv_cache1  # always store the clean cache
+        return video 

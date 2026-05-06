@@ -6,8 +6,7 @@ DEVICE="cuda:${GPU_ID}"
 TopK=39 # 30s = 40 chunks
 
 video_path=(
-    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{modify}_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_s1_t1_d1_patch6_0.33_fp8"
-    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{naive_sink3_0.8}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33_fp8"
+    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{0.5}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33"
 )   
 
 for path in "${video_path[@]}"; do
@@ -25,5 +24,5 @@ for path in "${video_path[@]}"; do
         exit 1
     fi
 
-    python optical_difference.py --model="$MODEL_PATH" --path="$path" --device="$DEVICE" --k $TopK # By default, k=1
+    python optical_difference.py --model="$MODEL_PATH" --path="$path" --device="$DEVICE" --k $TopK
 done

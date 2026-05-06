@@ -12,7 +12,7 @@ model_kwargs:
   sink_size: 3
 
 forcingkv:
-  ar_start: 0
+  ar_start: 3
   spatial_context_length: 4 # active in forcingkv, unit is HW
   temporal_context_length: 4 # active in forcingkv, unit is HW (3 == old local_context_length 1)
   dynamic_context_length: 0
@@ -33,7 +33,7 @@ forcingkv:
 # inference
 method: forcingkv
 data_path: prompts/example_prompts.txt
-output_folder: videos_new/speed/streamingllm_self_forcing_30s_ar1_sink3_s4_t4
+output_folder: videos_new/speed/streamingllm_self_forcing_30s_ar3_sink3_s4_t4
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true

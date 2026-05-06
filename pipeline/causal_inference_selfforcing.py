@@ -151,7 +151,7 @@ class CausalInferencePipeline_Self_Forcing(torch.nn.Module):
             self._initialize_kv_cache(
                 batch_size=batch_size,
                 dtype=noise.dtype,
-                device=noise.device
+                device=noise.device,
             )
             self._initialize_crossattn_cache(
                 batch_size=batch_size,
@@ -324,6 +324,7 @@ class CausalInferencePipeline_Self_Forcing(torch.nn.Module):
         Initialize a Per-GPU KV cache for the Wan model.
         """
         kv_cache1 = []
+
         if self.local_attn_size != -1:
             # Use the local attention size to compute the KV cache size
             kv_cache_size = self.local_attn_size * self.frame_seq_length

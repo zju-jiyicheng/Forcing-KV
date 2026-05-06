@@ -21,6 +21,7 @@ from pipeline import (
     CausalInferencePipeline_Rolling_Forcing,
     CausalInferencePipeline_ForcingKV,
     CausalInferencePipeline_ForcingKV_Self_Forcing_Long,
+    CausalInferencePipeline_Realtime,
 )
 from utils.dataset import TextDataset
 from utils.misc import set_seed
@@ -93,19 +94,30 @@ elif config.method == 'self_forcing_long':
 elif config.method == 'rolling_forcing':
     print("Using Rolling Forcing")
     pipeline = CausalInferencePipeline_Rolling_Forcing(config, device=device)
+elif config.method == 'realtime':
+    print("Using Realtime")
+    pipeline = CausalInferencePipeline_Realtime(config, device=device)
+elif config.method == 'forcingkv_realtime':
+    print("Using ForcingKV Realtime")
+    pipeline = CausalInferencePipeline_Realtime(config, device=device)
 else:
     print("Not Supported Method, fall back to Self Forcing")
     pipeline = CausalInferencePipeline_Self_Forcing(config, device=device)
 
 # Load generator checkpoint
 if config.generator_ckpt:
-    state_dict = torch.load(config.generator_ckpt, map_location="cpu")
+    checkpoint_path = str(config.generator_ckpt)
+    if checkpoint_path.endswith(".safetensors"):
+        from safetensors.torch import load_file as load_safetensors
+        state_dict = load_safetensors(checkpoint_path, device="cpu")
+    else:
+        state_dict = torch.load(checkpoint_path, map_location="cpu")
     if "generator" in state_dict or "generator_ema" in state_dict:
         raw_gen_state_dict = state_dict["generator_ema" if config.use_ema else "generator"]
     elif "model" in state_dict:
         raw_gen_state_dict = state_dict["model"]
     else:
-        raise ValueError(f"Generator state dict not found in {config.generator_ckpt}")
+        raw_gen_state_dict = state_dict
     if config.use_ema:
         def _clean_key(name: str) -> str:
             """Remove FSDP / checkpoint wrapper prefixes from parameter names."""
@@ -232,7 +244,7 @@ for i, batch_data in tqdm(enumerate(dataloader), disable=(local_rank != 0)):
         text_prompts=prompts,
         return_latents=True,
         low_memory=low_memory,
-        profile=False,
+        profile=getattr(config, "profile", False),
         num_output_frames=config.num_output_frames,
         sample_idx=idx,
     )

@@ -1,6 +1,7 @@
 # Adopted from https://github.com/guandeh17/Self-Forcing
 # SPDX-License-Identifier: Apache-2.0
 import types
+import os
 from typing import List, Optional
 import torch
 from torch import nn
@@ -130,29 +131,43 @@ class WanDiffusionWrapper(torch.nn.Module):
     ):
         super().__init__()
 
+        model_path = str(model_name)
+        if not os.path.isabs(model_path):
+            model_path = f"/ycji/code/Forcing-KV/pretrained/{model_path}/"
+
         if is_causal:
             if method == 'dummy_forcing':
                 print("Loading Dummy Forcing Wan Model")
                 from wan.modules.causal_model_dummyforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
             elif method == 'forcingkv':
                 print("Loading ForcingKV Wan Model")
                 from wan.modules.causal_model_forcingkv import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
+            elif method == 'forcingkv_realtime':
+                print("Loading ForcingKV Realtime Wan Model")
+                from wan.modules.causal_model_forcingkv_realtime import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
             elif method == 'rolling_forcing':
                 print("Loading Rolling Forcing Wan Model")
                 from wan.modules.causal_model_rollingforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
+            elif method == 'realtime':
+                print("Loading Realtime Wan Model")
+                from wan.modules.causal_model_realtime import CausalWanModel
+                self.model = CausalWanModel.from_pretrained(
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
             else:
-                print("Loading Self Forcing Wan Model")
+                print("Loading Self Forcing / Longlive Wan Model")
                 from wan.modules.causal_model_selfforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
-                    f"/ycji/code/Forcing-KV/pretrained/{model_name}/", local_attn_size=local_attn_size, sink_size=sink_size)
+                    model_path, local_attn_size=local_attn_size, sink_size=sink_size)
         else:
-            self.model = WanModel.from_pretrained(f"/ycji/code/Forcing-KV/pretrained/{model_name}/")
+            self.model = WanModel.from_pretrained(model_path)
         self.model.eval()
 
         # For non-causal diffusion, all frames share the same timestep

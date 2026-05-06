@@ -7,15 +7,15 @@ config_path='configs/forcingkv_longlive_head_vbenchlong.yaml'
 result_name="videos_new/vbench/forcingkv_{0.5}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38526 sample_vbench.py --config_path $config_path
+# torchrun --nproc_per_node=1 --master_port=38526 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score
 cd ..
 cd ./VBench
 conda activate vbenchlong
-dimensions=("subject_consistency" "background_consistency" "aesthetic_quality" "imaging_quality"  "motion_smoothness" "dynamic_degree" )
-# dimensions=("subject_consistency" "background_consistency" "aesthetic_quality" "imaging_quality" "object_class" "multiple_objects" "color" "spatial_relationship" "scene" "temporal_style" "overall_consistency" "human_action" "temporal_flickering" "motion_smoothness" "dynamic_degree" "appearance_style")
+# dimensions=("subject_consistency" "background_consistency" "aesthetic_quality" "imaging_quality"  "motion_smoothness" "dynamic_degree" )
+dimensions=("imaging_quality"  "motion_smoothness" "dynamic_degree" )
 output_path="${videos_path}/vbenchlong"
 
 for dimension in "${dimensions[@]}"; do

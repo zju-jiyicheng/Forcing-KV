@@ -2,12 +2,12 @@ source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
 export CUDA_VISIBLE_DEVICES=7
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{random_total}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33'
+videos_path='/ycji/code/Forcing-KV/videos_new/speed/longlive_interactive_videos_60s'
 config_path='configs/forcingkv_longlive_head_vbenchlong.yaml'
-result_name="forcingkv_{random_total}_longlive_30s_ar4_sink1_s1_t1_d1_patch6_0.33"
+result_name="/ycji/code/Forcing-KV/videos_new/speed/longlive_interactive_videos_60s"
 
 # Step 1. Generate Videos
-torchrun --nproc_per_node=1 --master_port=38512 sample_vbench.py --config_path $config_path
+# torchrun --nproc_per_node=1 --master_port=38512 sample_vbench.py --config_path $config_path
 
 
 # Step 2. VBench Raw Score
@@ -15,7 +15,6 @@ cd ..
 cd ./VBench
 conda activate vbenchlong
 dimensions=("subject_consistency" "background_consistency" "aesthetic_quality" "imaging_quality"  "motion_smoothness" "dynamic_degree" )
-# dimensions=("subject_consistency" "background_consistency" "aesthetic_quality" "imaging_quality" "object_class" "multiple_objects" "color" "spatial_relationship" "scene" "temporal_style" "overall_consistency" "human_action" "temporal_flickering" "motion_smoothness" "dynamic_degree" "appearance_style")
 output_path="${videos_path}/vbenchlong"
 
 for dimension in "${dimensions[@]}"; do

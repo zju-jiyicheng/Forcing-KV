@@ -13,6 +13,7 @@ imageio-ffmpeg
 # numpy==1.24.4
 wandb
 omegaconf
+safetensors
 einops
 av==13.1.0
 opencv-python

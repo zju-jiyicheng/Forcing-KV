@@ -1,0 +1,59 @@
+denoising_step_list:
+- 1000
+- 937
+- 833
+- 625
+- 0
+warp_denoising_step: false
+num_frame_per_block: 3
+model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-14B
+model_kwargs:
+  local_attn_size: -1
+  timestep_shift: 5.0
+  sink_size: 1
+
+forcingkv:
+  ar_start: 1
+  spatial_context_length: 1
+  temporal_context_length: 6
+  dynamic_context_length: 0
+  # Teacache
+  teacache_enabled: false
+  teacache_threshold: 0.2
+  # Dynamic KV Cache is not implemented in causal_model_forcingkv_realtime.py yet.
+  dynamic_temporal_enabled: false
+  num_frame_patch: 6
+  sim_retention_ratio: 0.33
+  # Offline Head Classification
+  use_offline_head: true
+  offline_head_file: configs_head/forcingkv_heads_realtime_14b_mine.json
+  quantization_enabled: false
+  pruning_method: uniform
+  budget: 0.0
+
+# inference
+method: forcingkv_realtime
+data_path: prompts/vbench/all_dimension.txt
+extended_prompt_path: prompts/vbench/all_dimension_extended.txt
+output_folder: videos_new/vbench/forcingkv_realtime_5s_ar1_sink1_static1_temporal6
+inference_iter: -1
+num_output_frames: 21
+use_ema: false
+seed: 0
+num_samples: 1
+profile: true
+save_with_index: true
+global_sink: true
+context_noise: 0
+resolution: 480
+
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/realtime/krea-realtime-video-14b.safetensors
+lora_ckpt: ~
+
+adapter:
+  type: "lora"
+  rank: 256
+  alpha: 256
+  dropout: 0.0
+  dtype: "bfloat16"
+  verbose: false

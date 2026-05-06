@@ -14,24 +14,28 @@ model_kwargs:
 forcingkv:
   ar_start: 2
   spatial_context_length: 1 # active in forcingkv, unit is HW
-  temporal_context_length: 1 # active in forcingkv, unit is HW (3 == old local_context_length 1)
+  temporal_context_length: 1 # active in forcingkv, unit is HW)
   dynamic_context_length: 1
   # Teacache
   teacache_enabled: false
   teacache_threshold: 0.2
   # Dynamic KV Cache
   dynamic_temporal_enabled: true
-  # patch_num: [6,4]
   num_frame_patch: 6
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
-  offline_head_file: configs_head/forcingkv_heads_longlive_naive_sink_3_thr08.json #configs_head/forcingkv_heads_longlive_human.json
+  offline_head_file: /ycji/code/Forcing-KV/configs_head/forcingkv_heads_longlive_random/forcingkv_heads_longlive_random_temporal1.json #configs_head/forcingkv_heads_longlive_naive_sink_3_thr08.json
   quantization_enabled: false
+  #new
+  pruning_method: dynamic
+  budget: 0.125
+
+
 # inference
 method: forcingkv
-data_path: prompts/example_prompts.txt
-output_folder: videos_new/speed/forcingkv_{naive_sink3_0.8}_longlive_30s_ar2_sink1_s1_t1_d1_p6_0.33
+data_path: prompts/example_prompts_5.txt
+output_folder: videos_new/speed/forcingkv_{random_temporal1}_longlive_30s_ar2_sink1_s1_t1_d1_p6_0.33 #videos_new/speed/forcingkv_{final}_longlive_30s_ar2_sink1_s1_t1_dynamic_patch6_sim0.16_d0.5 
 inference_iter: -1
 num_output_frames: 120
 use_ema: false
