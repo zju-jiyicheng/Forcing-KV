@@ -26,17 +26,16 @@ forcingkv:
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_selfforcing.json #configs_head/forcingkv_heads_selfforcing_human.json
-  quantization_enabled: true
+  # FP8 quantization
+  quantization_enabled: false
   #new
-  pruning_method: uniform
-  budget: 0.0
 
 
 
 # inference
 method: forcingkv
 data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/speed/forcingkv_{naive_sink3_0.8}_self_forcing_30s_ar1_sink1_spatial1_temporal1_dynamic1_patch6_sim0.33_fp8 #videos_new/speed/forcingkv_{final}_self_forcing_30s_ar1_sink1_s1_t1_uniform_budget0.0_d0 
+output_folder: videos/forcingkv_self_forcing_30s
 inference_iter: -1
 num_output_frames: 120 #21
 use_ema: true

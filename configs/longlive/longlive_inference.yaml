@@ -21,8 +21,8 @@ dummy_forcing:
 
 # inference
 method: longlive
-data_path: prompts/example_prompts_5.txt
-output_folder: videos_new/speed/longlive_30s_sink3_attn12
+data_path: prompts/example_prompts.txt
+output_folder: videos/longlive_30s
 inference_iter: -1
 num_output_frames: 120
 use_ema: false

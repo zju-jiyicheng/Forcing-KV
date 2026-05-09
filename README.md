@@ -27,166 +27,344 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 
 
 
-## <a name="results"></a> 🥇 Results
-Our Dummy Forcing can generate videos at **24.3FPS** speed, click to see the generation results below!
+## <a name="gallery"></a> Gallery
 
-### 5-second Short Video
-
-<details open>
-<summary><b>click to expand</b></summary>
-<table>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/000.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/001.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/010.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/011.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/020.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/021.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/030.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/031.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/040.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/041.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/050.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/051.gif" width="360"/></div>
-</td>
-</tr>
-<tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/060.gif" width="360"/></div>
-</td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/061.gif" width="360"/></div>
-</td>
-</tr>
-</table>
-</details>
-
-### 30-second Long Video
-
+### LongLive 30s
 
 <details open>
 <summary><b>click to expand</b></summary>
 <table>
 <tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/100.gif" width="360"/></div>
+<td colspan="2" align="center"><b>A cyclone of broken glass in a</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_30s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
 </td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/101.gif" width="360"/></div>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_30s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
 </td>
 </tr>
 <tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/110.gif" width="360"/></div>
+<td colspan="2" align="center"><b>A man made of rocks walking in</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_30s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
 </td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/111.gif" width="360"/></div>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_30s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
 </td>
 </tr>
 <tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/120.gif" width="360"/></div>
+<td colspan="2" align="center"><b>A close up of an older man in</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_30s/case_08_baseline.mp4" width="360" controls muted loop playsinline></video>
 </td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/121.gif" width="360"/></div>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_30s/case_08_forcingkv.mp4" width="360" controls muted loop playsinline></video>
 </td>
 </tr>
 <tr>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Self Forcing (baseline) 17.5FPS</div>
-<div><img src="assets/130.gif" width="360"/></div>
+<td colspan="2" align="center"><b>Macro shot of a volcano erupti</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_30s/case_11_baseline.mp4" width="360" controls muted loop playsinline></video>
 </td>
-<td align="center" style="border: 2px solid #000; padding: 10px;">
-<div style="font-size: 1.1em;">Dummy Forcing (ours) <b>24.3FPS</b></div>
-<div><img src="assets/131.gif" width="360"/></div>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_30s/case_11_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A Japanese animated film of a</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_30s/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_30s/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
 </td>
 </tr>
 </table>
 </details>
 
+### LongLive 5s
+
+<details open>
+<summary><b>click to expand</b></summary>
+<table>
+<tr>
+<td colspan="2" align="center"><b>A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>Aerial panoramic video from a drone of a fantasy land.</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A beautiful coastal beach in spring, waves lapping on sand, tilt up</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A cat wearing sunglasses at a pool</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_5s/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_5s/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A cute happy Corgi playing in park, sunset, Van Gogh style</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_5s/case_06_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_5s/case_06_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+</table>
+</details>
+
+### LongLive Interactive 60s
+
+<details open>
+<summary><b>click to expand</b></summary>
+<table>
+<tr>
+<td colspan="2" align="center"><b>Poker Player</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_interactive_60s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_interactive_60s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>Home Office</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>LongLive</div>
+<video src="assets/gallery/longlive_interactive_60s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/longlive_interactive_60s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+</table>
+</details>
+
+### Krea 5s
+
+<details open>
+<summary><b>click to expand</b></summary>
+<table>
+<tr>
+<td colspan="2" align="center"><b>a cat running happily</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Krea</div>
+<video src="assets/gallery/krea_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/krea_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>a clock and a backpack</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Krea</div>
+<video src="assets/gallery/krea_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/krea_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>a kite on the bottom of a skateboard, front view</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Krea</div>
+<video src="assets/gallery/krea_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/krea_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+</table>
+</details>
+
+### Self Forcing 30s
+
+<details open>
+<summary><b>click to expand</b></summary>
+<table>
+<tr>
+<td colspan="2" align="center"><b>A pencil drawing an architectu</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_30s_refine/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_30s_refine/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A litter of golden retriever p</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_30s_refine/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_30s_refine/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A flock of paper airplanes flu</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_30s_refine/case_06_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_30s_refine/case_06_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+</table>
+</details>
+
+### Self Forcing 5s
+
+<details open>
+<summary><b>click to expand</b></summary>
+<table>
+<tr>
+<td colspan="2" align="center"><b>A tranquil tableau of house</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A beautiful coastal beach in spring, waves lapping on sand, animated style</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><b>A confused panda in calculus class</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<div>Self Forcing</div>
+<video src="assets/gallery/self_forcing_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+</td>
+<td align="center" width="50%">
+<div><b>Forcing-KV</b></div>
+<video src="assets/gallery/self_forcing_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+</td>
+</tr>
+</table>
+</details>
 ## ✨ Highlights
 
-
-1️⃣ **About 25% Heads in existing autoregressive video diffusion models are ''Dummy''** 
-
-<p align="center">
-    <img src="assets/observation.jpg" style="border-radius: 15px">
-</p>
-
-
-2️⃣ **Training-Free Efficient Video Generation (480P/720P/1080P, up to 2.0x speedup)**
+1. Placeholder highlight for the first key idea.
+2. Placeholder highlight for the second key result.
+3. Placeholder highlight for the third practical takeaway.
 
 <p align="center">
-    <img src="assets/tab_compare.jpg" width=800 style="border-radius: 15px">
+    <img src="assets/method.png" width="900" style="border-radius: 15px">
 </p>
-
-
-3️⃣ **Enlarge Context Window w/o increasing overhead (6.58x longer context)** 
-
-<p align="center">
-    <img src="assets/long_context.jpg" style="border-radius: 15px">
-</p>
-
 
 ## 📑 Contents
 
 - [News](#news)
 - [Pipeline](#pipeline)
 - [TODO](#todo)
-- [Results](#results)
+- [Gallery](#gallery)
 - [Citation](#cite)
 
 ## <a name="news"></a> 🆕 News

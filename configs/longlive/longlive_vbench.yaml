@@ -7,7 +7,7 @@ warp_denoising_step: true # need to remove - 0 in denoising_step_list if warp_de
 num_frame_per_block: 3
 model_name: /ycji/code/Forcing-KV/pretrained/Wan2.1-T2V-1.3B
 model_kwargs:
-  local_attn_size: 10
+  local_attn_size: 12
   timestep_shift: 5.0
   sink_size: 3
 
@@ -23,7 +23,7 @@ dummy_forcing:
 method: longlive
 data_path: prompts/vbench/all_dimension.txt
 extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder:  videos_new/vbench/longlive_attn10_5s # TODO add your official sampling dir here
+output_folder:  videos_new/vbench/longlive_5s
 inference_iter: -1
 num_output_frames: 21 # latent num of frames 120
 use_ema: false

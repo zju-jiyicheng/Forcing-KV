@@ -23,8 +23,8 @@ dummy_forcing:
 
 # inference
 method: realtime
-data_path: prompts/example_prompts_1.txt
-output_folder: videos_new/speed/realtime_5s
+data_path: prompts/example_prompts.txt
+output_folder: videos/realtime_5s
 inference_iter: -1
 num_output_frames: 21 #21
 use_ema: false

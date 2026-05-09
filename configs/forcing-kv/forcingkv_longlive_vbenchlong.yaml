@@ -22,14 +22,12 @@ forcingkv:
   # Dynamic KV Cache
   dynamic_temporal_enabled: true
   num_frame_patch: 6
-  patch_num: [6,4]
   sim_retention_ratio: 0.33
   #new
-  pruning_method: uniform
-  budget: 0.5
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: /ycji/code/Forcing-KV/configs_head/forcingkv_heads_longlive.json
+  # FP8 quantization
   quantization_enabled: false
 
 # inference

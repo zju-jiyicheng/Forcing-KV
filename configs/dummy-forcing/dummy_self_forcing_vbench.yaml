@@ -23,7 +23,7 @@ dummy_forcing:
 method: dummy_forcing
 data_path: prompts/vbench/all_dimension.txt
 extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos_new/vbench/dummy_self_forcing_5s_ctx1
+output_folder: videos_new/vbench/dummy_self_forcing_5s
 inference_iter: -1
 num_output_frames: 21 #21 # latent num of frames 120
 use_ema: true

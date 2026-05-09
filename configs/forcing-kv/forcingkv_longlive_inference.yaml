@@ -26,16 +26,15 @@ forcingkv:
   # Offline Head Classification
   use_offline_head: true
   offline_head_file: configs_head/forcingkv_heads_longlive.json
+  # FP8 quantization
   quantization_enabled: false
   #new
-  pruning_method: dynamic
-  budget: 0.125
 
 
 # inference
 method: forcingkv
 data_path: prompts/example_prompts.txt
-output_folder: videos_new/speed/forcingkv_longlive_30s_
+output_folder: videos/forcingkv_longlive_30s
 inference_iter: -1
 num_output_frames: 120
 use_ema: false

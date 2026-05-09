@@ -23,7 +23,7 @@ dummy_forcing:
 method: dummy_forcing
 data_path: prompts/vbench/all_dimension.txt
 extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos_new/vbench/dummy_longlive_ctx1_5s_ # TODO add your official sampling dir here
+output_folder: videos_new/vbench/dummy_longlive
 inference_iter: -1
 num_output_frames: 21
 use_ema: false

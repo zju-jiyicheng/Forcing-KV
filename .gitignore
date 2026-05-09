@@ -1,5 +1,7 @@
 /assets/*
 !/assets/.gitkeep
+!/assets/gallery/
+!/assets/gallery/**
 .idea/
 pretrained
 __pycache__/
@@ -19,3 +21,4 @@ videos_study/
 draw/
 *.pt
 *.mp4
+!/assets/gallery/**/*.mp4
