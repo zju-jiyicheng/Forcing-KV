@@ -1,7 +1,7 @@
 [
   {
     "layer_idx": 0,
-    "local_head": [
+    "static_head": [
       0,
       1,
       5,
@@ -23,7 +23,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       2,
       3,
       4,
@@ -48,7 +48,7 @@
   },
   {
     "layer_idx": 1,
-    "local_head": [
+    "static_head": [
       1,
       4,
       8,
@@ -70,7 +70,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       3,
@@ -95,7 +95,7 @@
   },
   {
     "layer_idx": 2,
-    "local_head": [
+    "static_head": [
       0,
       3,
       4,
@@ -117,7 +117,7 @@
       36,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       5,
@@ -142,7 +142,7 @@
   },
   {
     "layer_idx": 3,
-    "local_head": [
+    "static_head": [
       1,
       2,
       4,
@@ -164,7 +164,7 @@
       35,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       5,
@@ -189,7 +189,7 @@
   },
   {
     "layer_idx": 4,
-    "local_head": [
+    "static_head": [
       4,
       5,
       6,
@@ -211,7 +211,7 @@
       34,
       35
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -236,7 +236,7 @@
   },
   {
     "layer_idx": 5,
-    "local_head": [
+    "static_head": [
       1,
       2,
       4,
@@ -258,7 +258,7 @@
       36,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       5,
@@ -283,7 +283,7 @@
   },
   {
     "layer_idx": 6,
-    "local_head": [
+    "static_head": [
       2,
       3,
       4,
@@ -305,7 +305,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       5,
@@ -330,7 +330,7 @@
   },
   {
     "layer_idx": 7,
-    "local_head": [
+    "static_head": [
       1,
       2,
       4,
@@ -352,7 +352,7 @@
       37,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       5,
@@ -377,7 +377,7 @@
   },
   {
     "layer_idx": 8,
-    "local_head": [
+    "static_head": [
       0,
       3,
       4,
@@ -399,7 +399,7 @@
       36,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       6,
@@ -424,7 +424,7 @@
   },
   {
     "layer_idx": 9,
-    "local_head": [
+    "static_head": [
       0,
       4,
       6,
@@ -446,7 +446,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       3,
@@ -471,7 +471,7 @@
   },
   {
     "layer_idx": 10,
-    "local_head": [
+    "static_head": [
       2,
       6,
       7,
@@ -493,7 +493,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       3,
@@ -518,7 +518,7 @@
   },
   {
     "layer_idx": 11,
-    "local_head": [
+    "static_head": [
       0,
       1,
       5,
@@ -540,7 +540,7 @@
       36,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       2,
       3,
       4,
@@ -565,7 +565,7 @@
   },
   {
     "layer_idx": 12,
-    "local_head": [
+    "static_head": [
       3,
       6,
       8,
@@ -587,7 +587,7 @@
       35,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -612,7 +612,7 @@
   },
   {
     "layer_idx": 13,
-    "local_head": [
+    "static_head": [
       3,
       4,
       5,
@@ -634,7 +634,7 @@
       35,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -659,7 +659,7 @@
   },
   {
     "layer_idx": 14,
-    "local_head": [
+    "static_head": [
       0,
       4,
       5,
@@ -681,7 +681,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       3,
@@ -706,7 +706,7 @@
   },
   {
     "layer_idx": 15,
-    "local_head": [
+    "static_head": [
       0,
       3,
       5,
@@ -728,7 +728,7 @@
       35,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       4,
@@ -753,7 +753,7 @@
   },
   {
     "layer_idx": 16,
-    "local_head": [
+    "static_head": [
       3,
       8,
       9,
@@ -775,7 +775,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -800,7 +800,7 @@
   },
   {
     "layer_idx": 17,
-    "local_head": [
+    "static_head": [
       0,
       1,
       2,
@@ -822,7 +822,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       4,
       5,
       6,
@@ -847,7 +847,7 @@
   },
   {
     "layer_idx": 18,
-    "local_head": [
+    "static_head": [
       1,
       2,
       4,
@@ -869,7 +869,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       5,
@@ -894,7 +894,7 @@
   },
   {
     "layer_idx": 19,
-    "local_head": [
+    "static_head": [
       1,
       2,
       7,
@@ -916,7 +916,7 @@
       37,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       4,
@@ -941,7 +941,7 @@
   },
   {
     "layer_idx": 20,
-    "local_head": [
+    "static_head": [
       0,
       1,
       6,
@@ -963,7 +963,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       2,
       3,
       4,
@@ -988,7 +988,7 @@
   },
   {
     "layer_idx": 21,
-    "local_head": [
+    "static_head": [
       0,
       2,
       3,
@@ -1010,7 +1010,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       6,
       8,
@@ -1035,7 +1035,7 @@
   },
   {
     "layer_idx": 22,
-    "local_head": [
+    "static_head": [
       0,
       1,
       2,
@@ -1057,7 +1057,7 @@
       36,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       4,
       5,
       6,
@@ -1082,7 +1082,7 @@
   },
   {
     "layer_idx": 23,
-    "local_head": [
+    "static_head": [
       0,
       1,
       4,
@@ -1104,7 +1104,7 @@
       34,
       36
     ],
-    "temporal_head": [
+    "dynamic_head": [
       2,
       3,
       5,
@@ -1129,7 +1129,7 @@
   },
   {
     "layer_idx": 24,
-    "local_head": [
+    "static_head": [
       1,
       5,
       6,
@@ -1151,7 +1151,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       3,
@@ -1176,7 +1176,7 @@
   },
   {
     "layer_idx": 25,
-    "local_head": [
+    "static_head": [
       5,
       6,
       7,
@@ -1198,7 +1198,7 @@
       37,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -1223,7 +1223,7 @@
   },
   {
     "layer_idx": 26,
-    "local_head": [
+    "static_head": [
       1,
       2,
       4,
@@ -1245,7 +1245,7 @@
       36,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       6,
@@ -1270,7 +1270,7 @@
   },
   {
     "layer_idx": 27,
-    "local_head": [
+    "static_head": [
       1,
       2,
       3,
@@ -1292,7 +1292,7 @@
       32,
       36
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       4,
       5,
@@ -1317,7 +1317,7 @@
   },
   {
     "layer_idx": 28,
-    "local_head": [
+    "static_head": [
       2,
       3,
       4,
@@ -1339,7 +1339,7 @@
       35,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       5,
@@ -1364,7 +1364,7 @@
   },
   {
     "layer_idx": 29,
-    "local_head": [
+    "static_head": [
       2,
       4,
       5,
@@ -1386,7 +1386,7 @@
       36,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       3,
@@ -1411,7 +1411,7 @@
   },
   {
     "layer_idx": 30,
-    "local_head": [
+    "static_head": [
       1,
       3,
       5,
@@ -1433,7 +1433,7 @@
       33,
       37
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       4,
@@ -1458,7 +1458,7 @@
   },
   {
     "layer_idx": 31,
-    "local_head": [
+    "static_head": [
       0,
       3,
       6,
@@ -1480,7 +1480,7 @@
       36,
       37
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       4,
@@ -1505,7 +1505,7 @@
   },
   {
     "layer_idx": 32,
-    "local_head": [
+    "static_head": [
       0,
       4,
       5,
@@ -1527,7 +1527,7 @@
       36,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       1,
       2,
       3,
@@ -1552,7 +1552,7 @@
   },
   {
     "layer_idx": 33,
-    "local_head": [
+    "static_head": [
       1,
       3,
       4,
@@ -1574,7 +1574,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       5,
@@ -1599,7 +1599,7 @@
   },
   {
     "layer_idx": 34,
-    "local_head": [
+    "static_head": [
       1,
       3,
       4,
@@ -1621,7 +1621,7 @@
       35,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       7,
@@ -1646,7 +1646,7 @@
   },
   {
     "layer_idx": 35,
-    "local_head": [
+    "static_head": [
       1,
       3,
       5,
@@ -1668,7 +1668,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       2,
       4,
@@ -1693,7 +1693,7 @@
   },
   {
     "layer_idx": 36,
-    "local_head": [
+    "static_head": [
       4,
       7,
       9,
@@ -1715,7 +1715,7 @@
       38,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,
@@ -1740,7 +1740,7 @@
   },
   {
     "layer_idx": 37,
-    "local_head": [
+    "static_head": [
       0,
       1,
       2,
@@ -1762,7 +1762,7 @@
       34,
       35
     ],
-    "temporal_head": [
+    "dynamic_head": [
       4,
       5,
       8,
@@ -1787,7 +1787,7 @@
   },
   {
     "layer_idx": 38,
-    "local_head": [
+    "static_head": [
       1,
       2,
       7,
@@ -1809,7 +1809,7 @@
       37,
       39
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       3,
       4,
@@ -1834,7 +1834,7 @@
   },
   {
     "layer_idx": 39,
-    "local_head": [
+    "static_head": [
       4,
       5,
       7,
@@ -1856,7 +1856,7 @@
       37,
       38
     ],
-    "temporal_head": [
+    "dynamic_head": [
       0,
       1,
       2,

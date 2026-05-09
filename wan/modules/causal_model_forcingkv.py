@@ -872,28 +872,35 @@ class CausalWanModel(ModelMixin, ConfigMixin):
         else:
             raise ValueError(f"Unsupported offline head file format: {type(layers)}")
 
+        def read_heads(item, names):
+            heads = []
+            for name in names:
+                if name in item:
+                    heads.extend(item.get(name) or [])
+            return sorted({int(h) for h in heads if 0 <= int(h) < self.num_heads})
+
         groups = {}
         for default_idx, item in layer_items:
             if not isinstance(item, dict):
                 continue
             layer_idx = int(item.get("layer_idx", default_idx))
-            spatial = sorted({
-                int(h) for h in item.get("local_head", item.get("local_heads", []))
-                if 0 <= int(h) < self.num_heads
-            })
-            temporal = sorted({
-                int(h) for h in item.get("temporal_head", item.get("temporal_heads", []))
-                if 0 <= int(h) < self.num_heads
-            })
-            if sorted(spatial + temporal) != list(range(self.num_heads)):
+            static_heads = read_heads(
+                item,
+                ("static_head", "static_heads", "local_head", "local_heads", "spatial_head", "spatial_heads"),
+            )
+            dynamic_heads = read_heads(
+                item,
+                ("dynamic_head", "dynamic_heads", "temporal_head", "temporal_heads"),
+            )
+            if sorted(static_heads + dynamic_heads) != list(range(self.num_heads)):
                 raise ValueError(
                     f"Offline head groups must cover all heads exactly once at layer {layer_idx}, "
-                    f"got {sorted(spatial + temporal)}"
+                    f"got {sorted(static_heads + dynamic_heads)}"
                 )
-            groups[layer_idx] = {"spatial_head": spatial, "temporal_head": temporal}
+            groups[layer_idx] = {"static_head": static_heads, "dynamic_head": dynamic_heads}
 
         for layer_idx in range(self.num_layers):
-            groups.setdefault(layer_idx, {"spatial_head": [], "temporal_head": list(range(self.num_heads))})
+            groups.setdefault(layer_idx, {"static_head": [], "dynamic_head": list(range(self.num_heads))})
 
         self._offline_head_groups = groups
         if not dist.is_initialized() or dist.get_rank() == 0:
@@ -917,8 +924,8 @@ class CausalWanModel(ModelMixin, ConfigMixin):
                 continue
 
             layer_group = groups[layer_idx]
-            spatial_heads = list(layer_group["spatial_head"])
-            temporal_heads = list(layer_group["temporal_head"])
+            spatial_heads = list(layer_group["static_head"])
+            temporal_heads = list(layer_group["dynamic_head"])
             frame_tokens = int(cur_cache.get("frame_tokens", 1560))
             spatial_keep = spatial_keep_tokens * frame_tokens
             temporal_keep = temporal_keep_tokens * frame_tokens

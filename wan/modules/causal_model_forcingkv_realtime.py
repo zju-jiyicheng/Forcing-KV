@@ -961,16 +961,16 @@ class CausalWanModel(ModelMixin, ConfigMixin):
                 item,
                 ("static_head", "static_heads", "local_head", "local_heads", "spatial_head", "spatial_heads"),
             )
-            temporal_heads = read_heads(item, ("temporal_head", "temporal_heads"))
-            if sorted(static_heads + temporal_heads) != list(range(self.num_heads)):
+            dynamic_heads = read_heads(item, ("dynamic_head", "dynamic_heads", "temporal_head", "temporal_heads"))
+            if sorted(static_heads + dynamic_heads) != list(range(self.num_heads)):
                 raise ValueError(
                     f"Offline head groups must cover all heads exactly once at layer {layer_idx}, "
-                    f"got {sorted(static_heads + temporal_heads)}"
+                    f"got {sorted(static_heads + dynamic_heads)}"
                 )
-            groups[layer_idx] = {"static_head": static_heads, "temporal_head": temporal_heads}
+            groups[layer_idx] = {"static_head": static_heads, "dynamic_head": dynamic_heads}
 
         for layer_idx in range(self.num_layers):
-            groups.setdefault(layer_idx, {"static_head": [], "temporal_head": list(range(self.num_heads))})
+            groups.setdefault(layer_idx, {"static_head": [], "dynamic_head": list(range(self.num_heads))})
 
         self._offline_head_groups = groups
         if not dist.is_initialized() or dist.get_rank() == 0:
@@ -991,7 +991,7 @@ class CausalWanModel(ModelMixin, ConfigMixin):
 
             layer_group = groups[layer_idx]
             static_heads = list(layer_group["static_head"])
-            temporal_heads = list(layer_group["temporal_head"])
+            temporal_heads = list(layer_group["dynamic_head"])
             frame_tokens = int(cur_cache.get("frame_tokens", 1560))
             local_end_index = int(cur_cache.get("local_end_index", 0))
             sink_tokens = int(self.blocks[layer_idx].self_attn.sink_size) * frame_tokens

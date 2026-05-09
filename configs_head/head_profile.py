@@ -5,7 +5,7 @@ from pathlib import Path
 import torch
 
 
-THRESHOLD = 0.5
+THRESHOLD = 0.8
 SKIP_FIRST_K = 1
 LAST_K = 4
 
@@ -72,21 +72,21 @@ def build_head_config(scores):
 
     output_layers = []
     for layer_idx in layers:
-        local_head = []
-        temporal_head = []
+        static_head = []
+        dynamic_head = []
         for head_idx in heads:
             key = (layer_idx, head_idx)
             if key not in scores:
                 raise ValueError(f"missing score for layer={layer_idx}, head={head_idx}")
             if scores[key] >= THRESHOLD:
-                local_head.append(head_idx)
+                static_head.append(head_idx)
             else:
-                temporal_head.append(head_idx)
+                dynamic_head.append(head_idx)
         output_layers.append(
             {
                 "layer_idx": layer_idx,
-                "local_head": local_head,
-                "temporal_head": temporal_head,
+                "static_head": static_head,
+                "dynamic_head": dynamic_head,
             }
         )
 

@@ -6,7 +6,7 @@ DEVICE="cuda:${GPU_ID}"
 TopK=7 # 5s = 7 chunks
 
 video_path=(
-    "/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_realtime_5s_ar1_sink1_static1_temporal3"
+    "/ycji/code/Forcing-KV/videos"
 )   
 
 for path in "${video_path[@]}"; do

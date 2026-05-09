@@ -1,10 +1,10 @@
 source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
-export CUDA_VISIBLE_DEVICES=2
-videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_{random_300}_longlive_30s_ar4_sink1_s0_t1_d0'
-config_path='configs/forcingkv_longlive_head_vbenchlong.yaml'
-result_name="forcingkv_{random_300}_longlive_30s_ar4_sink1_s0_t1_d0"
+export CUDA_VISIBLE_DEVICES=0
+videos_path='/ycji/code/Forcing-KV/videos_new/vbench/forcingkv_longlive_30s'
+config_path='configs/forcingkv_longlive_vbenchlong.yaml'
+result_name="forcingkv_longlive_30s"
 
 # Step 1. Generate Videos
 torchrun --nproc_per_node=1 --master_port=38517 sample_vbench.py --config_path $config_path

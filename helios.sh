@@ -2,7 +2,7 @@ source ~/miniconda3/etc/profile.d/conda.sh
 
 # Custom
 export CUDA_VISIBLE_DEVICES=1
-config_path='configs/longlive_helios.yaml'
+config_path='configs/forcingkv_longlive_helios.yaml'
 # videos_path='/nfs/ycji_temp/code/DummyForcing/videos/vbench/forcingkv_self_forcing_60s_ar4_sink0_spatial1_temporal6'
 # result_name="forcingkv_self_forcing_60s_ar4_sink0_spatial1_temporal6"
 

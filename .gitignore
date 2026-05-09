@@ -1,8 +1,7 @@
 /assets/*
 !/assets/.gitkeep
-
+.idea/
 pretrained
-
 __pycache__/
 *.pyc
 debug_outputs/
