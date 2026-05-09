@@ -17,7 +17,6 @@ import torch.nn as nn
 import torch
 import math
 import torch.distributed as dist
-from wan.modules.dummyforcing import save_head_attention_map, save_head_attention_map_v2
 
 # wan 1.3B model has a weird channel / head configurations and require max-autotune to work with flexattention
 # see https://github.com/pytorch/pytorch/issues/133254
@@ -238,32 +237,6 @@ class CausalWanSelfAttention(nn.Module):
             
             attn_key = kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index]
             attn_value = kv_cache["v"][:, max(0, local_end_index - self.max_attention_size):local_end_index]
-
-            # MODIFIED
-            # ar_steps_print = {3}  
-            # layer_print = {3}
-            # if cur_AR_step in ar_steps_print and blk_idx in layer_print:
-            #     save_head_attention_map(roped_query, kv_cache["k"][:, max(0, local_end_index - self.max_attention_size):local_end_index], cur_AR_step, blk_idx, "/ycji/code/Forcing-KV/visualize/sf_a3")
-
-            # # MODIFIED
-            # ar_steps_print = {8}
-            # # target_heads_by_layer = {
-            # #     2: [10],
-            # #     14: [9],
-            # # }
-            # target_heads_by_layer = {
-            #     layer_idx: list(range(12))
-            #     for layer_idx in range(30)
-            # }
-            # if cur_AR_step in ar_steps_print and blk_idx in target_heads_by_layer:
-            #     save_head_attention_map_v2(
-            #         roped_query,
-            #         attn_key,
-            #         cur_AR_step,
-            #         blk_idx,
-            #         target_heads_by_layer[blk_idx],
-            #         "/ycji/code/Forcing-KV/v_headgroup/headmap_sf_pt_ar8",
-            #     )
 
 
             x = attention(

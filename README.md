@@ -1,8 +1,6 @@
 <div align="center">
 ⚡️<b> Video Generation at 24FPS </b>⚡️
-<img src="assets/logo.jpg" style="border-radius: 15px">
-
-<img src="assets/teaser.jpg" style="border-radius: 15px">
+<img src="assets/teaser.png" style="border-radius: 15px">
 
 <h2>
 Efficient Autoregressive Video Diffusion with Dummy Head
@@ -40,11 +38,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_30s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_30s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -53,11 +57,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_30s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_03_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_03_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_30s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_03_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_03_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -66,11 +76,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_30s/case_08_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_08_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_08_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_30s/case_08_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_08_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_08_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -79,11 +95,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_30s/case_11_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_11_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_11_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_30s/case_11_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_11_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_11_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -92,11 +114,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_30s/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_05_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_05_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_30s/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_30s/case_05_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_30s/case_05_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
@@ -113,11 +141,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_01_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_01_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_01_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_01_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -126,11 +160,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -139,11 +179,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_03_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_03_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_03_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_03_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -152,11 +198,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_5s/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_05_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_05_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_5s/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_05_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_05_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -165,11 +217,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_5s/case_06_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_06_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_06_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_5s/case_06_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_5s/case_06_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_5s/case_06_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
@@ -186,11 +244,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_interactive_60s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_interactive_60s/case_01_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_interactive_60s/case_01_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_interactive_60s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -199,11 +263,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>LongLive</div>
-<video src="assets/gallery/longlive_interactive_60s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_interactive_60s/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_interactive_60s/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/longlive_interactive_60s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
@@ -220,11 +290,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Krea</div>
-<video src="assets/gallery/krea_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_01_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_01_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/krea_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_01_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_01_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -233,11 +309,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Krea</div>
-<video src="assets/gallery/krea_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/krea_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -246,11 +328,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Krea</div>
-<video src="assets/gallery/krea_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_03_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_03_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/krea_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/krea_5s/case_03_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/krea_5s/case_03_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
@@ -267,11 +355,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_30s_refine/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_30s_refine/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -280,11 +374,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_30s_refine/case_05_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_05_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_05_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_30s_refine/case_05_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -293,11 +393,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_30s_refine/case_06_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_06_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_06_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_30s_refine/case_06_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
@@ -314,11 +420,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_5s/case_01_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_01_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_01_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_5s/case_01_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_01_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -327,11 +439,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_5s/case_02_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_02_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_02_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_5s/case_02_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_02_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 <tr>
@@ -340,11 +458,17 @@ Dummy Forcing is built on the observation that about **25%** attention heads in 
 <tr>
 <td align="center" width="50%">
 <div>Self Forcing</div>
-<video src="assets/gallery/self_forcing_5s/case_03_baseline.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_03_baseline.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_03_baseline.mp4">View video</a>
+</video>
 </td>
 <td align="center" width="50%">
 <div><b>Forcing-KV</b></div>
-<video src="assets/gallery/self_forcing_5s/case_03_forcingkv.mp4" width="360" controls muted loop playsinline></video>
+<video width="360" controls muted loop playsinline>
+  <source src="https://raw.githubusercontent.com/zju-jiyicheng/Forcing-KV/main/assets/videos/self_forcing_5s/case_03_forcingkv.mp4" type="video/mp4">
+  <a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4">View video</a>
+</video>
 </td>
 </tr>
 </table>
