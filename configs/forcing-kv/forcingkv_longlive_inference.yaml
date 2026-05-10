@@ -28,7 +28,6 @@ forcingkv:
   offline_head_file: configs_head/forcingkv_heads_longlive.json
   # FP8 quantization
   quantization_enabled: false
-  #new
 
 
 # inference

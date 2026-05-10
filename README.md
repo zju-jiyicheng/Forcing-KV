@@ -73,98 +73,26 @@
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_02_baseline.mp4"><img src="assets/videos/longlive_30s/case_02_baseline.gif" width="460"></a>
+<a href="assets/videos/longlive_30s/case_02_baseline.mp4"><img src="assets/videos/longlive_30s/case_02_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_02_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_03_baseline.mp4"><img src="assets/videos/longlive_30s/case_03_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_03_forcingkv.gif" width="460"></a>
+<a href="assets/videos/longlive_30s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_02_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_08_baseline.mp4"><img src="assets/videos/longlive_30s/case_08_baseline.gif" width="460"></a>
+<a href="assets/videos/longlive_30s/case_11_baseline.mp4"><img src="assets/videos/longlive_30s/case_11_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_08_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_08_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_11_baseline.mp4"><img src="assets/videos/longlive_30s/case_11_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_11_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_11_forcingkv.gif" width="460"></a>
+<a href="assets/videos/longlive_30s/case_11_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_11_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_05_baseline.mp4"><img src="assets/videos/longlive_30s/case_05_baseline.gif" width="460"></a>
+<a href="assets/videos/longlive_5s/case_03_baseline.mp4"><img src="assets/videos/longlive_5s/case_03_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/longlive_30s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_05_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_01_baseline.mp4"><img src="assets/videos/longlive_5s/case_01_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_01_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_02_baseline.mp4"><img src="assets/videos/longlive_5s/case_02_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_02_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_03_baseline.mp4"><img src="assets/videos/longlive_5s/case_03_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_03_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_05_baseline.mp4"><img src="assets/videos/longlive_5s/case_05_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_05_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_06_baseline.mp4"><img src="assets/videos/longlive_5s/case_06_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_5s/case_06_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_06_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_interactive_60s/case_01_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_interactive_60s/case_02_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_forcingkv.gif" width="460"></a>
+<a href="assets/videos/longlive_5s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_03_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 </table>
@@ -181,26 +109,26 @@
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_01_baseline.mp4"><img src="assets/videos/krea_5s/case_01_baseline.gif" width="460"></a>
+<a href="assets/videos/krea_5s/case_01_baseline.mp4"><img src="assets/videos/krea_5s/case_01_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_01_forcingkv.mp4"><img src="assets/videos/krea_5s/case_01_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_02_baseline.mp4"><img src="assets/videos/krea_5s/case_02_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_02_forcingkv.mp4"><img src="assets/videos/krea_5s/case_02_forcingkv.gif" width="460"></a>
+<a href="assets/videos/krea_5s/case_01_forcingkv.mp4"><img src="assets/videos/krea_5s/case_01_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_03_baseline.mp4"><img src="assets/videos/krea_5s/case_03_baseline.gif" width="460"></a>
+<a href="assets/videos/krea_5s/case_02_baseline.mp4"><img src="assets/videos/krea_5s/case_02_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/krea_5s/case_03_forcingkv.mp4"><img src="assets/videos/krea_5s/case_03_forcingkv.gif" width="460"></a>
+<a href="assets/videos/krea_5s/case_02_forcingkv.mp4"><img src="assets/videos/krea_5s/case_02_forcingkv.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/krea_5s/case_03_baseline.mp4"><img src="assets/videos/krea_5s/case_03_baseline.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/krea_5s/case_03_forcingkv.mp4"><img src="assets/videos/krea_5s/case_03_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 </table>
@@ -217,58 +145,32 @@
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_02_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_baseline.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_01_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_01_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_05_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_forcingkv.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_01_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_06_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_baseline.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_02_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_02_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_01_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_01_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_01_forcingkv.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_02_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_02_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_02_baseline.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_03_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_03_baseline.gif" width="391"></a>
 </td>
 <td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_02_forcingkv.gif" width="460"></a>
-</td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_03_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_03_baseline.gif" width="460"></a>
-</td>
-<td align="center" width="50%">
-<a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_03_forcingkv.gif" width="460"></a>
+<a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_03_forcingkv.gif" width="391"></a>
 </td>
 </tr>
 </table>
 </details>
 
 Click any preview to view the full MP4. All demo files are available under [here](assets/videos).
-
-
 
 
 
@@ -326,135 +228,49 @@ Also modify the absolute path in `utils/wan_wrapper.py` and the .yaml files unde
 
 
 
-## 🚀 Inference
+## 🚀 Quick Inference
 
-### 5s Short Video Generation
-Example inference command with **Self-Forcing** model:
-
+### Inference Scripts
 ```
-python inference.py --config_path configs/forcing-kv/forcingkv_self_forcing_inference.yaml
-```
-
-Example inference command with **LongLive** model:
-
-```
+# Forcing-KV
 python inference.py --config_path configs/forcing-kv/forcingkv_longlive_inference.yaml
-```
-> You can also modify the text prompts in the `./prompts/example_prompts.txt` for customization.
+python inference.py --config_path configs/forcing-kv/forcingkv_realtime_inference.yaml
+python inference.py --config_path configs/forcing-kv/forcingkv_self_forcing_inference.yaml
+python inference.py --config_path configs/forcing-kv/forcingkv_longlive_interactive_inference.yaml ## Interacrive prompts
 
-The generated videos should be stored in the `./videos` file folder.
+# Base model
+python inference.py --config_path configs/longlive/longlive_inference.yaml
+python inference.py --config_path configs/self-forcing/self_forcing_inference.yaml
+python inference.py --config_path configs/krea-14b/realtime_inference.yaml
+python inference.py --config_path configs/longlive/longlive_interactive_inference.yaml ## Interacrive prompts
 
-Generation speed on our single H100 GPU:
+# Dummy Forcing
+python inference.py --config_path configs/dummy-forcing/dummy_longlive_inference.yaml
+python inference.py --config_path configs/dummy-forcing/dummy_self_forcing_inference.yaml
 
-```
-Profiling results:
-  - Initialization/caching time: 2.47 ms (0.03%)
-  - Diffusion generation time: 3409.26 ms (43.05%)
-    - Block 0 generation time: 404.37 ms (11.86% of diffusion)
-    - Block 1 generation time: 487.63 ms (14.30% of diffusion)
-    - Block 2 generation time: 543.08 ms (15.93% of diffusion)
-    - Block 3 generation time: 492.40 ms (14.44% of diffusion)
-    - Block 4 generation time: 493.01 ms (14.46% of diffusion)
-    - Block 5 generation time: 494.33 ms (14.50% of diffusion)
-    - Block 6 generation time: 494.13 ms (14.49% of diffusion)
-  - VAE decoding time: 4507.72 ms (56.92%)
-  - Total time: 7919.44 ms
 ```
 
-Each AR step generates 12 frames, so the generation speed is **24.3 frames/second**. Including the VAE time, **Forcing-KV generates a 5s-long video in 8s.**
+### Args
+- **Generation Length**: Set the `num_output_frames` parameter in the config file to control the generated video length.
+- **Resolution**: Set the `resolution` parameter in the config file to generate videos at the target resolution (480P, 720P, 1080P).
+- **Custom Prompts**: Set the `data_path` parameter to the prompt file you want to use.
+- **Quantization**: Set the `quantization_enabled` parameter to enable or disable quantization.
 
 
+## 🚀 Evaluation
 For quantitative evaluation on VBench, one can run the following command:
 
 
-```
-# for self-forcing model
-torchrun  --nproc_per_node=1 --master_port=39500  sample_vbench.py --config_path configs/forcing-kv/forcingkv_self_forcing_vbench.yaml
 
-# for longlive model
-torchrun  --nproc_per_node=1 --master_port=29500  sample_vbench.py --config_path configs/forcing-kv/forcingkv_longlive_vbench.yaml
-```
+## <a name="cite"></a> Citation
 
-The above command will generate 5 videos per prompt, and all videos are saved in one folder for subsequent VBench eval. From my experience, the total time for VBench generation usually finish overnight!
-
-After obtaining the generated videos, please see the official repo of [VBench](https://github.com/Vchitect/VBench) for evaluation details.
-
-
-### Compatibility with TeaCache 
-
-We also support the widely used [teacache](https://github.com/ali-vilab/TeaCache) technique for more aggressive speedup (over 30FPS generation speed).
-
-To enable teacache, change the `teacache_enabled` to `true` and the teacache will be automatically used in model forward. Generation speed with teacache at our end:
-
-```
-Profiling results:
-  - Initialization/caching time: 2.78 ms (0.04%)
-  - Diffusion generation time: 2749.15 ms (38.58%)
-    - Block 0 generation time: 326.90 ms (11.89% of diffusion)
-    - Block 1 generation time: 389.67 ms (14.17% of diffusion)
-    - Block 2 generation time: 458.02 ms (16.66% of diffusion)
-    - Block 3 generation time: 394.99 ms (14.37% of diffusion)
-    - Block 4 generation time: 392.39 ms (14.27% of diffusion)
-    - Block 5 generation time: 393.77 ms (14.32% of diffusion)
-    - Block 6 generation time: 393.06 ms (14.30% of diffusion)
-  - VAE decoding time: 4373.46 ms (61.38%)
-  - Total time: 7125.39 ms
-```
-
-
-
-### 30s Long Video Generation
-To generate a 30s long video, one can modify the `num_output_frames` params in `configs/forcing-kv/forcingkv_longlive_inference.yaml` to `120`, which will generate ~480 frames.
-
-After this modification, run the command below:
-
-```
-python inference.py --config_path configs/forcing-kv/forcingkv_longlive_inference.yaml
-```
-
-Note that Self-forcing is not specially trained for long video, so the performance may not as good as LongLive. However, one can also do the same thing above to test on Self Forcing model.
-
-### 60s Interactive Video Generation
-
-```
-python interactive_inference.py --config_path configs/forcing-kv/forcingkv_longlive_interactive_inference.yaml
-```
-
-The results will be saved in `./interactive_videos`. 
-
-You can also modify the interactive prompts in `prompts/interactive_example.jsonl` to generate other story telling videos.
-
-
-### High-resolution Video Generation
-
-The high-resolution video generation, e.g., 720P and 1080P, can be simply achieved by changing the shape of initial Gaussian noise.
-
-In detail, change the `resolution` parameter in `configs/forcing-kv/forcingkv_longlive_inference.yaml` or `configs/forcing-kv/forcingkv_self_forcing_inference.yaml` to 720 or 1080 to allow high-resolution video generation!
-
-For example, for 720P video generation, after changing the `resolution`, one can run:
-
-```
-python inference.py --config_path configs/forcing-kv/forcingkv_self_forcing_inference.yaml
-python inference.py --config_path configs/forcing-kv/forcingkv_longlive_inference.yaml
-```
-
-
-
-## <a name="cite"></a> 🥰 Citation
-
-Please cite us if our work is useful for your research.
+If you find our work useful in your research, please consider to cite our paper and this framework📝:
 
 ```
 
 ```
 
-## License
-
-Our code are under Apache-2.0 license. Users should also follow the license of the corresponding backbone models we use like [Self-Forcing (Apache-2.0 license)](https://github.com/guandeh17/Self-Forcing) and [LongLive (Apache-2.0 license)](https://github.com/NVlabs/LongLive). 
+## Acknowledgement
 
 
 
-
-## Contact
-
-If you have any questions during your reproduce, feel free to approach me at cshguo@gmail.com
