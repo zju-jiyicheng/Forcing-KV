@@ -29,23 +29,27 @@
 [![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
 
 
+</div>
+
 
 
 ## ✨ Highlights
 
 1. Forcing-KV is a hybrid KV cache compression method for autoregressive video diffusion models that accelerates inference, reduces cache memory,  and even improves quality.
-2. This repository is an inference-side toolkit providing inference scripts for multiple models (Self-Forcing, LongLive, Krea-Real-14B, Rolling-Forcing) and various acceleration techniques (Forcing-KV, Dummy Forcing, TeaCache, FP8 Quantization), facilitating research and comparative studies.
+2. This repository is an inference-side toolkit providing inference scripts for multiple models (Self-Forcing, LongLive, Krea-realtime-14B, Rolling-Forcing) and various acceleration techniques (Forcing-KV, Dummy Forcing, TeaCache, FP8 Quantization), facilitating research and comparative studies.
 3. We also provide evaluation scripts for conveniently assessing VBench, VBench-Long, Helios Bench, and the Chunk Discontinuity Metric.
 
 
 
+
+<div align="center">
 
 <img src="assets/teaser.png" style="border-radius: 15px">
 
 </div>
 
 
-Over 29 FPS with 30% cache memory reduction, up to 1.35× and 1.50× speedups on LongLive and Self Forcing at 480P resolution, and 2.82× at 1080P resolution.
+> Over 29 FPS with 30% cache memory reduction, up to 1.35× and 1.50× speedups on LongLive and Self Forcing at 480P resolution, and 2.82× at 1080P resolution.
 <br>
 
 
@@ -53,329 +57,211 @@ Over 29 FPS with 30% cache memory reduction, up to 1.35× and 1.50× speedups on
 
 ## 🎬 Video Demos
 
-Click any preview to open the full MP4.
-
-### LongLive 30s
+### LongLive
 
 <details open>
-<summary><b>click to expand</b></summary>
+<summary><b>Click to Open</b></summary>
 <table>
 <tr>
-<td colspan="2" align="center"><b>A cyclone of broken glass in a</b></td>
+<td align="center" width="50%"><b>LongLive</b></td>
+<td align="center" width="50%"><b>Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_30s/case_02_baseline.mp4"><img src="assets/videos/longlive_30s/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_02_baseline.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_02_baseline.mp4"><img src="assets/videos/longlive_30s/case_02_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_30s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_02_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_02_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>A man made of rocks walking in</b></td>
-</tr>
-<tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_30s/case_03_baseline.mp4"><img src="assets/videos/longlive_30s/case_03_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_03_baseline.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_03_baseline.mp4"><img src="assets/videos/longlive_30s/case_03_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_30s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_03_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_03_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_03_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>A close up of an older man in</b></td>
-</tr>
-<tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_30s/case_08_baseline.mp4"><img src="assets/videos/longlive_30s/case_08_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_08_baseline.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_08_baseline.mp4"><img src="assets/videos/longlive_30s/case_08_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_30s/case_08_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_08_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_08_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_08_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_08_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>Macro shot of a volcano erupti</b></td>
-</tr>
-<tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_30s/case_11_baseline.mp4"><img src="assets/videos/longlive_30s/case_11_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_11_baseline.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_11_baseline.mp4"><img src="assets/videos/longlive_30s/case_11_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_30s/case_11_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_11_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_11_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/longlive_30s/case_11_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_11_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>A Japanese animated film of a</b></td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_30s/case_05_baseline.mp4"><img src="assets/videos/longlive_30s/case_05_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_30s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_05_forcingkv.gif" width="460"></a>
+</td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_30s/case_05_baseline.mp4"><img src="assets/videos/longlive_30s/case_05_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_05_baseline.mp4">View MP4</a>
+<a href="assets/videos/longlive_5s/case_01_baseline.mp4"><img src="assets/videos/longlive_5s/case_01_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_30s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_30s/case_05_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_30s/case_05_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/longlive_5s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_01_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_02_baseline.mp4"><img src="assets/videos/longlive_5s/case_02_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_02_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_03_baseline.mp4"><img src="assets/videos/longlive_5s/case_03_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_03_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_05_baseline.mp4"><img src="assets/videos/longlive_5s/case_05_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_05_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_06_baseline.mp4"><img src="assets/videos/longlive_5s/case_06_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_5s/case_06_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_06_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_interactive_60s/case_01_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_interactive_60s/case_02_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 </table>
 </details>
 
-### LongLive 5s
+### Krea-realtime-14B
 
 <details open>
-<summary><b>click to expand</b></summary>
+<summary><b>Click to Open</b></summary>
 <table>
 <tr>
-<td colspan="2" align="center"><b>A tranquil tableau of a beautiful wrought-iron bench surrounded by blooming flowers</b></td>
+<td align="center" width="50%"><b>Krea-realtime-14B</b></td>
+<td align="center" width="50%"><b>Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_5s/case_01_baseline.mp4"><img src="assets/videos/longlive_5s/case_01_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_01_baseline.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_01_baseline.mp4"><img src="assets/videos/krea_5s/case_01_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_5s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_01_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_01_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_01_forcingkv.mp4"><img src="assets/videos/krea_5s/case_01_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>Aerial panoramic video from a drone of a fantasy land.</b></td>
-</tr>
-<tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_5s/case_02_baseline.mp4"><img src="assets/videos/longlive_5s/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_02_baseline.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_02_baseline.mp4"><img src="assets/videos/krea_5s/case_02_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_5s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_02_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_02_forcingkv.mp4"><img src="assets/videos/krea_5s/case_02_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>A beautiful coastal beach in spring, waves lapping on sand, tilt up</b></td>
-</tr>
-<tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_5s/case_03_baseline.mp4"><img src="assets/videos/longlive_5s/case_03_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_03_baseline.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_03_baseline.mp4"><img src="assets/videos/krea_5s/case_03_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_5s/case_03_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_03_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_03_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A cat wearing sunglasses at a pool</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_5s/case_05_baseline.mp4"><img src="assets/videos/longlive_5s/case_05_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_05_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_5s/case_05_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_05_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_05_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A cute happy Corgi playing in park, sunset, Van Gogh style</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_5s/case_06_baseline.mp4"><img src="assets/videos/longlive_5s/case_06_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_06_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_5s/case_06_forcingkv.mp4"><img src="assets/videos/longlive_5s/case_06_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_5s/case_06_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/krea_5s/case_03_forcingkv.mp4"><img src="assets/videos/krea_5s/case_03_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 </table>
 </details>
 
-### LongLive Interactive 60s
+### Self Forcing
 
 <details open>
-<summary><b>click to expand</b></summary>
+<summary><b>Click to Open</b></summary>
 <table>
 <tr>
-<td colspan="2" align="center"><b>Poker Player</b></td>
+<td align="center" width="50%"><b>Self Forcing</b></td>
+<td align="center" width="50%"><b>Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_interactive_60s/case_01_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_interactive_60s/case_01_baseline.mp4">View MP4</a>
+<a href="assets/videos/self_forcing_30s_refine/case_02_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_01_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_interactive_60s/case_01_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center"><b>Home Office</b></td>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_30s_refine/case_05_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_forcingkv.gif" width="460"></a>
+</td>
 </tr>
 <tr>
 <td align="center" width="50%">
-<div>LongLive</div>
-<a href="assets/videos/longlive_interactive_60s/case_02_baseline.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/longlive_interactive_60s/case_02_baseline.mp4">View MP4</a>
+<a href="assets/videos/self_forcing_30s_refine/case_06_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_baseline.gif" width="460"></a>
 </td>
 <td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4"><img src="assets/videos/longlive_interactive_60s/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/longlive_interactive_60s/case_02_forcingkv.mp4">View MP4</a>
+<a href="assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_01_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_01_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_01_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_02_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_02_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_02_forcingkv.gif" width="460"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_03_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_03_baseline.gif" width="460"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_03_forcingkv.gif" width="460"></a>
 </td>
 </tr>
 </table>
 </details>
 
-### Krea 5s
-
-<details open>
-<summary><b>click to expand</b></summary>
-<table>
-<tr>
-<td colspan="2" align="center"><b>a cat running happily</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Krea</div>
-<a href="assets/videos/krea_5s/case_01_baseline.mp4"><img src="assets/videos/krea_5s/case_01_baseline.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_01_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/krea_5s/case_01_forcingkv.mp4"><img src="assets/videos/krea_5s/case_01_forcingkv.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_01_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>a clock and a backpack</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Krea</div>
-<a href="assets/videos/krea_5s/case_02_baseline.mp4"><img src="assets/videos/krea_5s/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_02_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/krea_5s/case_02_forcingkv.mp4"><img src="assets/videos/krea_5s/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_02_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>a kite on the bottom of a skateboard, front view</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Krea</div>
-<a href="assets/videos/krea_5s/case_03_baseline.mp4"><img src="assets/videos/krea_5s/case_03_baseline.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_03_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/krea_5s/case_03_forcingkv.mp4"><img src="assets/videos/krea_5s/case_03_forcingkv.gif" width="360"></a><br><a href="assets/videos/krea_5s/case_03_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-</table>
-</details>
-
-### Self Forcing 30s
-
-<details open>
-<summary><b>click to expand</b></summary>
-<table>
-<tr>
-<td colspan="2" align="center"><b>A pencil drawing an architectu</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_30s_refine/case_02_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_02_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_02_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A litter of golden retriever p</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_30s_refine/case_05_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_05_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_05_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_05_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A flock of paper airplanes flu</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_30s_refine/case_06_baseline.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_06_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4"><img src="assets/videos/self_forcing_30s_refine/case_06_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_30s_refine/case_06_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-</table>
-</details>
-
-### Self Forcing 5s
-
-<details open>
-<summary><b>click to expand</b></summary>
-<table>
-<tr>
-<td colspan="2" align="center"><b>A tranquil tableau of house</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_5s/case_01_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_01_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_01_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_01_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_01_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A beautiful coastal beach in spring, waves lapping on sand, animated style</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_5s/case_02_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_02_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_02_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_02_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_02_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center"><b>A confused panda in calculus class</b></td>
-</tr>
-<tr>
-<td align="center" width="50%">
-<div>Self Forcing</div>
-<a href="assets/videos/self_forcing_5s/case_03_baseline.mp4"><img src="assets/videos/self_forcing_5s/case_03_baseline.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_03_baseline.mp4">View MP4</a>
-</td>
-<td align="center" width="50%">
-<div><b>Forcing-KV</b></div>
-<a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4"><img src="assets/videos/self_forcing_5s/case_03_forcingkv.gif" width="360"></a><br><a href="assets/videos/self_forcing_5s/case_03_forcingkv.mp4">View MP4</a>
-</td>
-</tr>
-</table>
-</details>
-
+Click any preview to view the full MP4. All demo files are available under [assets/videos](assets/videos).
 
 
 
@@ -391,37 +277,54 @@ Click any preview to open the full MP4.
     <img src="assets/method.png" width="900" style="border-radius: 15px">
 </p>
 
-We apply static structural pruning and dynamic similarity pruning to different heads, accelerating inference, reducing cache memory while improving quality.
+> We apply static structural pruning and dynamic similarity pruning to different heads, accelerating inference, reducing cache memory while improving quality.
 
 
 
 
 ## ⚙️ Requirements and Installation
 
-**NOTE!** We have unified the [Self-Forcing](https://github.com/guandeh17/Self-Forcing) and [LongLive](https://github.com/NVlabs/LongLive) video generation pipelines into this single repository, so you can flexibly switch between models by changing the configuration file :D
-
 ### Installation
-> NOTE: At least 40GB GPU memory is needed.
 
-Creat a conda environment and install dependencies: (we have tested our code under cuda13.0 on a H100, and one may modify the torch version for adaptation)
 ```
+# Create Environment
 git clone https://github.com/zju-jiyicheng/Forcing-KV
-cd ./Forcing-KV
+cd Forcing-KV
 conda create -n forcingkv python=3.10 -y
 conda activate forcingkv
-pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --index-url https://download.pytorch.org/whl/cu130
+
+# Install Dependencies
+pip install torch torchvision torchaudio
 pip install -r requirements.txt
 pip install flash-attn --no-build-isolation
+
+# Optional: FP8 quantization
+git clone https://github.com/thu-ml/SageAttention.git
+cd SageAttention 
+python setup.py install
 ```
 
-Download the pre-trained ckpt (each model will be saved in a separate folder under `/path/to/pretrained`):
+### Downloading Base Models
+Downloading the base models ckpt to `pretrained`:
 ```
-cd /path/to/pretrained
-bash /path/to/Forcing-KV/hfd.sh Wan-AI/Wan2.1-T2V-1.3B
-bash /path/to/Forcing-KV/hfd.sh Efficient-Large-Model/LongLive-1.3B
-bash /path/to/Forcing-KV/hfd.sh gdhe17/Self-Forcing
+# Wan
+hf download Wan-AI/Wan2.1-T2V-1.3B --local-dir pretrained/Wan2.1-T2V-1.3B
+
+# Longlive 
+hf download Efficient-Large-Model/LongLive-1.3B --local-dir pretrained/Longlive-1.3B 
+
+# Self Forcing
+hf download gdhe17/Self-Forcing --local-dir pretrained/Self-Forcing
+
+# Krea-realtime-14b
+hf download krea/krea-realtime-video krea-realtime-video-14b.safetensors --local-dir pretrained/realtime   
+
+# Rolling Forcing
+hf download TencentARC/RollingForcing --local-dir pretrained/Rolling-Forcing
 ```
-After downloading the above ckpt, one may need to modify the ckpt path specified in `configs/forcing-kv/forcingkv_longlive_inference.yaml` and `utils/wan_wrapper.py`.
+Also modify the absolute path in `utils/wan_wrapper.py` and the .yaml files under `configs/`.
+
+
 
 ## 🚀 Inference
 
