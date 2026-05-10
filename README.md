@@ -2,7 +2,7 @@
 
 <h1>Forcing-KV: Hybrid KV Cache Compression for Efficient Autoregressive Video Diffusion Models</h1>
 
-<h5 align="center">Hybrid KV cache compression for efficient autoregressive video diffusion models</h5>
+
 
 <p>
 <strong>Yicheng Ji</strong><sup>1,2</sup>&emsp;
@@ -24,31 +24,32 @@
 <sup>4</sup><strong>BJTU</strong>
 </p>
 
-![visitors](https://visitor-badge.laobi.icu/badge?page_id=zju-jiyicheng.Forcing-KV)
-[![arXiv](https://img.shields.io/badge/arXiv-2601.20499-b31b1b.svg)](http://arxiv.org/abs/2601.20499)
-[![project](https://img.shields.io/badge/project-page-green)](https://github.com/zju-jiyicheng/Forcing-KV)
+
+[![arXiv](https://img.shields.io/badge/arXiv-2601.20499-b31b1b.svg)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
+[![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
+
+
+
+
+## ✨ Highlights
+
+1. Forcing-KV is a hybrid KV cache compression method for autoregressive video diffusion models that accelerates inference, reduces cache memory,  and even improves quality.
+2. This repository is an inference-side toolkit providing inference scripts for multiple models (Self-Forcing, LongLive, Krea-Real-14B, Rolling-Forcing) and various acceleration techniques (Forcing-KV, Dummy Forcing, TeaCache, FP8 Quantization), facilitating research and comparative studies.
+3. We also provide evaluation scripts for conveniently assessing VBench, VBench-Long, Helios Bench, and the Chunk Discontinuity Metric.
+
+
+
 
 <img src="assets/teaser.png" style="border-radius: 15px">
 
 </div>
 
-<div align="center">
-Forcing-KV is a hybrid KV cache compression method for autoregressive video diffusion models. It combines static and dynamic head handling to reduce KV cache cost while preserving long-video generation quality.
-</div>
 
+Over 29 FPS with 30% cache memory reduction, up to 1.35× and 1.50× speedups on LongLive and Self Forcing at 480P resolution, and 2.82× at 1080P resolution.
 <br>
 
-⭐ If this work is helpful for you, please help star this repo. Thanks!
 
-## ✨ Highlights
 
-1. Placeholder highlight for the first key idea.
-2. Placeholder highlight for the second key result.
-3. Placeholder highlight for the third practical takeaway.
-
-<p align="center">
-    <img src="assets/method.png" width="900" style="border-radius: 15px">
-</p>
 
 ## 🎬 Video Demos
 
@@ -375,18 +376,22 @@ Click any preview to open the full MP4.
 </table>
 </details>
 
+
+
+
+
+
 ## 📣 Latest News!!
 
 - **2026-01-28:** arXiv paper available.
 - **2026-01-29:** We have open sourced all our code.
 
+## Method
+<p align="center">
+    <img src="assets/method.png" width="900" style="border-radius: 15px">
+</p>
 
-## ☑️ TODO
-
-- [x] arXiv version available 
-- [x] Release all code
-- [x] Support [TeaCache](https://github.com/ali-vilab/TeaCache) for more aggressive speedup -> over **30FPS!**
-- [ ] Further improvement
+We apply static structural pruning and dynamic similarity pruning to different heads, accelerating inference, reducing cache memory while improving quality.
 
 
 
