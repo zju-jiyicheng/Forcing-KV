@@ -170,7 +170,7 @@
 </table>
 </details>
 
-Click any preview to view the full MP4. All demo files are available under [here](assets/videos).
+Click any preview to view the full MP4. All demo files are available under [here](assets/videos). More at our [demo page](https://zju-jiyicheng.github.io/Forcing-KV-Page).
 
 
 
@@ -251,14 +251,16 @@ python inference.py --config_path configs/dummy-forcing/dummy_self_forcing_infer
 ```
 
 ### Args
-- **Generation Length**: Set the `num_output_frames` parameter in the config file to control the generated video length.
-- **Resolution**: Set the `resolution` parameter in the config file to generate videos at the target resolution (480P, 720P, 1080P).
+- **Generation Length**: Set the `num_output_frames` parameter in the config file to control generated length.
+- **Resolution**: Set the `resolution` parameter to generate videos at the target resolution (480P, 720P, 1080P).
 - **Custom Prompts**: Set the `data_path` parameter to the prompt file you want to use.
 - **Quantization**: Set the `quantization_enabled` parameter to enable or disable quantization.
 
 
 ## 🚀 Evaluation
-For quantitative evaluation on VBench, one can run the following command:
+- **VBench / VBench-Long**: see the documents [here](evaluation/VBench/readme.md).
+- **Helios Bench**: see the documents [here](evaluation/Helios/README.md).
+- **Chunk Discontinuity Metirc**: see the documents [here](evaluation/Raft/README.md).
 
 
 
@@ -272,5 +274,4 @@ If you find our work useful in your research, please consider to cite our paper 
 
 ## Acknowledgement
 
-
-
+Our repository is built on [Self-Forcing](https://github.com/guandeh17/Self-Forcing), [LongLive](https://github.com/NVlabs/LongLive), [Dummy Forcing](https://github.com/csguoh/DummyForcing), and [Helios](https://github.com/PKU-YuanGroup/Helios). Thanks for their wonderful work.
