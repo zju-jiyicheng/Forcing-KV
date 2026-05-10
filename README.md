@@ -35,9 +35,9 @@
 
 ## ✨ Highlights
 
-1. Forcing-KV is a hybrid KV cache compression method for autoregressive video diffusion models that accelerates inference, reduces cache memory,  and even improves quality.
-2. This repository is an inference-side toolkit providing inference scripts for multiple models (Self-Forcing, LongLive, Krea-realtime-14B, Rolling-Forcing) and various acceleration techniques (Forcing-KV, Dummy Forcing, TeaCache, FP8 Quantization), facilitating research and comparative studies.
-3. We also provide evaluation scripts for conveniently assessing VBench, VBench-Long, Helios Bench, and the Chunk Discontinuity Metric.
+1. **KV Compression Method**: Forcing-KV is a hybrid KV cache compression method for autoregressive video diffusion models that accelerates inference, reduces cache memory,  and even improves quality.
+2. **Inference Toolkit**:This repository is an inference-side toolkit providing inference scripts for multiple models (Self-Forcing, LongLive, Krea-realtime-14B, Rolling-Forcing) and various acceleration techniques (Forcing-KV, Dummy Forcing, TeaCache, FP8 Quantization), facilitating research and comparative studies.
+3. **Easy Evaluation**:We also provide evaluation scripts for conveniently assessing VBench, VBench-Long, Helios-Bench, and the Chunk Discontinuity Metric.
 
 
 
@@ -53,6 +53,11 @@
 <br>
 
 
+## 📣 Latest News!!
+
+- **2026-05-10:** We open source the inference code. We support the inference of Self-Forcing, LongLive, Krea-realtime-14B, Rolling-Forcing.
+- **2026-05-10:** We support various acceleration techniques including Forcing-KV, Dummy Forcing, TeaCache, and FP8 Quantization.
+- **2026-05-10:** We provide easy evaluation sripts for conveniently assessing VBench, VBench-Long, Helios-Bench, and the Chunk Discontinuity Metric we purpose.
 
 
 ## 🎬 Video Demos
@@ -261,16 +266,11 @@
 </table>
 </details>
 
-Click any preview to view the full MP4. All demo files are available under [assets/videos](assets/videos).
+Click any preview to view the full MP4. All demo files are available under [here](assets/videos).
 
 
 
 
-
-## 📣 Latest News!!
-
-- **2026-01-28:** arXiv paper available.
-- **2026-01-29:** We have open sourced all our code.
 
 ## Method
 <p align="center">
