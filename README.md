@@ -25,7 +25,7 @@
 </p>
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-b31b1b.svg)](https://zju-jiyicheng.github.io/Forcing-KV-Page)
+[![arXiv](https://img.shields.io/badge/arXiv-b31b1b.svg)](assets/Forcing-KV.pdf)
 [![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
 
 
@@ -269,7 +269,12 @@ python inference.py --config_path configs/dummy-forcing/dummy_self_forcing_infer
 If you find our work useful in your research, please consider to cite our paper and this framework📝:
 
 ```
-
+@article{ji2026forcing,
+  title={{Forcing-KV: Hybrid KV Cache Compression for Efficient Autoregressive Video Diffusion Models}},
+  author = {Ji, Yicheng and Zhong, Zhizhou and Zhang, Jun and Yang, Qin and Jin, Xitai and Qin, Ying and Luo, Wenhan and Mao, Shuiyang and Liu, Wei and Li, Huan},
+  journal={arXiv},
+  year={2026},
+}
 ```
 
 ## Acknowledgement
