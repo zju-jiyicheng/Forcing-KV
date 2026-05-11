@@ -25,7 +25,7 @@
 </p>
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-2601.20499-b31b1b.svg)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
+[![arXiv](https://img.shields.io/badge/arXiv-b31b1b.svg)](https://zju-jiyicheng.github.io/Forcing-KV-Page)
 [![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
 
 
