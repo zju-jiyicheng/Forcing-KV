@@ -1,5 +1,7 @@
 /assets/*
 !/assets/.gitkeep
+!/assets/Forcing-KV.pdf
+!/assets/teaser.png
 !/assets/method.png
 !/assets/teaser.png
 !/assets/videos/
