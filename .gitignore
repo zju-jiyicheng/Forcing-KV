@@ -5,6 +5,7 @@
 !/assets/videos/
 !/assets/videos/**
 .idea/
+./DS_Store
 pretrained
 __pycache__/
 *.pyc
