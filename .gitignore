@@ -27,3 +27,4 @@ draw/
 *.pt
 *.mp4
 !/assets/videos/**/*.mp4
+/draw

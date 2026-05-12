@@ -279,6 +279,13 @@ If you find our work useful in your research, please consider to cite our paper 
       archivePrefix={arXiv},
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2605.09681}, 
+
+@article{zeng2026hybridkvhybridkvcache,
+      title={HybridKV: Hybrid KV Cache Compression for Efficient Multimodal Large Language Model Inference}, 
+      author={Bowen Zeng and Feiyang Ren and Jun Zhang and Xiaoling Gu and Ke Chen and Lidan Shou and Huan Li},
+      year={2026},
+      journal={ACL}
+}
 }
 ```
 
