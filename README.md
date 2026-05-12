@@ -25,8 +25,10 @@
 </p>
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-b31b1b.svg)](assets/Forcing-KV.pdf)
+[![arXiv](https://img.shields.io/badge/arXiv-b31b1b.svg)](https://arxiv.org/abs/2605.09681)
+[![DOI](https://img.shields.io/badge/DOI-10.48550%2FarXiv.2605.09681-blue.svg)](https://doi.org/10.48550/arXiv.2605.09681)
 [![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
+[![GitHub](https://img.shields.io/badge/GitHub-Forcing--KV-black?logo=github)](https://github.com/zju-jiyicheng/Forcing-KV)
 
 
 </div>
@@ -269,11 +271,14 @@ python inference.py --config_path configs/dummy-forcing/dummy_self_forcing_infer
 If you find our work useful in your research, please consider to cite our paper and this framework📝:
 
 ```
-@article{ji2026forcing,
-  title={{Forcing-KV: Hybrid KV Cache Compression for Efficient Autoregressive Video Diffusion Models}},
-  author = {Ji, Yicheng and Zhong, Zhizhou and Zhang, Jun and Yang, Qin and Jin, Xitai and Qin, Ying and Luo, Wenhan and Mao, Shuiyang and Liu, Wei and Li, Huan},
-  journal={arXiv},
-  year={2026},
+@misc{ji2026forcingkvhybridkvcache,
+      title={{Forcing-KV: Hybrid KV Cache Compression for Efficient Autoregressive Video Diffusion Models}}, 
+      author={Yicheng Ji and Zhizhou Zhong and Jun Zhang and Qin Yang and XiTai Jin and Ying Qin and Wenhan Luo and Shuiyang Mao and Wei Liu and Huan Li},
+      year={2026},
+      eprint={2605.09681},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.09681}, 
 }
 ```
 
