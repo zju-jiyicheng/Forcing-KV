@@ -5,3 +5,5 @@ You can use the `vbench.sh` and `vbenchlong.sh` script here. It includes:
 - **Calculate the Final Score**
 
 We use the VBench coefficients to calculate the total score, please see `scripts/cal_final_score.py` and `scripts/cal_long_final_score.py`.
+
+In addition, we also provide the script of `drift` metrics.
