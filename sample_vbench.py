@@ -85,8 +85,8 @@ elif config.method == 'forcingkv':
 elif config.method == 'forcingkv_self_forcing_long':
     print("Using ForcingKV Self Forcing Long")
     pipeline = CausalInferencePipeline_ForcingKV_Self_Forcing_Long(config, device=device)
-elif config.method == 'self_forcing' or config.method == 'longlive':
-    print("Using Self Forcing / Longlive")
+elif config.method in {'self_forcing', 'longlive', 'causal_forcing'}:
+    print("Using Self Forcing / Longlive / Causal Forcing")
     pipeline = CausalInferencePipeline_Self_Forcing(config, device=device)
 elif config.method == 'self_forcing_long':
     print("Using Self Forcing Long")

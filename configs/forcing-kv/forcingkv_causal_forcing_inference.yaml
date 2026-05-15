@@ -25,19 +25,20 @@ forcingkv:
   sim_retention_ratio: 0.33
   # Offline Head Classification
   use_offline_head: true
-  offline_head_file: configs_head/forcingkv_heads_selfforcing.json
+  offline_head_file: configs_head/forcingkv_heads_causalforcing.json
   # FP8 quantization
   quantization_enabled: false
+  #new
 
 
 
 # inference
 method: forcingkv
 data_path: prompts/example_prompts.txt
-output_folder: videos/forcingkv_self_forcing_5s
+output_folder: videos/forcingkv_causal_forcing_5s
 inference_iter: -1
 num_output_frames: 21 #21
-use_ema: true
+use_ema: false
 seed: 0
 num_samples: 1
 profile: true
@@ -46,7 +47,7 @@ global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Causal-Forcing/chunkwise/causal_forcing.pt
 lora_ckpt: ~
 
 adapter:

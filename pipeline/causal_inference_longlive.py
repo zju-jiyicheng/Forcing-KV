@@ -26,9 +26,12 @@ class CausalInferencePipeline_Longlive(torch.nn.Module):
         self.generator = WanDiffusionWrapper(
             **getattr(args, "model_kwargs", {}), is_causal=True) if generator is None else generator
         # MODIFIED
-        self.generator.model.args = args.dummy_forcing
+        forcing_args = getattr(args, "forcing", None)
+        if forcing_args is None:
+            forcing_args = args.dummy_forcing
+        self.generator.model.args = forcing_args
         for blk in self.generator.model.blocks:
-            blk.self_attn.args = args.dummy_forcing
+            blk.self_attn.args = forcing_args
 
         self.text_encoder = WanTextEncoder() if text_encoder is None else text_encoder
         self.vae = WanVAEWrapper() if vae is None else vae

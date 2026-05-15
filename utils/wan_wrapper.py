@@ -162,7 +162,7 @@ class WanDiffusionWrapper(torch.nn.Module):
                 self.model = CausalWanModel.from_pretrained(
                     model_path, local_attn_size=local_attn_size, sink_size=sink_size)
             else:
-                print("Loading Self Forcing / Longlive Wan Model")
+                print("Loading Self Forcing / Longlive / Causal Forcing Wan Model")
                 from wan.modules.causal_model_selfforcing import CausalWanModel
                 self.model = CausalWanModel.from_pretrained(
                     model_path, local_attn_size=local_attn_size, sink_size=sink_size)

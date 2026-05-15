@@ -11,8 +11,8 @@ model_kwargs:
   timestep_shift: 5.0
   sink_size: 3
 
-dummy_forcing:
-  denoise_start: 0 # we compute and perform dummy head pruning from the ARstep@ar_start and denoiseTime@denoise_start
+forcing:
+  denoise_start: 0
   ar_start: 2
   local_context_length: 1 # the context length for local heads
   num_dummy: 180
