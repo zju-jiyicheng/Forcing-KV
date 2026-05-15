@@ -26,6 +26,7 @@
 
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.09681-b31b1b.svg)](https://arxiv.org/abs/2605.09681)
+[![Hugging Face](https://img.shields.io/badge/🤗-Paper%20In%20HF-yellow.svg)](https://huggingface.co/papers/2605.09681)
 [![project](https://img.shields.io/badge/project-page-green)](https://zju-jiyicheng.github.io/Forcing-KV-Page/)
 [![GitHub](https://img.shields.io/badge/GitHub-Forcing--KV-black?logo=github)](https://github.com/zju-jiyicheng/Forcing-KV)
 
@@ -174,7 +175,7 @@
 </table>
 </details>
 
-Click any preview to view the full MP4. All demo files are available under [here](assets/videos). More at our [demo page](https://zju-jiyicheng.github.io/Forcing-KV-Page).
+> Click any preview to view the full MP4. All demo files are available under [here](assets/videos). More at our [demo page](https://zju-jiyicheng.github.io/Forcing-KV-Page).
 
 
 
