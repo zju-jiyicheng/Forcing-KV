@@ -326,14 +326,18 @@ Also modify the absolute path in `utils/wan_wrapper.py` and the .yaml files unde
 ```
 # Forcing-KV
 python inference.py --config_path configs/forcing-kv/forcingkv_longlive_inference.yaml
+python inference.py --config_path configs/forcing-kv/forcingkv_causal_forcing_inference.yaml
 python inference.py --config_path configs/forcing-kv/forcingkv_realtime_inference.yaml
 python inference.py --config_path configs/forcing-kv/forcingkv_self_forcing_inference.yaml
+python inference.py --config_path configs/forcing-kv/forcingkv_raven_inference.yaml
 python inference.py --config_path configs/forcing-kv/forcingkv_longlive_interactive_inference.yaml ## Interacrive prompts
 
 # Base model
 python inference.py --config_path configs/longlive/longlive_inference.yaml
+python inference.py --config_path configs/causal-forcing/causal_forcing_inference.yaml
 python inference.py --config_path configs/self-forcing/self_forcing_inference.yaml
 python inference.py --config_path configs/krea-14b/realtime_inference.yaml
+python inference.py --config_path configs/raven/raven_inference.yaml
 python inference.py --config_path configs/longlive/longlive_interactive_inference.yaml ## Interacrive prompts
 
 # Dummy Forcing
