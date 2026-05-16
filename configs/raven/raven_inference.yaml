@@ -19,23 +19,23 @@ forcing:
   teacache_enabled: false
   teacache_threshold: 0.2
 
+
 # inference
 method: self_forcing
-data_path: prompts/vbench/all_dimension.txt
-extended_prompt_path: prompts/vbench/all_dimension_extended.txt
-output_folder: videos/vbench/self_forcing_5s
+data_path: prompts/example_prompts.txt
+output_folder: videos/raven_cmgrpo_5s
 inference_iter: -1
-num_output_frames: 21 # latent num of frames 120
-use_ema: true
+num_output_frames: 21 #21
+use_ema: false
 seed: 0
-num_samples: 5
-profile: false
+num_samples: 1
+profile: true
 save_with_index: true
 global_sink: true
 context_noise: 0
 resolution: 480
 
-generator_ckpt: /ycji/code/Forcing-KV/pretrained/Self-Forcing/checkpoints/self_forcing_dmd.pt
+generator_ckpt: /ycji/code/Forcing-KV/pretrained/Raven/processed/cmgrpo_raven_merge.pt #/ycji/code/Forcing-KV/pretrained/Raven/processed/raven_model.pt
 lora_ckpt: ~
 
 adapter:

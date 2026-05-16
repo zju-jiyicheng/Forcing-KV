@@ -57,24 +57,25 @@
 
 ## 📣 Latest News!!
 
+- **2026-05-16:**  We add our Forcing-KV on `two new base models!` (1) [Causal Forcing](https://github.com/thu-ml/Causal-Forcing) is a direct upgraded version of Self-Forcing. (2) [Raven](https://github.com/mvp-ai-lab/RAVEN) is a Self-Forcing style model trained with Consistency-model Group Relative Policy Optimization (GRPO). New [demos](assets/videos/causal_forcing_5s/) and [inference scripts](configs/causal-forcing/) are available.
 - **2026-05-13:**  We provide the script of `drift` VBench metrics [here](evaluation/VBench/drift/).
 - **2026-05-11:** ArXiv paper available [here](https://arxiv.org/abs/2605.09681)!
-- **2026-05-10:** We open source the inference code. We support the inference of [Self-Forcing](https://github.com/guandeh17/Self-Forcing), [LongLive](https://github.com/NVlabs/LongLive), [Krea-realtime-14B](https://github.com/krea-ai/realtime-video) and [Rolling-Forcing](https://github.com/TencentARC/RollingForcing).
-- **2026-05-10:** We support various acceleration techniques including [Forcing-KV](https://github.com/zju-jiyicheng/Forcing-KV), [Dummy Forcing](https://github.com/csguoh/DummyForcing), [TeaCache](https://github.com/ali-vilab/TeaCache), and [FP8 Quantization](https://github.com/thu-ml/SageAttention).
-- **2026-05-10:** We provide easy evaluation sripts for conveniently assessing [VBench](https://github.com/Vchitect/VBench), [VBench-Long](https://github.com/Vchitect/VBench/tree/master/vbench2_beta_long), [Helios-Bench](https://github.com/PKU-YuanGroup/Helios), and the [Chunk Discontinuity Metric](evaluation/Raft/README.md) we purpose.
+- **2026-05-10:** We open source the inference code. We support the `inference` of [Self-Forcing](https://github.com/guandeh17/Self-Forcing), [LongLive](https://github.com/NVlabs/LongLive), [Krea-realtime-14B](https://github.com/krea-ai/realtime-video) and [Rolling-Forcing](https://github.com/TencentARC/RollingForcing).
+- **2026-05-10:** We support various `acceleration techniques` including [Forcing-KV](https://github.com/zju-jiyicheng/Forcing-KV), [Dummy Forcing](https://github.com/csguoh/DummyForcing), [TeaCache](https://github.com/ali-vilab/TeaCache), and [FP8 Quantization](https://github.com/thu-ml/SageAttention).
+- **2026-05-10:** We provide easy `evaluation` sripts for conveniently assessing [VBench](https://github.com/Vchitect/VBench), [VBench-Long](https://github.com/Vchitect/VBench/tree/master/vbench2_beta_long), [Helios-Bench](https://github.com/PKU-YuanGroup/Helios), and the [Chunk Discontinuity Metric](evaluation/Raft/README.md) we purpose.
 
 
 
 ## 🎬 Video Demos
 
-### LongLive
+### Longlive
 
 <details open>
 <summary><b>Click to Open</b></summary>
 <table>
 <tr>
-<td align="center" width="50%"><b>LongLive</b></td>
-<td align="center" width="50%"><b>Forcing-KV</b></td>
+<td align="center" width="50%"><b>Longlive</b></td>
+<td align="center" width="50%"><b>+Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
@@ -103,14 +104,58 @@
 </table>
 </details>
 
-### Krea-realtime-14B
+### Causal Forcing
 
 <details open>
 <summary><b>Click to Open</b></summary>
 <table>
 <tr>
-<td align="center" width="50%"><b>Krea-realtime-14B</b></td>
-<td align="center" width="50%"><b>Forcing-KV</b></td>
+<td align="center" width="50%"><b>Causal Forcing</b></td>
+<td align="center" width="50%"><b>+Forcing-KV</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/baseline/a%20blue%20bird-0.mp4"><img src="assets/videos/causal_forcing_5s/baseline/a%20blue%20bird-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20bird-0.mp4"><img src="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20bird-0.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/baseline/a%20blue%20car-0.mp4"><img src="assets/videos/causal_forcing_5s/baseline/a%20blue%20car-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20car-0.mp4"><img src="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20car-0.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/baseline/a%20blue%20umbrella-0.mp4"><img src="assets/videos/causal_forcing_5s/baseline/a%20blue%20umbrella-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20umbrella-0.mp4"><img src="assets/videos/causal_forcing_5s/forcingkv/a%20blue%20umbrella-0.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/baseline/a%20boat%20accelerating%20to%20gain%20speed-0.mp4"><img src="assets/videos/causal_forcing_5s/baseline/a%20boat%20accelerating%20to%20gain%20speed-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/causal_forcing_5s/forcingkv/a%20boat%20accelerating%20to%20gain%20speed-0.mp4"><img src="assets/videos/causal_forcing_5s/forcingkv/a%20boat%20accelerating%20to%20gain%20speed-0.gif" width="391"></a>
+</td>
+</tr>
+</table>
+</details>
+
+### Krea-realtime-14b
+
+<details open>
+<summary><b>Click to Open</b></summary>
+<table>
+<tr>
+<td align="center" width="50%"><b>Krea-realtime-14b</b></td>
+<td align="center" width="50%"><b>+Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
@@ -139,6 +184,42 @@
 </table>
 </details>
 
+### Raven
+
+<details open>
+<summary><b>Click to Open</b></summary>
+<table>
+<tr>
+<td align="center" width="50%"><b>Raven</b></td>
+<td align="center" width="50%"><b>+Forcing-KV</b></td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/raven/baseline/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20featuring%20a%20steady%20and%20smooth%20perspective-0.mp4"><img src="assets/videos/raven/baseline/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20featuring%20a%20steady%20and%20smooth%20perspective-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/raven/forcingkv/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20featuring%20a%20steady%20and%20smooth%20perspective-0.mp4"><img src="assets/videos/raven/forcingkv/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20featuring%20a%20steady%20and%20smooth%20perspective-0.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/raven/baseline/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20in%20cyberpunk%20style-0.mp4"><img src="assets/videos/raven/baseline/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20in%20cyberpunk%20style-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/raven/forcingkv/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20in%20cyberpunk%20style-0.mp4"><img src="assets/videos/raven/forcingkv/A%20beautiful%20coastal%20beach%20in%20spring,%20waves%20lapping%20on%20sand,%20in%20cyberpunk%20style-0.gif" width="391"></a>
+</td>
+</tr>
+<tr>
+<td align="center" width="50%">
+<a href="assets/videos/raven/baseline/A%20cute%20happy%20Corgi%20playing%20in%20park,%20sunset,%20in%20super%20slow%20motion-0.mp4"><img src="assets/videos/raven/baseline/A%20cute%20happy%20Corgi%20playing%20in%20park,%20sunset,%20in%20super%20slow%20motion-0.gif" width="391"></a>
+</td>
+<td align="center" width="50%">
+<a href="assets/videos/raven/forcingkv/A%20cute%20happy%20Corgi%20playing%20in%20park,%20sunset,%20in%20super%20slow%20motion-0.mp4"><img src="assets/videos/raven/forcingkv/A%20cute%20happy%20Corgi%20playing%20in%20park,%20sunset,%20in%20super%20slow%20motion-0.gif" width="391"></a>
+</td>
+</tr>
+</table>
+</details>
+
 ### Self Forcing
 
 <details open>
@@ -146,7 +227,7 @@
 <table>
 <tr>
 <td align="center" width="50%"><b>Self Forcing</b></td>
-<td align="center" width="50%"><b>Forcing-KV</b></td>
+<td align="center" width="50%"><b>+Forcing-KV</b></td>
 </tr>
 <tr>
 <td align="center" width="50%">
@@ -222,6 +303,12 @@ hf download Efficient-Large-Model/LongLive-1.3B --local-dir pretrained/Longlive-
 
 # Self Forcing
 hf download gdhe17/Self-Forcing --local-dir pretrained/Self-Forcing
+
+# Causal Forcing
+hf download zhuhz22/Causal-Forcing chunkwise/causal_forcing.pt --local-dir pretrained/Causal-Forcing
+
+# Raven
+hf download mvp-lab/RAVEN --local-dir pretrained/Raven # need to adapt
 
 # Krea-realtime-14b
 hf download krea/krea-realtime-video krea-realtime-video-14b.safetensors --local-dir pretrained/realtime   

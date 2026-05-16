@@ -29,3 +29,5 @@ draw/
 !/assets/videos/**/*.mp4
 vbench.sh
 vbench2.sh
+vbench3.sh
+vbench4.sh
