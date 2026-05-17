@@ -57,7 +57,7 @@
 
 ## 📣 Latest News!!
 
-- **2026-05-17:**  We evaluate [Causal Forcing](https://github.com/thu-ml/Causal-Forcing) and [Causal Forcing + Forcing-KV](https://arxiv.org/abs/2605.09681) on VBench metric (84.41 vs. 84.60) and efficiency metric (22.81 FPS vs. 27.75 FPS, ~60GB memory vs. ~30GB memory). Our method demonstrates improved both efficiency and quality.
+- **2026-05-17:**  We evaluate [Causal Forcing](https://github.com/thu-ml/Causal-Forcing) and [Causal Forcing + Forcing-KV](https://arxiv.org/abs/2605.09681) on VBench metric (84.41 vs. 84.60) and efficiency metric (22.81 FPS vs. 27.75 FPS, ~60GB memory vs. ~30GB memory on NVIDIA H200 GPU). Our method demonstrates both improved efficiency and quality！
 - **2026-05-16:**  We add our Forcing-KV on `two new base models!` (1) [Causal Forcing](https://github.com/thu-ml/Causal-Forcing) is a direct upgraded version of Self-Forcing. (2) [Raven](https://github.com/mvp-ai-lab/RAVEN) is a Self-Forcing style model trained with Consistency-model Group Relative Policy Optimization (GRPO). New [demos](assets/videos/causal_forcing_5s/) and [inference scripts](configs/causal-forcing/) are available.
 - **2026-05-13:**  We provide the script of `drift` VBench metrics [here](evaluation/VBench/drift/).
 - **2026-05-11:** ArXiv paper available [here](https://arxiv.org/abs/2605.09681)!
